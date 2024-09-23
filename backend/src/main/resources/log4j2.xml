@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <!-- 设置属性 -->
+    <Properties>
+        <!-- 日志文件路径 -->
+        <Property name="LOG_PATH">logs</Property>
+        <!-- 日志文件名 -->
+        <Property name="LOG_FILE_NAME">app.log</Property>
+        <!-- 日志文件的输出格式 -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <!-- 定义日志输出目标（Appenders） -->
+    <Appenders>
+
+        <!-- 控制台输出 -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <!-- 滚动文件输出（按日期滚动，日志文件每天生成一个新的） -->
+        <RollingFile name="RollingFileAppender"
+                     fileName="${LOG_PATH}/${LOG_FILE_NAME}"
+                     filePattern="${LOG_PATH}/app-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <!-- 滚动策略：按时间滚动，每天生成新的日志文件 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <!-- 定义Logger -->
+    <Loggers>
+
+        <!-- Root Logger（全局日志设置，默认为INFO级别） -->
+        <Root level="warn">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="RollingFileAppender" />
+        </Root>
+
+        <!-- 针对特定包设置日志级别 -->
+        <Logger name="com.jngyen.bookkeeping.backend" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="RollingFileAppender" />
+        </Logger>
+        <Logger name="com.jngyen.bookkeeping.backend.BackendApplication" level="warn" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>
