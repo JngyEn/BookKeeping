@@ -5,16 +5,20 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.jngyen.bookkeeping.backend.pojo.UserAccount;
+
 @Service
 public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void sendActivationEmail(String email, String activationLink) {
+
+    public void sendActivationEmail(UserAccount user, int verificationCode) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(email);
+
+        message.setTo(user.getEmail());
         message.setSubject("Account Activation");
-        message.setText("Chinese test round 2 ： 我是江yc， 验证码： " + activationLink);
+        message.setText("Hello!!! " +user.getUserName()+ ", here is your verification code："  + verificationCode);
         mailSender.send(message);
     }
 }

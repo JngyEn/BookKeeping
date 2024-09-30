@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserAccountMapper">
+    <resultMap type="com.jngyen.bookkeeping.backend.pojo.UserAccount" id="BaseResultMap">
+       <id column="id" property="id" />
+       <result column="email" property="email" />
+       <result column="user_name" property="userName" />
+       <result column="password" property="password" />
+       <result column="uuid" property="uuid" />
+       <result column="is_email_verified" property="emailVerified" />
+       <result column="gmt_create" property="gmtCreate" />
+       <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified
+    </sql>
+
+    <!-- 获取所有用户信息 -->
+    <select id="getAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_account
+    </select>
+
+    <!-- 通过邮箱获取用户信息 -->
+    <select id="getByEmail" parameterType="java.lang.String"  resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_account
+        WHERE email = #{email}
+    </select>
+
+    <!-- 通过uuid获取用户信息 -->
+    <select id="getByUuid" parameterType="java.lang.String"  resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_account
+        WHERE uuid = #{uuid}
+    </select>
+    
+    <!-- 邮箱注册并等待验证码通过 -->
+    <insert id="insertUnverityRegister" parameterType="com.jngyen.bookkeeping.backend.pojo.UserAccount">
+        INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified)
+        VALUES (#{id}, #{email}, #{userName}, #{password}, #{uuid}, #{emailVerified},  #{gmtCreate}, #{gmtModified})
+    </insert>
+
+
+    <!-- 验证邮箱通过,更新状态 -->
+    <update id="updateVerify" parameterType="java.lang.String">
+        UPDATE user_account
+        SET is_email_verified = 1
+        WHERE email = #{email}
+    </update>
+
+    <!-- 通过uuid改邮箱 -->
+    <update id="updateEmailByUuid" parameterType="java.lang.String">
+        UPDATE user_account
+        SET email = #{email}
+        WHERE uuid = #{uuid}
+    </update>
+
+    <!-- 改用户名 -->
+    <update id="updateUsernameByUuid" parameterType="java.lang.String">
+        UPDATE user_account
+        SET user_name = #{userName}
+        WHERE uuid = #{uuid}
+    </update>
+
+    <!-- 改密码 -->
+    <update id="updatePasswordByUuid" parameterType="java.lang.String" >
+        UPDATE user_account
+        SET password = #{password}
+        WHERE uuid = #{uuid}
+    </update>
+
+    <!-- 用户注销 -->
+    <delete id="deleteUser" parameterType="java.lang.String" >
+        DELETE FROM user_account
+        WHERE uuid = #{uuid}
+    </delete>
+</mapper>

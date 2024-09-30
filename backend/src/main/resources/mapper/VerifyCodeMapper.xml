@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper">
+    <resultMap type="com.jngyen.bookkeeping.backend.pojo.VerifyCode" id="BaseResultMap">
+        <id column="id" property="id" />
+        <result column="email" property="email" />
+        <result column="code" property="code" />
+        <result column="expire_time" property="expireTime"/>
+        <result column="gmt_create" property="gmtCreate" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, email, code, expire_time, gmt_create
+    </sql>
+
+    <!-- 根据邮箱获得验证码 -->
+    <select id="getByEmail" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_email_verify_code
+        WHERE email = #{email}
+        ORDER BY gmt_create DESC
+        LIMIT 1
+    </select>
+
+    <!-- 插入验证码 -->
+    <insert id="insertVerifyCode">
+        INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create)
+        VALUES (#{id}, #{email}, #{code}, #{expireTime},  #{gmtCreate})
+    </insert>
+
+    <!-- 根据邮件删除验证码 -->
+
+    <delete id="deleteByEmail">
+        DELETE FROM user_email_verify_code
+        WHERE email = #{email}
+    </delete>
+</mapper>

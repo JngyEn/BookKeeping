@@ -1,39 +1,60 @@
-2024-09-23 22:55:15.265 [main] INFO  com.jngyen.bookkeeping.backend.BackendApplication - Starting BackendApplication using Java 21.0.4 with PID 19316 (D:\Code\Java\Bookkeeping\backend\target\classes started by JngyEn in D:\Code\Java\Bookkeeping\backend)
-2024-09-23 22:55:15.274 [main] DEBUG com.jngyen.bookkeeping.backend.BackendApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
-2024-09-23 22:55:15.276 [main] INFO  com.jngyen.bookkeeping.backend.BackendApplication - No active profile set, falling back to 1 default profile: "default"
-2024-09-23 22:55:15.767 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 22:55:16.669 [main] INFO  com.jngyen.bookkeeping.backend.BackendApplication - Started BackendApplication in 1.704 seconds (process running for 2.422)
-2024-09-23 22:55:21.116 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 22:55:21.116 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 22:55:21.116 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 22:55:21.116 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 22:56:46.251 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 22:56:49.829 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 22:56:49.829 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 22:56:49.829 [http-nio-8080-exec-2] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 22:56:49.829 [http-nio-8080-exec-2] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:14:02.516 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:14:53.976 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:14:53.976 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:14:53.977 [http-nio-8080-exec-2] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:14:53.977 [http-nio-8080-exec-2] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:14:55.152 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d2e1a72fcca58-71944a98c31sm14471148b3a.16 - gsmtp
-; message exceptions (1) are:
-Failed message 1: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d2e1a72fcca58-71944a98c31sm14471148b3a.16 - gsmtp
-] with root cause
-org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d2e1a72fcca58-71944a98c31sm14471148b3a.16 - gsmtp
-
-	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:453) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:317) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.MailSender.send(MailSender.java:42) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at com.jngyen.bookkeeping.backend.service.mail.EmailService.sendActivationEmail(EmailService.java:18) ~[classes/:?]
-	at com.jngyen.bookkeeping.backend.controller.test.testLogging(test.java:28) ~[classes/:?]
+2024-09-30 14:26:15.508 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-30 14:26:16.448 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-30 14:26:16.460 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:26:16.464 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-30 14:26:16.465 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30 14:26:16.514 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-30 14:26:16.516 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1023 ms
+2024-09-30 14:26:17.389 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:26:17.433 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-30 14:26:28.114 [http-nio-8080-exec-3] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30 14:26:28.115 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-30 14:26:28.116 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-09-30 14:26:28.396 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-30 14:26:28.589 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@634d9828
+2024-09-30 14:26:28.591 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-30 14:26:28.598 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 14:26:28.624 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 14:26:28.658 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 14:26:28.665 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-09-30 14:26:28.669 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), JohnDoe(String), 123456(String), 861b2cc8-f095-49c0-8016-24d2fe0fcdfd(String), false(Boolean), 2024-09-30T14:26:28.664028800(LocalDateTime), 2024-09-30T14:26:28.664028800(LocalDateTime)
+2024-09-30 14:26:28.716 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-09-30 14:26:32.236 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, is_used, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?)
+2024-09-30 14:26:32.238 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 947938(Integer), 2024-09-30T14:31:28.664028800(LocalDateTime), false(Boolean), 2024-09-30T14:26:28.664028800(LocalDateTime), 2024-09-30T14:26:28.664028800(LocalDateTime)
+2024-09-30 14:26:32.258 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 14:37:53.962 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-30 14:37:55.009 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-30 14:37:55.031 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:37:55.035 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-30 14:37:55.036 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30 14:37:55.100 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-30 14:37:55.102 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1041 ms
+2024-09-30 14:37:55.829 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:37:55.848 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-30 14:38:05.162 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30 14:38:05.163 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-30 14:38:05.164 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-09-30 14:38:05.334 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-30 14:38:05.509 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f6c3112
+2024-09-30 14:38:05.511 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-30 14:38:05.521 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 14:38:05.551 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 14:38:05.584 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 2
+2024-09-30 14:38:05.592 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException] with root cause
+org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:81) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.selectOne(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy81.getByEmail(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.user.RegisterService.verifyUserStatus(RegisterService.java:54) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.user.RegisterService.registerUnveritRegister(RegisterService.java:29) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.RegisterController.createUnveritRegister(RegisterController.java:32) ~[classes/:?]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
@@ -45,8 +66,8 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
@@ -82,28 +103,98 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-09-23 23:16:26.611 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:16:30.874 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:16:30.874 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:16:30.874 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:16:30.874 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:16:31.946 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da6a2sm133902455ad.57 - gsmtp
-; message exceptions (1) are:
-Failed message 1: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da6a2sm133902455ad.57 - gsmtp
-] with root cause
-org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da6a2sm133902455ad.57 - gsmtp
-
-	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:453) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:317) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.MailSender.send(MailSender.java:42) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at com.jngyen.bookkeeping.backend.service.mail.EmailService.sendActivationEmail(EmailService.java:18) ~[classes/:?]
-	at com.jngyen.bookkeeping.backend.controller.test.testLogging(test.java:28) ~[classes/:?]
+2024-09-30 14:43:04.455 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-30 14:43:05.390 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-30 14:43:05.406 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:43:05.410 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-30 14:43:05.410 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30 14:43:05.466 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-30 14:43:05.467 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 928 ms
+2024-09-30 14:43:06.196 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-30 14:43:06.229 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-30 14:43:12.741 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30 14:43:12.742 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-30 14:43:12.744 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-09-30 14:43:12.955 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-30 14:43:13.147 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d32a779
+2024-09-30 14:43:13.149 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-30 14:43:13.160 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 14:43:13.193 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 14:43:13.226 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-09-30 14:43:13.233 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-09-30 14:43:13.238 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), JohnDoe(String), 123456(String), e32b30da-1d90-4295-afea-d6feaf33acef(String), false(Boolean), 2024-09-30T14:43:13.231577900(LocalDateTime), 2024-09-30T14:43:13.231577900(LocalDateTime)
+2024-09-30 14:43:13.283 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-09-30 14:43:16.890 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, is_used, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?)
+2024-09-30 14:43:16.892 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 874921(Integer), 2024-09-30T14:48:13.284238600(LocalDateTime), false(Boolean), 2024-09-30T14:43:13.284238600(LocalDateTime), 2024-09-30T14:43:13.284238600(LocalDateTime)
+2024-09-30 14:43:16.937 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 14:43:20.790 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 14:43:20.791 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 14:43:20.795 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 14:43:23.940 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, is_used, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?)
+2024-09-30 14:43:23.943 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 357458(Integer), 2024-09-30T14:48:20.795359700(LocalDateTime), false(Boolean), 2024-09-30T14:43:20.795359700(LocalDateTime), 2024-09-30T14:43:20.795359700(LocalDateTime)
+2024-09-30 14:43:23.985 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 15:31:15.376 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-30 15:31:16.883 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-30 15:31:16.911 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-30 15:31:16.917 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-30 15:31:16.918 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30 15:31:16.989 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-30 15:31:16.991 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1491 ms
+2024-09-30 15:31:18.036 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-30 15:31:18.083 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-30 15:31:24.926 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-30 15:31:24.927 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-30 15:31:24.928 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-09-30 15:31:25.176 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-30 15:31:25.395 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@600bd633
+2024-09-30 15:31:25.398 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-30 15:31:25.398 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:31:25.453 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:31:25.518 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 15:31:56.202 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'verifyCode' for method parameter type String is not present]
+2024-09-30 15:35:31.989 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create, gmt_modified FROM user_email_verify_code WHERE email = ?
+2024-09-30 15:35:31.989 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:35:32.276 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gmt_modified' in 'field list'
+### The error may exist in file [D:\Code\Java\Bookkeeping\backend\target\classes\mapper\VerifyCodeMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT                   id, email, code, expire_time, gmt_create, gmt_modified               FROM user_email_verify_code         WHERE email = ?
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'gmt_modified' in 'field list'
+; bad SQL grammar []] with root cause
+java.sql.SQLSyntaxErrorException: Unknown column 'gmt_modified' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy3/jdk.proxy3.$Proxy97.execute(Unknown Source) ~[?:?]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:75) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.selectOne(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy82.getByEmail(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.user.RegisterService.verifyEmail(RegisterService.java:57) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.RegisterController.verifyEmail(RegisterController.java:38) ~[classes/:?]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
@@ -115,8 +206,8 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
@@ -152,28 +243,32 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-09-23 23:17:52.492 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:17:56.680 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:17:56.680 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:17:56.680 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:17:56.680 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:17:57.756 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da7c3sm133939625ad.8 - gsmtp
-; message exceptions (1) are:
-Failed message 1: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da7c3sm133939625ad.8 - gsmtp
-] with root cause
-org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. d9443c01a7336-207945da7c3sm133939625ad.8 - gsmtp
-
-	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:453) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:317) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.MailSender.send(MailSender.java:42) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at com.jngyen.bookkeeping.backend.service.mail.EmailService.sendActivationEmail(EmailService.java:18) ~[classes/:?]
-	at com.jngyen.bookkeeping.backend.controller.test.testLogging(test.java:28) ~[classes/:?]
+2024-09-30 15:39:46.256 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-30 15:39:47.585 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-09-30 15:39:47.611 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-30 15:39:47.611 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-30 15:39:47.611 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-30 15:39:47.680 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-30 15:39:47.683 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1331 ms
+2024-09-30 15:39:48.576 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-30 15:39:48.600 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-09-30 15:40:15.709 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ?
+2024-09-30 15:40:15.754 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:40:15.782 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 2
+2024-09-30 15:40:15.791 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException] with root cause
+org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:81) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.selectOne(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:160) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy82.getByEmail(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.user.RegisterService.verifyEmail(RegisterService.java:57) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.RegisterController.verifyEmail(RegisterController.java:35) ~[classes/:?]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
@@ -185,8 +280,8 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
@@ -222,98 +317,54 @@ org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.m
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-09-23 23:18:46.258 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:18:50.984 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:18:50.984 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:18:50.984 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:18:50.985 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:18:52.681 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. 41be03b00d2f7-7db498d9901sm15286835a12.18 - gsmtp
-; message exceptions (1) are:
-Failed message 1: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. 41be03b00d2f7-7db498d9901sm15286835a12.18 - gsmtp
-] with root cause
-org.springframework.mail.MailSendException: Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STARTTLS command first. For more information, go to
-530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
-530 5.7.0 specifications. 41be03b00d2f7-7db498d9901sm15286835a12.18 - gsmtp
-
-	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:453) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:317) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at org.springframework.mail.MailSender.send(MailSender.java:42) ~[spring-context-support-6.1.13.jar:6.1.13]
-	at com.jngyen.bookkeeping.backend.service.mail.EmailService.sendActivationEmail(EmailService.java:18) ~[classes/:?]
-	at com.jngyen.bookkeeping.backend.controller.test.testLogging(test.java:28) ~[classes/:?]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.30.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-09-23 23:19:22.077 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:19:25.341 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:19:25.341 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:19:25.341 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:19:25.341 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:20:56.863 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:21:03.656 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:21:03.656 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:21:03.657 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:21:03.657 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:25:30.041 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:25:31.028 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:25:31.028 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:25:31.028 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:25:31.028 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:25:34.456 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - 1 done
-2024-09-23 23:25:37.373 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - 2 done
-2024-09-23 23:25:41.063 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - 3 done
-2024-09-23 23:29:32.539 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
-2024-09-23 23:29:35.010 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
-2024-09-23 23:29:35.011 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
-2024-09-23 23:29:35.011 [http-nio-8080-exec-2] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
-2024-09-23 23:29:35.011 [http-nio-8080-exec-2] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
-2024-09-23 23:29:38.458 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.test - 1 done
-2024-09-23 23:29:41.522 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.test - 2 done
+2024-09-30 15:47:05.919 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-09-30 15:47:05.980 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:47:06.047 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-09-30 15:47:12.074 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-09-30 15:47:12.082 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 747650(Integer), 2024-09-30T15:52:06.068404(LocalDateTime), 2024-09-30T15:47:06.068404(LocalDateTime)
+2024-09-30 15:47:12.139 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 15:48:24.450 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-09-30 15:48:24.450 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==>  Preparing: UPDATE user_account SET is_email_verified = 1 WHERE email = ?
+2024-09-30 15:48:24.458 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:48:24.508 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - <==    Updates: 1
+2024-09-30 15:50:23.911 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:50:23.911 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:50:23.911 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 15:55:00.956 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:55:01.014 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:55:01.046 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-09-30 15:55:01.054 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-09-30 15:55:01.062 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209149@xmu.edu.my(String), Li Haoyuan(String), 123456(String), 14a3f832-0f03-4d05-8a6a-68a348815fdc(String), false(Boolean), 2024-09-30T15:55:00.669430800(LocalDateTime), 2024-09-30T15:55:00.669430800(LocalDateTime)
+2024-09-30 15:55:01.267 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-09-30 15:55:05.063 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-09-30 15:55:05.063 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209149@xmu.edu.my(String), 954223(Integer), 2024-09-30T16:00:01.275696700(LocalDateTime), 2024-09-30T15:55:01.275696700(LocalDateTime)
+2024-09-30 15:55:05.112 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 15:55:13.601 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:55:13.601 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:55:13.609 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 15:55:35.431 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-09-30 15:55:35.431 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-09-30 15:55:35.439 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-09-30 15:55:39.263 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-09-30 15:55:39.263 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 560410(Integer), 2024-09-30T16:00:35.439592400(LocalDateTime), 2024-09-30T15:55:35.439592400(LocalDateTime)
+2024-09-30 15:55:39.280 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-09-30 15:57:18.477 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-09-30 15:57:18.477 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:57:18.477 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-09-30 15:57:55.020 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-09-30 15:57:55.020 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:57:55.020 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-09-30 15:57:55.020 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:57:55.020 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:57:55.029 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-09-30 15:57:55.029 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==>  Preparing: UPDATE user_account SET is_email_verified = 1 WHERE email = ?
+2024-09-30 15:57:55.029 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:57:55.086 [http-nio-8080-exec-8] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - <==    Updates: 1
+2024-09-30 15:57:59.988 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-09-30 15:57:59.988 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-09-30 15:57:59.988 [http-nio-8080-exec-9] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1

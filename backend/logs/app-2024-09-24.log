@@ -1,0 +1,6 @@
+2024-09-24 19:12:22.688 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.jngyen.bookkeeping.backend]' package. Please check your configuration.
+2024-09-24 19:12:38.266 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.controller.test - DEBUG
+2024-09-24 19:12:38.266 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - INFO
+2024-09-24 19:12:38.267 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.controller.test - WARN
+2024-09-24 19:12:38.267 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.controller.test - ERROR
+2024-09-24 19:12:41.912 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.test - 1 done

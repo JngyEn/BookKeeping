@@ -1,6 +1,6 @@
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/bookkeeping?useSSL=false&serverTimezone=UTC
+        url: jdbc:mysql://localhost:3306/bookkeeping?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
         username: root
         password: 871870
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,8 +8,8 @@ spring:
     mail:
         host: smtp.gmail.com
         port: 587
-        username: 983467683jyc@gmail.com         # 你的 Gmail 邮箱地址
-        password: eblr akca uxit degd            # 应用专用密码（请确保这是正确的应用密码）
+        username: c29740234@gmail.com         # 你的 Gmail 邮箱地址
+        password: zjcs jyom hcip lokv     # 应用专用密码（请确保这是正确的应用密码）
         properties:
             mail:
                 smtp:
@@ -27,5 +27,8 @@ spring:
 
 mybatis:
     mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.jngyen.bookkeeping.backend.pojo
 logging:
     config: classpath:log4j2.xml
+    level:
+        root: WARN
