@@ -2,19 +2,21 @@ package com.jngyen.bookkeeping.backend.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.jngyen.bookkeeping.backend.pojo.UserAccount;
+
+import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
+
 import java.util.List;
 
 @Mapper
 public interface UserAccountMapper {
     // 获取所有用户信息
-    List<UserAccount> getAll();
+    List<UserAccountPO> getAll();
     // 通过邮箱获取用户信息
-    UserAccount getByEmail(String email);
+    UserAccountPO getByEmail(String email);
     // 通过uuid获取用户信息
-    UserAccount getByUuid(String uuid);
+    UserAccountPO getByUuid(String uuid);
     // 邮箱注册并等待验证码通过
-    int insertUnverityRegister (UserAccount userAccount);
+    int insertUnverityRegister (UserAccountPO userAccount);
     // 验证邮箱通过,更新状态
     int updateVerify (String email);
     // 改邮箱

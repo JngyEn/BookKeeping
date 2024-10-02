@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.jngyen.bookkeeping.backend.mapper.UserAccountMapper;
 import com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper;
-import com.jngyen.bookkeeping.backend.pojo.UserAccount;
-import com.jngyen.bookkeeping.backend.pojo.VerifyCode;
+import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
+import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
+import com.jngyen.bookkeeping.backend.pojo.po.VerifyCodePO;
 import com.jngyen.bookkeeping.backend.service.mail.EmailService;
 
 @Service
@@ -20,16 +21,19 @@ public class RegisterService {
     VerifyCodeMapper verifyCodeMapper;
     @Autowired 
     EmailService emailService;
-
     // 注册未验证用户
-    public String registerUnveritRegister(UserAccount newUserAccount) {
+    public String registerUnveritRegister(UserDTO UserAccount) {
 
-
+        UserAccountPO newUserAccount = new UserAccountPO();
+        newUserAccount.setEmail(UserAccount.getEmail());
+        newUserAccount.setPassword(UserAccount.getPassword());
+        newUserAccount.setUserName(UserAccount.getUserName());
+    
         LocalDateTime date = LocalDateTime.now();
         // 验证用户是否存在
-        // TODO：临时逻辑，后续修改
+        // TODO：临时逻辑，后续修改，用responce响应
 
-        int status = verifyUserStatus(newUserAccount);
+        int status = verifyUserStatus(UserAccount);
         if (status == 2) {
             return "Successfully login";
         }else if (status == 1) {
@@ -46,15 +50,24 @@ public class RegisterService {
         userAccountMapper.insertUnverityRegister(newUserAccount);
 
         // 发送验证码
-        sendVerificationCode(newUserAccount);
+        sendVerificationCode(UserAccount);
 
         return "User account created, please verify your email";
     }
 
     // 验证邮箱
-    public String verifyEmail(UserAccount user, String verifyCode) {
+    public String verifyEmail(UserDTO user) {
+        // 验证用户是否存在
+        // TODO：临时逻辑，后续修改
+
+        int status = verifyUserStatus(user);
+        if (status == 2) {
+            return "Successfully login";
+        }else if (status == 1) {
+            return "User account already exists, please check email and verify your email";
+        }
         LocalDateTime date = LocalDateTime.now();
-        VerifyCode code = verifyCodeMapper.getByEmail(user.getEmail());
+        VerifyCodePO code = verifyCodeMapper.getByEmail(user.getEmail());
         if (code == null) {
             return "Invalid verification code";
         }
@@ -62,18 +75,18 @@ public class RegisterService {
             sendVerificationCode(user);
             return "Verification code expired,already send a new one please try again";
         }
-        if (code.getCode() != Integer.parseInt(verifyCode)) {
+        if (code.getCode() !=user.getVertifyCode()) {
             return "Invalid verification code";
         }
-        UserAccount userAccount = userAccountMapper.getByEmail(code.getEmail());
+        UserAccountPO userAccount = userAccountMapper.getByEmail(code.getEmail());
         userAccount.setEmailVerified(true);
         userAccountMapper.updateVerify(userAccount.getEmail());
         return "Email verified";
     }
 
     // 验证用户状态，0为未创建，1为未验证，2为已验证
-    public int verifyUserStatus(UserAccount newUserAccount) {
-        UserAccount userAccount = userAccountMapper.getByEmail(newUserAccount.getEmail());
+    public int verifyUserStatus(UserDTO newUserAccount) {
+        UserAccountPO userAccount = userAccountMapper.getByEmail(newUserAccount.getEmail());
         if (userAccount == null) {
             return 0;
         }
@@ -84,14 +97,14 @@ public class RegisterService {
     }
     // TODO: 使用mysql来构建缓存，验证码不存到数据库中
     // 发送验证码
-    public void sendVerificationCode(UserAccount newUserAccount) {
+    public void sendVerificationCode(UserDTO newUserAccount) {
         LocalDateTime date = LocalDateTime.now();
          // 发送验证码
          Random random = new Random();
          int verificationCode = random.nextInt(900000) + 100000;
-         emailService.sendActivationEmail(newUserAccount, verificationCode);
+         emailService.sendActivationEmail(newUserAccount);
          // 插入验证码
-         VerifyCode verifyCode = new VerifyCode();
+         VerifyCodePO verifyCode = new VerifyCodePO();
          verifyCode.setEmail(newUserAccount.getEmail());
          verifyCode.setCode(verificationCode);
          verifyCode.setExpireTime(date.plusMinutes(5));

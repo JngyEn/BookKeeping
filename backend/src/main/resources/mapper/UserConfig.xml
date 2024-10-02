@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserConfigMapper">
+    <resultMap type="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO" id="BaseResultMap">
+        <id column="id" property="id" />
+        <result column="user_uuid" property="uuid" />
+        <result column="home_currency" property="homeCurrency" />
+        <result column="home_currency_color" property="homeCurrencyColor" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,  user_uuid, home_currency,home_currency_color, gmt_create, gmt_modified
+    </sql>
+
+    <sql id="configs">
+        home_currency = #{homeCurrency},
+        home_currency_color = #{homeCurrencyColor},
+        gmt_modified = #{gmtModified}
+    </sql>
+
+
+    <!-- 获取用户配置信息 -->
+    <select id="getUserConfigByUuid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_config
+        WHERE user_uuid = #{uuid}
+    </select>
+
+    <!-- 插入用户配置信息 -->
+
+    <insert id="insertUserConfig" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO">
+        INSERT INTO user_config (id, user_uuid, home_currency, home_currency_color, gmt_create, gmt_modified)
+        VALUES (#{id}, #{uuid}, #{homeCurrency},#{homeCurrencyColor}, #{gmtCreate}, #{gmtModified})
+    </insert>
+
+    <!-- 更新用户配置信息 -->
+    <update id="updateUserConfig" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO">
+        UPDATE user_config
+        <set>
+            <include refid="configs" />
+        </set>
+        WHERE user_uuid = #{uuid}
+    </update>
+
+
+    <!-- 删除用户配置信息 -->
+    <delete id="deleteUserConfigByUuid" parameterType="java.lang.String">
+        DELETE FROM user_config
+        WHERE user_uuid = #{uuid}    
+    </delete>
+</mapper>

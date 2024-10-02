@@ -27,7 +27,7 @@ spring:
 
 mybatis:
     mapper-locations: classpath:mapper/*.xml
-    type-aliases-package: com.jngyen.bookkeeping.backend.pojo
+    type-aliases-package: com.jngyen.bookkeeping.backend.pojo.po
 logging:
     config: classpath:log4j2.xml
     level:

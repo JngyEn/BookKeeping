@@ -5,7 +5,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.jngyen.bookkeeping.backend.pojo.UserAccount;
+import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
 
 @Service
 public class EmailService {
@@ -13,12 +13,12 @@ public class EmailService {
     private JavaMailSender mailSender;
 
 
-    public void sendActivationEmail(UserAccount user, int verificationCode) {
+    public void sendActivationEmail(UserDTO user) {
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setTo(user.getEmail());
         message.setSubject("Account Activation");
-        message.setText("Hello!!! " +user.getUserName()+ ", here is your verification code："  + verificationCode);
+        message.setText("Hello!!! " +user.getUserName()+ ", here is your verification code："  + user.getVertifyCode());
         mailSender.send(message);
     }
 }

@@ -1,7 +1,7 @@
-package com.jngyen.bookkeeping.backend.pojo;
-import lombok.Builder;
+package com.jngyen.bookkeeping.backend.pojo.po;
+
 import lombok.Data;
-import lombok.experimental.Tolerate;
+
 
 import java.time.LocalDateTime;
 
@@ -11,8 +11,8 @@ import jakarta.validation.constraints.Size;
 
 
 @Data
-@Builder
-public class UserAccount {
+
+public class UserAccountPO {
     private int id;
     @Email(message = "Emial is invalid")
     private String email;
@@ -25,6 +25,5 @@ public class UserAccount {
     private String password;
     private LocalDateTime gmtCreate;        
     private LocalDateTime gmtModified;     
-    @Tolerate
-    UserAccount(){}
+
 }
