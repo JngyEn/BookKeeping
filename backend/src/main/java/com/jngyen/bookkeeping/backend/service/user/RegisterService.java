@@ -11,7 +11,7 @@ import com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
 import com.jngyen.bookkeeping.backend.pojo.po.VerifyCodePO;
-import com.jngyen.bookkeeping.backend.service.mail.EmailService;
+import com.jngyen.bookkeeping.backend.service.common.EmailService;
 
 @Service
 public class RegisterService {
@@ -31,8 +31,7 @@ public class RegisterService {
     
         LocalDateTime date = LocalDateTime.now();
         // 验证用户是否存在
-        // TODO：临时逻辑，后续修改，用responce响应
-
+        //TODO: 临时逻辑，后续用枚举类等手段优化，1处
         int status = verifyUserStatus(UserAccount);
         if (status == 2) {
             return "Successfully login";
@@ -58,7 +57,7 @@ public class RegisterService {
     // 验证邮箱
     public String verifyEmail(UserDTO user) {
         // 验证用户是否存在
-        // TODO：临时逻辑，后续修改
+        // TODO：临时逻辑，后续用枚举类等手段优化，2处
 
         int status = verifyUserStatus(user);
         if (status == 2) {
@@ -95,7 +94,7 @@ public class RegisterService {
         }
         return 2;
     }
-    // TODO: 使用mysql来构建缓存，验证码不存到数据库中
+    // TODO: 后续使用mysql来构建缓存，验证码不存到数据库中
     // 发送验证码
     public void sendVerificationCode(UserDTO newUserAccount) {
         LocalDateTime date = LocalDateTime.now();

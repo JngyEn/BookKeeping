@@ -1,0 +1,12 @@
+2024-10-04 12:27:36.685 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-04 12:27:36.737 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-10-04 12:27:36.785 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-04 12:28:35.329 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-04 12:28:35.386 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209149@xmu.edu.my(String)
+2024-10-04 12:28:35.421 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-04 12:28:43.410 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-04 12:28:43.412 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-04 12:28:43.414 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-04 12:28:53.819 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.getUserConfigByUuid - ==>  Preparing: SELECT id, user_uuid, home_currency,home_currency_color, gmt_create, gmt_modified FROM user_config WHERE user_uuid = ?
+2024-10-04 12:28:53.821 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.getUserConfigByUuid - ==> Parameters: 1111(String)
+2024-10-04 12:28:53.824 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.getUserConfigByUuid - <==      Total: 1

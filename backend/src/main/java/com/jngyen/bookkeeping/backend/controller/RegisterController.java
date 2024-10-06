@@ -2,6 +2,7 @@ package com.jngyen.bookkeeping.backend.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
 import com.jngyen.bookkeeping.backend.service.user.RegisterService;
 
@@ -12,11 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
-
-
-
 @RestController
 @Slf4j
 public class RegisterController {
@@ -24,15 +20,15 @@ public class RegisterController {
     private RegisterService registerService;
 
     @PostMapping("/unverity-register")
-    public String createUnveritRegister(@Validated @RequestBody UserDTO newUserAccount) {
+    public Result<String> createUnveritRegister(@Validated @RequestBody UserDTO newUserAccount) {
         String response = registerService.registerUnveritRegister(newUserAccount);
-        return response;
+        return Result.success(response);
     }
 
     @PostMapping("/verify-email")
-    public String verifyEmail(@Validated @RequestBody UserDTO newUserAccount) {
+    public Result<String> verifyEmail(@Validated @RequestBody UserDTO newUserAccount) {
         String response = registerService.verifyEmail(newUserAccount);
-        return response;
+        return Result.success(response);
     }
     
     

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper">
+    <resultMap type="com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO" id="BaseResultMap">
+        <id column="id" property="id" />
+        <result column="base_currency" property="baseCurrency" />
+        <result column="target_currency" property="targetCurrency" />
+        <result column="rate" property="rate" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, base_currency, target_currency, rate, gmt_create, gmt_modified
+    </sql>
+    <!-- 更新某一本币与全部外币的双向汇率，检查逻辑:DUPLICATE KEY -->
+    <insert id="updateExchangeRate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO">
+        INSERT INTO exchange_rate (id, base_currency, target_currency, rate, gmt_create, gmt_modified)
+        VALUES (#{id}, #{baseCurrency}, #{targetCurrency}, #{rate}, #{gmtCreate}, #{gmtModified})
+        ON DUPLICATE KEY UPDATE rate = #{rate}, gmt_modified = #{gmtModified}
+    </insert>
+
+    <!-- 获取某一本币与全部外币的汇率信息 -->
+    <select id="getAllExchangeRate" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM exchange_rate
+        WHERE base_currency = #{baseCurrency}
+    </select>
+
+    <!-- 获取某一本币与某一外币的汇率 -->
+    <select id="getExchangeRate" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM exchange_rate
+        WHERE base_currency = #{baseCurrency}
+        AND target_currency = #{targetCurrency}
+    </select>
+
+    <!-- 删除某一本币与某一外币的汇率 -->
+    <delete id="deleteExchangeRate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO">
+        DELETE FROM exchange_rate
+        WHERE base_currency = #{baseCurrency}
+        AND target_currency = #{targetCurrency}
+    </delete>
+</mapper>

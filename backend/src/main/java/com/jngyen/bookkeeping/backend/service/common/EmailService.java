@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.service.mail;
+package com.jngyen.bookkeeping.backend.service.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
