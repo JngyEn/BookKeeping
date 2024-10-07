@@ -5,8 +5,8 @@
     <resultMap type="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO" id="BaseResultMap">
         <id column="id" property="id" />
         <result column="user_uuid" property="uuid" />
-        <result column="home_currency" property="homeCurrency" />
-        <result column="home_currency_color" property="homeCurrencyColor" />
+        <result column="home_currency" property="baseCurrency" />
+        <result column="home_currency_color" property="baseCurrencyColor" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
@@ -15,8 +15,8 @@
     </sql>
 
     <sql id="configs">
-        home_currency = #{homeCurrency},
-        home_currency_color = #{homeCurrencyColor},
+        home_currency = #{baseCurrency},
+        home_currency_color = #{baseCurrencyColor},
         gmt_modified = #{gmtModified}
     </sql>
 
@@ -33,15 +33,13 @@
 
     <insert id="insertUserConfig" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO">
         INSERT INTO user_config (id, user_uuid, home_currency, home_currency_color, gmt_create, gmt_modified)
-        VALUES (#{id}, #{uuid}, #{homeCurrency},#{homeCurrencyColor}, #{gmtCreate}, #{gmtModified})
+        VALUES (#{id}, #{uuid}, #{baseCurrency},#{baseCurrencyColor}, NOW(), NOW())
     </insert>
 
     <!-- 更新用户配置信息 -->
     <update id="updateUserConfig" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO">
         UPDATE user_config
-        <set>
-            <include refid="configs" />
-        </set>
+        SET base_currency = #{baseCurrency}, base_currency_color = #{baseCurrencyColor}, gmt_modified = NOW()
         WHERE user_uuid = #{uuid}
     </update>
 

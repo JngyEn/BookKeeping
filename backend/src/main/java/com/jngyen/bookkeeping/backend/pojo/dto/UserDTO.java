@@ -8,5 +8,5 @@ public class UserDTO {
     private String password;
     private String userName;
     private int vertifyCode;
-    private String homeCurrency;
+    private String baseCurrency;
 }

@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 public class UserConfigPO {
     private int id;
     private String uuid;
-    private String homeCurrency;
-    private String homeCurrencyColor;
+    private String baseCurrency;
+    private String baseCurrencyColor;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
 }

@@ -3405,7 +3405,7 @@ Consider defining a bean of type 'com.jngyen.bookkeeping.backend.pojo.po.UserAcc
 2024-10-02 15:24:25.448 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
 2024-10-02 15:24:25.481 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
 2024-10-02 23:36:38.972 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-10-02 23:37:09.773 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:37:09.773 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:37:10.013 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:37:10.041 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), null, null
 2024-10-02 23:37:10.185 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
@@ -3492,7 +3492,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-02 23:37:58.012 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:37:58.012 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:37:58.186 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:37:58.209 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), null, null
 2024-10-02 23:37:58.331 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
@@ -3579,7 +3579,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-02 23:40:48.350 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:40:48.350 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:40:48.530 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:40:48.561 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), 2024-10-02T23:40:48.354207300(LocalDateTime), 2024-10-02T23:40:48.354207300(LocalDateTime)
 2024-10-02 23:40:48.720 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
@@ -3666,7 +3666,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-02 23:41:52.826 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:41:52.826 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:41:53.053 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:41:53.085 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), 2024-10-02T23:41:52.831435200(LocalDateTime), 2024-10-02T23:41:52.831435200(LocalDateTime)
 2024-10-02 23:41:53.254 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
@@ -3753,7 +3753,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-02 23:42:12.300 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:42:12.300 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:42:12.552 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:42:12.576 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), 2024-10-02T23:42:12.305039400(LocalDateTime), 2024-10-02T23:42:12.305039400(LocalDateTime)
 2024-10-02 23:42:12.711 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: 
@@ -3840,11 +3840,11 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
-2024-10-02 23:43:38.620 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=123, gmtCreate=null, gmtModified=null)
+2024-10-02 23:43:38.620 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=123, gmtCreate=null, gmtModified=null)
 2024-10-02 23:43:38.859 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, user_uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:43:38.891 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 123(String), 2024-10-02T23:43:38.624143400(LocalDateTime), 2024-10-02T23:43:38.624143400(LocalDateTime)
 2024-10-02 23:43:38.974 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - <==    Updates: 1
-2024-10-02 23:44:11.638 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - updateTest: UserConfigPO(id=0, uuid=741, homeCurrency=124, gmtCreate=null, gmtModified=null)
+2024-10-02 23:44:11.638 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - updateTest: UserConfigPO(id=0, uuid=741, baseCurrency=124, gmtCreate=null, gmtModified=null)
 2024-10-02 23:44:11.639 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.updateUserConfig - ==>  Preparing: UPDATE user_config SET home_currency = ?, gmt_modified = ? WHERE user_uuid = ?
 2024-10-02 23:44:11.640 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.updateUserConfig - ==> Parameters: 124(String), 2024-10-02T23:44:11.638714100(LocalDateTime), 741(String)
 2024-10-02 23:44:11.665 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.updateUserConfig - <==    Updates: 1
@@ -3857,7 +3857,7 @@ java.sql.SQLSyntaxErrorException: Unknown column 'uuid' in 'field list'
 2024-10-02 23:48:12.723 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.deleteUserConfigByUuid - <==    Updates: 1
 2024-10-02 23:49:02.548 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public int com.jngyen.bookkeeping.backend.controller.UserConfigController.insertTest(com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO)]
 2024-10-02 23:49:09.031 [http-nio-8080-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public int com.jngyen.bookkeeping.backend.controller.UserConfigController.insertTest(com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO)]
-2024-10-02 23:49:23.600 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, homeCurrency=122, gmtCreate=null, gmtModified=null)
+2024-10-02 23:49:23.600 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.controller.UserConfigController - insertTest: UserConfigPO(id=0, uuid=741, baseCurrency=122, gmtCreate=null, gmtModified=null)
 2024-10-02 23:49:23.601 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, user_uuid, home_currency, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?)
 2024-10-02 23:49:23.606 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 741(String), 122(String), 2024-10-02T23:49:23.601755500(LocalDateTime), 2024-10-02T23:49:23.601755500(LocalDateTime)
 2024-10-02 23:49:23.648 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - <==    Updates: 1

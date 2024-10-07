@@ -13,6 +13,9 @@ import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
 import com.jngyen.bookkeeping.backend.pojo.po.VerifyCodePO;
 import com.jngyen.bookkeeping.backend.service.common.EmailService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class RegisterService {
     @Autowired
@@ -21,6 +24,8 @@ public class RegisterService {
     VerifyCodeMapper verifyCodeMapper;
     @Autowired 
     EmailService emailService;
+    @Autowired
+    UserConfigService userConfigService;
     // 注册未验证用户
     public String registerUnveritRegister(UserDTO UserAccount) {
 
@@ -38,10 +43,9 @@ public class RegisterService {
         }else if (status == 1) {
             return "User account already exists, please check email and verify your email";
         }
+
         // 注册未验证用户
-        
         String uuid = java.util.UUID.randomUUID().toString();
-        
         newUserAccount.setGmtCreate(date);
         newUserAccount.setGmtModified(date);
         newUserAccount.setEmailVerified(false);
@@ -56,31 +60,40 @@ public class RegisterService {
 
     // 验证邮箱
     public String verifyEmail(UserDTO user) {
+
         // 验证用户是否存在
         // TODO：临时逻辑，后续用枚举类等手段优化，2处
-
         int status = verifyUserStatus(user);
         if (status == 2) {
             return "Successfully login";
-        }else if (status == 1) {
-            return "User account already exists, please check email and verify your email";
+        }else if (status == 0) {
+            return "User does not exist";
         }
+
         LocalDateTime date = LocalDateTime.now();
         VerifyCodePO code = verifyCodeMapper.getByEmail(user.getEmail());
+
+        // 判断验证码情况
         if (code == null) {
-            return "Invalid verification code";
+            return "Dint send verification code, please try again";
         }
         if (code.getExpireTime().isBefore(date)) {
             sendVerificationCode(user);
             return "Verification code expired,already send a new one please try again";
         }
         if (code.getCode() !=user.getVertifyCode()) {
+            log.info("valid code: " + code.getCode() + " input code: " + user.getVertifyCode());
             return "Invalid verification code";
         }
+
+        // 验证通过，注册用户
         UserAccountPO userAccount = userAccountMapper.getByEmail(code.getEmail());
         userAccount.setEmailVerified(true);
         userAccountMapper.updateVerify(userAccount.getEmail());
-        return "Email verified";
+
+        // 创建初始化用户配置
+        userConfigService.defaultUserConfig(userAccount.getUuid());
+        return "Email verified, Register successfully";
     }
 
     // 验证用户状态，0为未创建，1为未验证，2为已验证
@@ -94,6 +107,7 @@ public class RegisterService {
         }
         return 2;
     }
+
     // TODO: 后续使用mysql来构建缓存，验证码不存到数据库中
     // 发送验证码
     public void sendVerificationCode(UserDTO newUserAccount) {
@@ -101,6 +115,7 @@ public class RegisterService {
          // 发送验证码
          Random random = new Random();
          int verificationCode = random.nextInt(900000) + 100000;
+        newUserAccount.setVertifyCode(verificationCode);
          emailService.sendActivationEmail(newUserAccount);
          // 插入验证码
          VerifyCodePO verifyCode = new VerifyCodePO();

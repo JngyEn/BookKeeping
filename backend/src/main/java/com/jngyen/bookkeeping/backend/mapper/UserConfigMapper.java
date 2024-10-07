@@ -10,7 +10,7 @@ public interface UserConfigMapper {
 
     // 获取用户配置
     UserConfigPO getUserConfigByUuid(String uuid);
-    // 新增用户配置
+    // 新增用户配置(仅注册新用户时使用)
     int insertUserConfig(UserConfigPO userConfig);
     // 修改用户配置
     int updateUserConfig(UserConfigPO userConfig);

@@ -19,7 +19,7 @@
     <insert id="updateExchangeRate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO">
         INSERT INTO exchange_rate (id, base_currency, target_currency, rate, gmt_create, gmt_modified)
         VALUES (#{id}, #{baseCurrency}, #{targetCurrency}, #{rate}, #{gmtCreate}, #{gmtModified})
-        ON DUPLICATE KEY UPDATE rate = #{rate}, gmt_modified = #{gmtModified}
+        ON DUPLICATE KEY UPDATE rate = #{rate}, gmt_modified = NOW()
     </insert>
 
     <!-- 获取某一本币与全部外币的汇率信息 -->

@@ -9,7 +9,7 @@ import lombok.Data;
 public class UserExchangeRatePO {
     private int id;
     private String userUuid;
-    private String baseCurrecy;
+    private String baseCurrency;
     private String targetCurrency;
     private BigDecimal rate;
     private LocalDateTime gmtModified;
