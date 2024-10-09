@@ -1,0 +1,237 @@
+2024-10-07 10:00:01.874 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper.getExchangeRate - ==>  Preparing: SELECT id, base_currency, target_currency, rate, gmt_create, gmt_modified FROM exchange_rate WHERE base_currency = ? AND target_currency = ?
+2024-10-07 10:00:01.945 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper.getExchangeRate - ==> Parameters: CNY(String), USD(String)
+2024-10-07 10:00:02.014 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper.getExchangeRate - <==      Total: 1
+2024-10-07 22:49:01.920 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:49:01.949 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:49:01.977 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-10-07 22:49:01.985 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-10-07 22:49:01.992 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), Jiang Yecen(String), 123456(String), b5beee44-320b-488e-8d92-43589102ff37(String), false(Boolean), 2024-10-07T22:49:01.692487200(LocalDateTime), 2024-10-07T22:49:01.692487200(LocalDateTime)
+2024-10-07 22:49:02.012 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-10-07 22:49:05.364 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 22:49:05.365 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 829289(Integer), 2024-10-07T22:54:02.012476300(LocalDateTime), 2024-10-07T22:49:02.012476300(LocalDateTime)
+2024-10-07 22:49:05.374 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 22:53:34.648 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:53:34.679 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:53:34.709 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-10-07 22:53:34.718 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 22:53:34.719 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:53:34.723 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 0
+2024-10-07 22:53:40.966 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:53:40.967 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:53:40.967 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-10-07 22:53:40.969 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-10-07 22:53:40.973 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), Jiang Yecen(String), 123456(String), 840f5060-5031-49fd-9651-90aff2c00f6d(String), false(Boolean), 2024-10-07T22:53:40.965452700(LocalDateTime), 2024-10-07T22:53:40.965452700(LocalDateTime)
+2024-10-07 22:53:40.990 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-10-07 22:53:44.536 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 22:53:44.537 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 111335(Integer), 2024-10-07T22:58:40.991241800(LocalDateTime), 2024-10-07T22:53:40.991241800(LocalDateTime)
+2024-10-07 22:53:44.550 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 22:54:03.365 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:54:03.366 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:54:03.371 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 22:55:24.371 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:55:24.372 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:55:24.373 [http-nio-8080-exec-7] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 22:58:48.869 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:58:48.900 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:58:48.930 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 22:58:52.662 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:58:52.663 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:58:52.665 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 22:58:52.666 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 22:58:52.666 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:58:52.669 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 22:58:56.058 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 22:58:56.060 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 970827(Integer), 2024-10-07T23:03:52.670092900(LocalDateTime), 2024-10-07T22:58:52.670092900(LocalDateTime)
+2024-10-07 22:58:56.077 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 22:59:38.499 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 22:59:38.500 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:59:38.501 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 22:59:38.501 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 22:59:38.502 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 22:59:38.503 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:02:57.294 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:02:57.321 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:02:57.350 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:02:57.358 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:02:57.359 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:02:57.361 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:03:48.306 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:03:49.545 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:03:49.560 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:03:49.565 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:03:49.566 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:03:49.625 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:03:49.626 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1244 ms
+2024-10-07 23:03:50.428 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:03:50.454 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:03:55.593 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:03:55.593 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:03:55.594 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-07 23:03:55.725 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:03:55.873 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f4a98c0
+2024-10-07 23:03:55.874 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:03:55.881 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:03:55.902 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:03:55.930 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:03:55.938 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:03:55.938 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:03:55.941 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:03:59.031 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 23:03:59.033 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 727598(Integer), 2024-10-07T23:08:55.941343200(LocalDateTime), 2024-10-07T23:03:55.941343200(LocalDateTime)
+2024-10-07 23:03:59.048 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 23:04:20.227 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:04:20.228 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:04:20.229 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:04:20.229 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:04:20.230 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:04:20.231 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:06:41.624 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:06:42.674 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:06:42.687 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:06:42.693 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:06:42.694 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:06:42.748 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:06:42.750 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1056 ms
+2024-10-07 23:06:43.527 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:06:43.555 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:06:46.821 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:06:46.821 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:06:46.824 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-07 23:06:46.959 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:06:47.116 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4849da6e
+2024-10-07 23:06:47.117 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:06:47.125 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:06:47.155 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:06:47.185 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:06:47.195 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:06:47.196 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:06:47.199 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:07:03.128 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:07:04.355 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:07:04.369 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:07:04.375 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:07:04.375 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:07:04.429 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:07:04.432 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1232 ms
+2024-10-07 23:07:05.403 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:07:05.458 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:07:05.587 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:07:05.588 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:07:05.589 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-07 23:07:05.723 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:07:05.875 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3da07370
+2024-10-07 23:07:05.878 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:07:05.886 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:07:05.915 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:07:05.945 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:07:05.957 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:07:05.958 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:07:05.960 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:07:05.961 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.user.RegisterService - code: 727598
+2024-10-07 23:07:36.141 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:07:37.423 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:07:37.441 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:07:37.447 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:07:37.448 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:07:37.521 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:07:37.523 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1313 ms
+2024-10-07 23:07:38.483 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:07:38.502 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:07:43.447 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:07:43.447 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:07:43.448 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-07 23:07:43.583 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:07:43.743 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dc56ca
+2024-10-07 23:07:43.744 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:07:43.750 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:07:43.771 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:07:43.799 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:07:43.806 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:07:43.806 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:07:43.809 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:07:43.810 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.user.RegisterService - valid code: 727598 input code: 0
+2024-10-07 23:09:47.483 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:09:47.484 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:09:47.486 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:09:47.486 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:09:47.487 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:09:47.488 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:09:50.832 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 23:09:50.835 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 706648(Integer), 2024-10-07T23:14:47.488643900(LocalDateTime), 2024-10-07T23:09:47.488643900(LocalDateTime)
+2024-10-07 23:09:50.847 [http-nio-8080-exec-5] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 23:09:55.974 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:09:57.118 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:09:57.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:09:57.137 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:09:57.138 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:09:57.194 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:09:57.196 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1154 ms
+2024-10-07 23:09:58.089 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:09:58.113 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:10:03.019 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:10:03.019 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:10:03.021 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-07 23:10:03.184 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:10:03.332 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c78745a
+2024-10-07 23:10:03.333 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:10:03.339 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:10:03.370 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:03.404 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:10:03.414 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:10:03.415 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:03.419 [http-nio-8080-exec-2] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:10:03.421 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.user.RegisterService - valid code: 706648 input code: 727598
+2024-10-07 23:10:11.060 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:10:11.060 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:11.061 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:10:11.063 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:10:11.064 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:11.065 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:10:11.066 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:10:11.066 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:11.068 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:10:11.070 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==>  Preparing: UPDATE user_account SET is_email_verified = 1 WHERE email = ?
+2024-10-07 23:10:11.071 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:10:11.077 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - <==    Updates: 1
+2024-10-07 23:10:11.078 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, user_uuid, home_currency, home_currency_color, gmt_create, gmt_modified) VALUES (?, ?, ?,?, NOW(), NOW())
+2024-10-07 23:10:11.081 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 840f5060-5031-49fd-9651-90aff2c00f6d(String), CNY(String), #FFEC00(String)
+2024-10-07 23:10:11.100 [http-nio-8080-exec-3] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - <==    Updates: 1
+2024-10-07 23:14:38.000 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-07 23:14:39.342 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-07 23:14:39.357 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:14:39.363 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-07 23:14:39.363 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-07 23:14:39.425 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-07 23:14:39.427 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1322 ms
+2024-10-07 23:14:40.667 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-07 23:14:40.689 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-07 23:14:42.770 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-07 23:14:42.770 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-07 23:14:42.772 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-07 23:14:42.950 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-07 23:14:43.135 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d18de9d
+2024-10-07 23:14:43.136 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-07 23:14:43.144 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:14:43.172 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:14:43.197 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 0
+2024-10-07 23:14:43.206 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==>  Preparing: INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2024-10-07 23:14:43.212 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), Jiang Yecen(String), 123456(String), 00497f8d-563c-4e6d-9e92-ab0f7bed72be(String), false(Boolean), 2024-10-07T23:14:42.929132400(LocalDateTime), 2024-10-07T23:14:42.929132400(LocalDateTime)
+2024-10-07 23:14:43.228 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.insertUnverityRegister - <==    Updates: 1
+2024-10-07 23:14:46.507 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==>  Preparing: INSERT INTO user_email_verify_code (id, email, code, expire_time, gmt_create) VALUES (?, ?, ?, ?, ?)
+2024-10-07 23:14:46.509 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - ==> Parameters: 0(Integer), CST2209147@xmu.edu.my(String), 912456(Integer), 2024-10-07T23:19:43.230129300(LocalDateTime), 2024-10-07T23:14:43.230129300(LocalDateTime)
+2024-10-07 23:14:46.520 [http-nio-8080-exec-1] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.insertVerifyCode - <==    Updates: 1
+2024-10-07 23:15:03.760 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:15:03.761 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:15:03.769 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:15:03.771 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==>  Preparing: SELECT id, email, code, expire_time, gmt_create FROM user_email_verify_code WHERE email = ? ORDER BY gmt_create DESC LIMIT 1
+2024-10-07 23:15:03.771 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:15:03.773 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper.getByEmail - <==      Total: 1
+2024-10-07 23:15:03.774 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==>  Preparing: SELECT id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified FROM user_account WHERE email = ?
+2024-10-07 23:15:03.775 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:15:03.778 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.getByEmail - <==      Total: 1
+2024-10-07 23:15:03.780 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==>  Preparing: UPDATE user_account SET is_email_verified = 1 WHERE email = ?
+2024-10-07 23:15:03.780 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - ==> Parameters: CST2209147@xmu.edu.my(String)
+2024-10-07 23:15:03.795 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserAccountMapper.updateVerify - <==    Updates: 1
+2024-10-07 23:15:03.797 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==>  Preparing: INSERT INTO user_config (id, user_uuid, home_currency, home_currency_color, gmt_create, gmt_modified) VALUES (?, ?, ?,?, NOW(), NOW())
+2024-10-07 23:15:03.798 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - ==> Parameters: 0(Integer), 00497f8d-563c-4e6d-9e92-ab0f7bed72be(String), CNY(String), #FFEC00(String)
+2024-10-07 23:15:03.812 [http-nio-8080-exec-4] DEBUG com.jngyen.bookkeeping.backend.mapper.UserConfigMapper.insertUserConfig - <==    Updates: 1

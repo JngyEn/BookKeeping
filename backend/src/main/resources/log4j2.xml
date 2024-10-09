@@ -41,7 +41,7 @@
         </Root>
 
         <!-- 针对特定包设置日志级别 -->
-        <Logger name="com.jngyen.bookkeeping.backend" level="debug" additivity="false">
+        <Logger name="com.jngyen.bookkeeping.backend" level="info" additivity="false">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="RollingFileAppender" />
         </Logger>

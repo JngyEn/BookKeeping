@@ -12,4 +12,5 @@ public class UserConfigDTO {
     private String baseCurrencyColor;
     private String targetCurrency;
     private BigDecimal rate;
+    private Boolean isUseCustomRate;
 }

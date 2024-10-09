@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class ExchangeRateDTO {
+public class UserCustomExchangeRateDTO {
     // TODO: 后续改为用JWT验证
     private String userUuid;
     private String baseCurrency;
