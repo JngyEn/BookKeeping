@@ -36,7 +36,7 @@ public class RegisterService {
     
         LocalDateTime date = LocalDateTime.now();
         // 验证用户是否存在
-        //TODO: 临时逻辑，后续用枚举类等手段优化，1处
+        //TODO: 临时验证注册状态逻辑，后续用枚举类等手段优化，1处
         int status = verifyUserStatus(UserAccount);
         if (status == 2) {
             return "Successfully login";
@@ -62,7 +62,7 @@ public class RegisterService {
     public String verifyEmail(UserDTO user) {
 
         // 验证用户是否存在
-        // TODO：临时逻辑，后续用枚举类等手段优化，2处
+        // TODO: 临时验证注册状态逻辑，后续用枚举类等手段优化，2处
         int status = verifyUserStatus(user);
         if (status == 2) {
             return "Successfully login";

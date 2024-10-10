@@ -1120,3 +1120,37 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 2024-10-10 16:07:29.822 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2024-10-10 16:07:29.864 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=CAD, name=Canadian Dollar, symbol=C$, decimalPlaces=0, gmtCreate=null, gmtModified=null)
 2024-10-10 16:07:29.870 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=MYR, name=Malaysian Ringgit, symbol=RM, decimalPlaces=0, gmtCreate=null, gmtModified=null)
+2024-10-10 16:07:39.010 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-10 16:07:40.273 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 16:07:40.284 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 16:07:40.289 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 16:07:40.289 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 16:07:40.340 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 16:07:40.343 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1258 ms
+2024-10-10 16:07:41.242 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 16:07:41.259 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 16:16:32.923 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-10 16:16:34.152 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 16:16:34.166 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 16:16:34.175 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 16:16:34.176 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 16:16:34.246 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 16:16:34.249 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1226 ms
+2024-10-10 16:16:35.331 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 16:16:35.362 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 16:16:42.282 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 16:16:42.282 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 16:16:42.285 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 16:16:42.460 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-10 16:16:42.600 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@583887a7
+2024-10-10 16:16:42.603 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-10 16:16:42.648 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=CNY, name=Chinese Yuan, symbol=¥, decimalPlaces=0, gmtCreate=null, gmtModified=null)
+2024-10-10 16:16:42.656 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userConfig is UserConfigDTO(userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=USD, baseCurrencyColor=null, targetCurrency=CNY, rate=null, isUseCustomRate=null)
+2024-10-10 16:16:42.661 [http-nio-8080-exec-2] WARN  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userExchangeRate is null
+2024-10-10 16:17:08.286 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=USD, name=United States Dollar, symbol=$, decimalPlaces=0, gmtCreate=null, gmtModified=null)
+2024-10-10 16:17:08.288 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userConfig is UserConfigDTO(userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=USD, baseCurrencyColor=null, targetCurrency=USD, rate=null, isUseCustomRate=null)
+2024-10-10 16:17:08.289 [http-nio-8080-exec-3] WARN  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userExchangeRate is null
+2024-10-10 16:17:30.547 [http-nio-8080-exec-5] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=CNY, name=Chinese Yuan, symbol=¥, decimalPlaces=0, gmtCreate=null, gmtModified=null)
+2024-10-10 16:18:27.432 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.service.common.GetExchangeRate - currency: CurrencyReference(code=USD, name=United States Dollar, symbol=$, decimalPlaces=0, gmtCreate=null, gmtModified=null)
+2024-10-10 16:18:27.436 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userConfig is UserConfigDTO(userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=CNY, baseCurrencyColor=null, targetCurrency=USD, rate=null, isUseCustomRate=null)
+2024-10-10 16:18:27.438 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.service.user.UserConfigService - userExchangeRate is UserExchangeRatePO(id=3, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=CNY, targetCurrency=USD, rate=1.600000, gmtModified=2024-10-10T10:06:36, gmtCreate=2024-10-10T10:06:36)

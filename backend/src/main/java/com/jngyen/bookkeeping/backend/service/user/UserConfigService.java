@@ -23,7 +23,7 @@ public class UserConfigService {
     @Autowired
     private UserExchangeRateMapper userExchangeRateMapper;    
     
-    //TODO 用户配置Service
+    //用户配置Service
     // 获取用户配置
     public UserConfigPO queryUserConfigByUuid(String uuid) {
         return userConfigMapper.getUserConfigByUuid(uuid);
@@ -96,12 +96,12 @@ public class UserConfigService {
         userConfigDTO.setRate(userExchangeRate.getRate());
         return userConfigDTO;
     }
-    // TODO:清空用户本币以及颜色和是否使用本币
+    // 清空用户本币以及颜色和是否使用本币
     public String deleteUserBaseCurrency(UserConfigDTO userConfig) {
         userConfigMapper.deleteUserConfigByUuid(userConfig.getUserUuid());
         return "delete user base currency success";
     }
-    // TODO:删除用户自定义汇率
+    // 删除用户自定义汇率
     public String deleteUserCustomRate(UserConfigDTO userConfig) {
         int responce = userExchangeRateMapper.delete(userConfig.getUserUuid(), userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
         if (responce == 0) {

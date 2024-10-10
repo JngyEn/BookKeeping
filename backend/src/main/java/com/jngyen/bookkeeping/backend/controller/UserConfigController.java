@@ -66,7 +66,7 @@ public class UserConfigController {
     }
 
     // 获得用户本币配置
-    //TODO：后续改为JWT获得Uuid
+    //TODO: 后续改为JWT获得Uuid
     @GetMapping("user/config/baseCurrency")
     public Result<UserConfigDTO> getUerBaseCurrencyConfig(@RequestParam String userUuid) {
         UserConfigDTO userConfig = userConfigService.getUerCurrencyConfig(userUuid);
@@ -92,7 +92,7 @@ public class UserConfigController {
     //     String responce = userConfigService.deleteUserBaseCurrency(userConfigDTO);
     //     return Result.success(responce);
     // }
-    
+
     // 删除用户自定义汇率
     @PostMapping("user/config/deleteCustomRate")
     public Result<String> deleteUserCustomRate(@Validated @RequestBody UserConfigDTO userConfigDTO) {
