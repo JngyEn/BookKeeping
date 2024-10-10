@@ -1,16 +1,14 @@
 package com.jngyen.bookkeeping.backend.service.common;
 
-import java.time.LocalDateTime;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper;
-import com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO;
+import com.jngyen.bookkeeping.backend.mapper.CurrencyReferenceMapper;
+import com.jngyen.bookkeeping.backend.pojo.po.CurrencyReference;
+
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +18,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class GetExchangeRate {
   @Autowired
-  private ExchangeRateMapper exchangeRateMapper;
+  private CurrencyReferenceMapper currencyReferenceMapper;
 
   // 获取某一本币的全部实时汇率
   public Mono<JsonNode> getExchangeRateByBaseCurrency(String baseCurrency) {
@@ -40,11 +38,11 @@ public class GetExchangeRate {
     return exchangeRate;
   }
 
-  // 检查货币是否有效
+  // 检查货币是否存在
   public Boolean checkCurrency(String baseCurrency) {
-    ExchangeRatePO oldRatePO = exchangeRateMapper.getExchangeRate(baseCurrency,baseCurrency);
-    log.info("oldRatePO: {}", oldRatePO);
-    if (oldRatePO != null && oldRatePO.getGmtModified().isAfter(LocalDateTime.now().minusDays(1))) {
+    CurrencyReference currency  = currencyReferenceMapper.selectCurrencyByCode(baseCurrency);
+    log.info("currency: {}", currency);
+    if (currency == null) {
       return false;
     }
     return true;

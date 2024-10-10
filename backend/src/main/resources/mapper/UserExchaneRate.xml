@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper">
+    <!-- 查询操作，根据 userUuid、baseCurrency 和 targetCurrency 查询记录 -->
+    <select id="selectByUuidAndCurrency" resultType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+        SELECT * FROM user_exchange_rate
+        WHERE user_uuid = #{userUuid}
+          AND base_currency = #{baseCurrency}
+          AND target_currency = #{targetCurrency}
+    </select>
+
+    <!-- 插入操作与更新，添加新的汇率记录，依据三key组合 uuid、base、target -->
+    <insert id="insertOrUpdate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+        INSERT INTO user_exchange_rate (user_uuid, base_currency, target_currency, rate, gmt_modified, gmt_create)
+        VALUES (#{userUuid}, #{baseCurrency}, #{targetCurrency}, #{rate}, NOW(), NOW())
+        ON DUPLICATE KEY UPDATE
+        rate = #{rate},
+        gmt_modified = NOW()
+    </insert>
+
+
+    <!-- 删除操作，根据 userUuid、baseCurrency 和 targetCurrency 删除记录 -->
+    <delete id="delete">
+        DELETE FROM user_exchange_rate
+        WHERE user_uuid = #{userUuid}
+          AND base_currency = #{baseCurrency}
+          AND target_currency = #{targetCurrency}
+    </delete>
+
+    <!-- 查询所有记录 -->
+    <select id="selectAll" resultType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+        SELECT * FROM user_exchange_rate
+    </select>
+</mapper>

@@ -1,12 +1,19 @@
 package com.jngyen.bookkeeping.backend.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO;
+
+import java.util.List;
 @Mapper
 public interface UserExchangeRateMapper {
-    // 设置用户自定义汇率，如果已存在则更新
+    UserExchangeRatePO selectByUuidAndCurrency(@Param("userUuid") String userUuid,String baseCurrency,String targetCurrency);
+    //    插入操作与更新，添加新的汇率记录，依据三key组合 uuid、base、target
+    int insertOrUpdate(UserExchangeRatePO userExchangeRate);
 
-    // 查询用户自定义汇率
+    int delete(@Param("userUuid") String userUuid,String baseCurrency, String targetCurrency);
 
-    // 删除用户自定义汇率
+    List<UserExchangeRatePO> selectAll();
+    
 }
