@@ -13,7 +13,9 @@ import com.jngyen.bookkeeping.backend.pojo.dto.UserConfigDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO;
 import com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class UserConfigService {
     @Autowired
@@ -67,9 +69,44 @@ public class UserConfigService {
     }
 
     
-    // TODO:获得用户本币以及颜色和是否使用本币
-    // TODO:获得用户自定义汇率
-    
-    // TODO:删除用户本币以及颜色和是否使用本币
+    // 获得用户本币以及颜色和是否使用本币
+    public UserConfigDTO getUerCurrencyConfig(String uuid) {
+        UserConfigPO userConfig = userConfigMapper.getUserConfigByUuid(uuid);
+        UserConfigDTO userConfigDTO = new UserConfigDTO();
+        userConfigDTO.setUserUuid(userConfig.getUuid());
+        userConfigDTO.setBaseCurrency(userConfig.getBaseCurrency());
+        userConfigDTO.setBaseCurrencyColor(userConfig.getBaseCurrencyColor());
+        userConfigDTO.setIsUseCustomRate(userConfig.getIsUseCustomRate());
+        return userConfigDTO;
+    }
+    // 获得用户自定义汇率
+    public UserConfigDTO getUerCustomRate (UserConfigDTO userConfig) {
+        // 获取用户本币
+        userConfig.setBaseCurrency(userConfigMapper.getUserConfigByUuid(userConfig.getUserUuid()).getBaseCurrency());
+        log.info("userConfig is {}", userConfig);
+        UserExchangeRatePO userExchangeRate = userExchangeRateMapper.selectByUuidAndCurrency(userConfig.getUserUuid(), userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
+        if (userExchangeRate == null) {
+            log.warn("userExchangeRate is {}", userExchangeRate);
+            return null;
+        }
+        log.info("userExchangeRate is {}", userExchangeRate);
+        UserConfigDTO userConfigDTO = new UserConfigDTO();
+        userConfigDTO.setBaseCurrency(userExchangeRate.getBaseCurrency());
+        userConfigDTO.setTargetCurrency(userExchangeRate.getTargetCurrency());
+        userConfigDTO.setRate(userExchangeRate.getRate());
+        return userConfigDTO;
+    }
+    // TODO:清空用户本币以及颜色和是否使用本币
+    public String deleteUserBaseCurrency(UserConfigDTO userConfig) {
+        userConfigMapper.deleteUserConfigByUuid(userConfig.getUserUuid());
+        return "delete user base currency success";
+    }
     // TODO:删除用户自定义汇率
+    public String deleteUserCustomRate(UserConfigDTO userConfig) {
+        int responce = userExchangeRateMapper.delete(userConfig.getUserUuid(), userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
+        if (responce == 0) {
+            return "custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency() + " is not found";
+        }
+        return "delete user custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency() + " success";
+    }
 }

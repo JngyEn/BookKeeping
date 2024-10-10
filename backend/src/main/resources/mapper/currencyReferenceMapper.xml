@@ -3,7 +3,15 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.CurrencyReferenceMapper">
-
+    <!-- 定义resultMap，用于字段与属性的映射 -->
+    <resultMap id="CurrencyReferenceMap" type="com.jngyen.bookkeeping.backend.pojo.po.CurrencyReference">
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="symbol" column="symbol"/>
+        <result property="decimalPlaces" column="decimal_places"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
     <!-- Insert a new currency -->
     <insert id="insertCurrency" parameterType="CurrencyReference">
         INSERT INTO currency_reference (code, name, symbol, decimal_places, gmt_create, gmt_modified)
@@ -11,7 +19,7 @@
     </insert>
 
     <!-- Select a currency by code -->
-    <select id="selectCurrencyByCode" parameterType="String" resultType="CurrencyReference">
+    <select id="selectCurrencyByCode" parameterType="String" resultMap="CurrencyReferenceMap">
         SELECT code, name, symbol, decimal_places AS decimalPlaces, gmt_create AS gmtCreate, gmt_modified AS gmtModified
         FROM currency_reference
         WHERE code = #{code}

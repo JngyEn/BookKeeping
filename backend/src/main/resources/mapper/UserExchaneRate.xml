@@ -3,8 +3,17 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper">
+    <resultMap id="UserExchangeRateMap" type="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+        <result property="id" column="id"/>
+        <result property="userUuid" column="user_uuid"/>
+        <result property="baseCurrency" column="base_currency"/>
+        <result property="targetCurrency" column="target_currency"/>
+        <result property="rate" column="rate"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="gmtCreate" column="gmt_create"/>
+    </resultMap>
     <!-- 查询操作，根据 userUuid、baseCurrency 和 targetCurrency 查询记录 -->
-    <select id="selectByUuidAndCurrency" resultType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+    <select id="selectByUuidAndCurrency" resultMap="UserExchangeRateMap">
         SELECT * FROM user_exchange_rate
         WHERE user_uuid = #{userUuid}
           AND base_currency = #{baseCurrency}
@@ -30,7 +39,7 @@
     </delete>
 
     <!-- 查询所有记录 -->
-    <select id="selectAll" resultType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+    <select id="selectAll" resultMap="UserExchangeRateMap">
         SELECT * FROM user_exchange_rate
     </select>
 </mapper>

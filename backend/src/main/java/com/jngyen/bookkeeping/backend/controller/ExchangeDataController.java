@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
-public class ExchangeDateController {
+public class ExchangeDataController {
     @Autowired
     private ExchangeRateService exchangeRateService;
     @Autowired 
