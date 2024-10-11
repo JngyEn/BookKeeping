@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.jngyen.bookkeeping.backend.mapper.UserConfigMapper;
 import com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper;
-import com.jngyen.bookkeeping.backend.pojo.dto.UserConfigDTO;
-import com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO;
-import com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserExchangeRatePO;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 
 import lombok.extern.slf4j.Slf4j;

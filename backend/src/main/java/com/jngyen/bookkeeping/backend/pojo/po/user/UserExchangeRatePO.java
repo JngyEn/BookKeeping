@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.pojo.po;
+package com.jngyen.bookkeeping.backend.pojo.po.user;
 
 import java.time.LocalDateTime;
 import java.math.BigDecimal;

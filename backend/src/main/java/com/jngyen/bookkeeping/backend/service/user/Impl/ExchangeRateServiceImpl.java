@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper;
-import com.jngyen.bookkeeping.backend.pojo.dto.UserConfigDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO;
-import com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
 import com.jngyen.bookkeeping.backend.service.common.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.ExchangeRateService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;

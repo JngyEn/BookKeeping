@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserAccountMapper">
-    <resultMap type="com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO" id="BaseResultMap">
+    <resultMap type="com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO" id="BaseResultMap">
        <id column="id" property="id" />
        <result column="email" property="email" />
        <result column="user_name" property="userName" />
@@ -41,7 +41,7 @@
     </select>
     
     <!-- 邮箱注册并等待验证码通过 -->
-    <insert id="insertUnverityRegister" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO">
+    <insert id="insertUnverityRegister" parameterType="com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO">
         INSERT INTO user_account (id, email, user_name, password, uuid, is_email_verified, gmt_create, gmt_modified)
         VALUES (#{id}, #{email}, #{userName}, #{password}, #{uuid}, #{emailVerified},  #{gmtCreate}, #{gmtModified})
     </insert>

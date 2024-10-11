@@ -1,6 +1,6 @@
 package com.jngyen.bookkeeping.backend.service.user;
 
-import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 
 public interface RegisterService {
    

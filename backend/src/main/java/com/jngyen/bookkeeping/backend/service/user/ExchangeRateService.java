@@ -3,7 +3,7 @@ package com.jngyen.bookkeeping.backend.service.user;
 
 import org.springframework.stereotype.Service;
 
-import com.jngyen.bookkeeping.backend.pojo.dto.UserConfigDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
 
 
 @Service

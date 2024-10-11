@@ -1,6 +1,6 @@
 package com.jngyen.bookkeeping.backend.service.common;
 
-import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 
 public interface EmailService {
 

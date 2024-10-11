@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.pojo.po;
+package com.jngyen.bookkeeping.backend.pojo.po.user;
 
 import lombok.Data;
 

@@ -2,7 +2,7 @@ package com.jngyen.bookkeeping.backend.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.jngyen.bookkeeping.backend.pojo.po.VerifyCodePO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.VerifyCodePO;
 
 
 @Mapper

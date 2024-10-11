@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.jngyen.bookkeeping.backend.mapper.UserAccountMapper;
 import com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper;
-import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
-import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
-import com.jngyen.bookkeeping.backend.pojo.po.VerifyCodePO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.VerifyCodePO;
 import com.jngyen.bookkeeping.backend.service.common.EmailService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 import com.jngyen.bookkeeping.backend.service.user.RegisterService;

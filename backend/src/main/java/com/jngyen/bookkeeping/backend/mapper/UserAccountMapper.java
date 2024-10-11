@@ -3,7 +3,7 @@ package com.jngyen.bookkeeping.backend.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.jngyen.bookkeeping.backend.pojo.po.UserAccountPO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO;
 
 import java.util.List;
 

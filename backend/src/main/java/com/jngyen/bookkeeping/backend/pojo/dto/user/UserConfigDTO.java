@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.pojo.dto;
+package com.jngyen.bookkeeping.backend.pojo.dto.user;
 
 import lombok.Data;
 

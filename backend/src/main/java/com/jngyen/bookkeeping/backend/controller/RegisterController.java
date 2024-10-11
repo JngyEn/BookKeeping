@@ -3,7 +3,7 @@ package com.jngyen.bookkeeping.backend.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jngyen.bookkeeping.backend.common.Result;
-import com.jngyen.bookkeeping.backend.pojo.dto.UserDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 import com.jngyen.bookkeeping.backend.service.user.RegisterService;
 
 import lombok.extern.slf4j.Slf4j;

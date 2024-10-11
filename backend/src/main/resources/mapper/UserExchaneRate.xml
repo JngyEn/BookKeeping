@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper">
-    <resultMap id="UserExchangeRateMap" type="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+    <resultMap id="UserExchangeRateMap" type="com.jngyen.bookkeeping.backend.pojo.po.user.UserExchangeRatePO">
         <result property="id" column="id"/>
         <result property="userUuid" column="user_uuid"/>
         <result property="baseCurrency" column="base_currency"/>
@@ -21,7 +21,7 @@
     </select>
 
     <!-- 插入操作与更新，添加新的汇率记录，依据三key组合 uuid、base、target -->
-    <insert id="insertOrUpdate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.UserExchangeRatePO">
+    <insert id="insertOrUpdate" parameterType="com.jngyen.bookkeeping.backend.pojo.po.user.UserExchangeRatePO">
         INSERT INTO user_exchange_rate (user_uuid, base_currency, target_currency, rate, gmt_modified, gmt_create)
         VALUES (#{userUuid}, #{baseCurrency}, #{targetCurrency}, #{rate}, NOW(), NOW())
         ON DUPLICATE KEY UPDATE

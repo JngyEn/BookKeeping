@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jngyen.bookkeeping.backend.common.Result;
-import com.jngyen.bookkeeping.backend.pojo.dto.UserConfigDTO;
-import com.jngyen.bookkeeping.backend.pojo.po.UserConfigPO;
+import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
 import com.jngyen.bookkeeping.backend.service.common.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.ExchangeRateService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;

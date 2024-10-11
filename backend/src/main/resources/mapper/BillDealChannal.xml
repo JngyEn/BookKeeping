@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper">
-    <resultMap id="BillDealChannalMap" type="com.jngyen.bookkeeping.backend.pojo.po.BillDealChannalPO">
+    <resultMap id="BillDealChannalMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannalPO">
         <result property="id" column="id"/>
         <result property="dealChannal" column="deal_channal"/>
         <result property="userUuid" column="user_uuid"/>
@@ -27,6 +27,13 @@
         VALUES (#{dealChannal}, #{userUuid}, NOW(), NOW())
     </insert>
 
+    <!-- 重命名channel名 -->
+    <update id="updateDealChannal">
+        UPDATE bill_deal_channal
+        SET deal_channal = #{newDealChannal},
+            gmt_modified = NOW()
+        WHERE user_uuid = #{userUuid} AND deal_channal = #{dealChannal}
+    </update>
     <!-- Delete a specific deal channel -->
     <delete id="deleteDealChannal">
         DELETE FROM bill_deal_channal 
