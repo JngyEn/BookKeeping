@@ -3,6 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.CurrencyReferenceMapper">
+
     <!-- 定义resultMap，用于字段与属性的映射 -->
     <resultMap id="CurrencyReferenceMap" type="com.jngyen.bookkeeping.backend.pojo.po.CurrencyReference">
         <result property="code" column="code"/>
