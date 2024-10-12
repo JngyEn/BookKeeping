@@ -2,6 +2,7 @@ package com.jngyen.bookkeeping.backend.service.bill;
 
 import java.util.List;
 
+import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannalDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannalPO;
 
 
@@ -13,8 +14,8 @@ public interface BillDealChannalService {
     boolean checkChannalExists(String userUuid, String dealChannal);
 
     // 添加 channal
-    String addDealChannal(BillDealChannalPO billDealChannal);
+    String addDealChannal(BillDealChannalDTO billDealChannal);
 
     // 删除 channal
-    String removeDealChannal(String userUuid, String dealChannal);
+    String removeDealChannal(BillDealChannalDTO billDealChannalDTO);
 }
