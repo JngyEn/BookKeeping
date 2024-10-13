@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillDealTypeMapper">
+  <resultMap id="BillDealTypeMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealTypePO">
+        <result property="id" column="id"/>
+        <result property="dealType" column="deal_Type"/>
+        <result property="userUuid" column="user_uuid"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+    
+    <!-- Get all deal Types for a user -->
+    <select id="getAllTypesByUser" resultMap="BillDealTypeMap">
+        SELECT * FROM bill_deal_Type WHERE user_uuid = #{userUuid}
+    </select>
+
+    <!-- Check if a specific deal Type exists for a user -->
+    <select id="checkTypeExists" resultType="int">
+        SELECT COUNT(1) FROM bill_deal_Type 
+        WHERE user_uuid = #{userUuid} AND deal_Type = #{dealType}
+    </select>
+
+    <!-- Add a new deal Type -->
+    <insert id="insertDealType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO bill_deal_Type (deal_Type, user_uuid, gmt_create, gmt_modified)
+        VALUES (#{dealType}, #{userUuid}, NOW(), NOW())
+    </insert>
+
+    <!-- 重命名Type名 -->
+    <update id="updateDealType">
+        UPDATE bill_deal_Type
+        SET deal_Type = #{newDealType},
+            gmt_modified = NOW()
+        WHERE user_uuid = #{userUuid} AND deal_Type = #{dealType}
+    </update>
+    <!-- Delete a specific deal Type -->
+    <delete id="deleteDealType">
+        DELETE FROM bill_deal_Type 
+        WHERE user_uuid = #{userUuid} AND deal_Type = #{dealType}
+    </delete>
+
+</mapper>
