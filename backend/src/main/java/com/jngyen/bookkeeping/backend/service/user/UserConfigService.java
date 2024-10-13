@@ -8,8 +8,6 @@ public interface UserConfigService {
     // 获取用户配置
     public UserConfigPO queryUserConfigByUuid(String uuid);
     
-    // 设置默认新用户配置
-    public UserConfigPO defaultUserConfig(String uuid);
     // 修改用户本币以及颜色
     public String setBaseCurrency(UserConfigDTO newConfig);
 

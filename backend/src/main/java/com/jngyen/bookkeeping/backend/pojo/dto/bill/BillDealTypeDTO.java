@@ -10,4 +10,5 @@ public class BillDealTypeDTO {
     @NonNull
     private String userUuid;
     private String newDealTypeName;
+    private String newDealTypeColor;
 }

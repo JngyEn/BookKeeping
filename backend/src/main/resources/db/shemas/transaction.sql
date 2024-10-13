@@ -2,6 +2,7 @@
 CREATE TABLE IF NOT EXISTS bill_deal_type (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_uuid VARCHAR(36),
+    deal_type_color VARCHAR(9),
     deal_type VARCHAR(255) NOT NULL,
     gmt_create DATETIME,
     gmt_modified DATETIME
@@ -11,6 +12,7 @@ CREATE TABLE IF NOT EXISTS bill_deal_type (
 CREATE TABLE IF NOT EXISTS bill_deal_channal (
     id INT PRIMARY KEY AUTO_INCREMENT,
     deal_channal VARCHAR(255),
+    deal_channal_color VARCHAR(9),
     user_uuid VARCHAR(36),
     gmt_create DATETIME,
     gmt_modified DATETIME

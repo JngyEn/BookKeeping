@@ -8,6 +8,7 @@ import com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.VerifyCodePO;
+import com.jngyen.bookkeeping.backend.service.common.DefaultNewUserConfig;
 import com.jngyen.bookkeeping.backend.service.common.EmailService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 import com.jngyen.bookkeeping.backend.service.user.RegisterService;
@@ -27,6 +28,8 @@ public class RegisterServiceImpl implements RegisterService{
     EmailService emailService;
     @Autowired
     UserConfigService userConfigService;
+    @Autowired
+    DefaultNewUserConfig defaultNewUserConfig;
     // 注册未验证用户
     @Override
     public String registerUnveritRegister(UserDTO UserAccount) {
@@ -95,7 +98,7 @@ public class RegisterServiceImpl implements RegisterService{
         userAccountMapper.updateVerify(userAccount.getEmail());
 
         // 创建初始化用户配置
-        userConfigService.defaultUserConfig(userAccount.getUuid());
+        defaultNewUserConfig.defaultAllConfig(userAccount.getUuid());
         return "Email verified, Register successfully";
     }
 

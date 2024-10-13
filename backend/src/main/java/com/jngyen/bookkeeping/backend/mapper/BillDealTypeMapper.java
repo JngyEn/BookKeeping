@@ -12,6 +12,9 @@ public interface BillDealTypeMapper {
      // 获取某个用户的全部 Type
     List<BillDealTypePO> getAllTypesByUser(@Param("userUuid") String userUuid);
 
+    // 获取某个用户的某个 Type
+    BillDealTypePO getTypeByUser(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
+
     // 检查某个值是不是某个用户的 Type
     int checkTypeExists(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
 

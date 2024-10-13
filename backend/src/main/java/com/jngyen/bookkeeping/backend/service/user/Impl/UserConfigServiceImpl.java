@@ -27,17 +27,7 @@ public class UserConfigServiceImpl implements UserConfigService {
         return userConfigMapper.getUserConfigByUuid(uuid);
     }
     
-    // 设置默认新用户配置
-    @Override
-    public UserConfigPO defaultUserConfig(String uuid) {
-        UserConfigPO userConfig = new UserConfigPO();
-        userConfig.setUuid(uuid);
-        userConfig.setBaseCurrency("CNY");
-        userConfig.setBaseCurrencyColor("#FFEC00");
-        userConfigMapper.insertUserConfig(userConfig);
-        return userConfig;
-    }
-    
+
     // 修改用户本币以及颜色
     @Override
     public String setBaseCurrency(UserConfigDTO newConfig) {    

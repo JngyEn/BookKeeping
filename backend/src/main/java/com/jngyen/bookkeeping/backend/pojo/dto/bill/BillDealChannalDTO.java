@@ -10,4 +10,5 @@ public class BillDealChannalDTO {
     @NonNull
     private String userUuid;
     private String newDealChannalName;
+    private String newDealChannalColor;
 }

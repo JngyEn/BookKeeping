@@ -12,6 +12,9 @@ public interface BillDealChannalMapper {
     // 获取某个用户的全部 channal
     List<BillDealChannalPO> getAllChannalsByUser(@Param("userUuid") String userUuid);
 
+    // 获取某个用户的某个 channal
+    BillDealChannalPO getChannalByUser(@Param("userUuid") String userUuid, @Param("dealChannal") String dealChannal);
+
     // 检查某个值是不是某个用户的 channal
     int checkChannalExists(@Param("userUuid") String userUuid, @Param("dealChannal") String dealChannal);
 
