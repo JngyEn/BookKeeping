@@ -16,7 +16,9 @@ CREATE TABLE user_config (
     user_uuid INT PRIMARY KEY, 
     gmt_create DATETIME,
     gmt_modified DATETIME,
-    home_currency CHAR(3) NOT NULL
+    home_currency CHAR(3) NOT NULL,
+    is_use_home_currency TINYINT(1) NOT NULL DEFAULT 0,
+    is_use_custom_data TINYINT(1) NOT NULL DEFAULT 0
 )
 
 -- 验证码表

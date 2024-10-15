@@ -5,10 +5,12 @@ import lombok.Data;
 
 @Data
 public class BillDealTypeDTO {
-    @NonNull
-    private String dealType;
+    
     @NonNull
     private String userUuid;
+    @NonNull
+    private String dealType;
+    private String dealTypeColor;
     private String newDealTypeName;
     private String newDealTypeColor;
 }

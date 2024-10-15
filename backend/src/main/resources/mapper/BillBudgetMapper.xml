@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillBudgetMapper">
+
+    <!-- resultMap 定义 -->
+    <resultMap id="BillBudgetMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO">
+        <id property="id" column="id" />
+        <result property="budgetTimeType" column="budget_time_type" typeHandler="com.jngyen.bookkeeping.backend.handler.BudgetTimeTypeHandler" />
+        <result property="userUuid" column="user_uuid" />
+        <result property="budgetUuid" column="uuid" />
+        <result property="categoryName" column="category_name" />
+        <result property="budgetAmount" column="budget_amount" />
+        <result property="homeCurrency" column="home_currency" />
+        <result property="startDate" column="start_date" />
+        <result property="endDate" column="end_date" />
+        <result property="remainingAmount" column="remaining_amount" />
+        <result property="gmtCreate" column="gmt_create" />
+        <result property="gmtModified" column="gmt_modified" />
+    </resultMap>
+
+   
+     <!-- 新增预算 -->
+    <insert id="insertBudget" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO">
+        INSERT INTO bill_budget
+        (budget_time_type, user_uuid, category_name, budget_amount, home_currency,
+         start_date, end_date, remaining_amount, gmt_create, gmt_modified, uuid)
+        VALUES
+        (#{budgetTimeType}, #{userUuid}, #{categoryName}, #{budgetAmount}, #{homeCurrency},
+         #{startDate}, #{endDate}, #{remainingAmount}, #{gmtCreate}, #{gmtModified}, #{budgetUuid})
+    </insert>
+
+    <!-- 删除预算 根据ID -->
+    <delete id="deleteBudgetById" parameterType="int">
+        DELETE FROM bill_budget WHERE id = #{budgetId}
+    </delete>
+
+    <!-- 更新预算 根据ID -->
+    <update id="updateBudgetById" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO">
+        UPDATE bill_budget
+        SET budget_time_type = #{budgetTimeType},
+            category_name = #{categoryName},
+            budget_amount = #{budgetAmount},
+            home_currency = #{homeCurrency},
+            start_date = #{startDate},
+            end_date = #{endDate},
+            remaining_amount = #{remainingAmount},
+            gmt_modified = #{gmtModified}
+        WHERE id = #{id}
+    </update>
+
+     <!-- 根据UUID查询预算 -->
+    <select id="selectBudgetByUuid" parameterType="String" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget WHERE uuid = #{budgetUuid}
+    </select>
+
+     <!-- 查询用户最新的某类预算 -->
+    <select id="selectNewestBudget" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+          AND category_name = #{categoryName}
+          AND budget_time_type = #{timeType}
+        ORDER BY gmt_create DESC
+        LIMIT 1
+    </select>
+
+    <!-- 查询用户某交易类型、时间类型的所有预算 -->
+    <select id="findBudgetsByUserAndCategoryAndTimeType" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+          AND category_name = #{categoryName}
+          AND budget_time_type = #{timeType}
+    </select>
+
+    <!-- 查询用户某交易类型的所有预算 -->
+    <select id="findBudgetsByUserAndCategory" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+          AND category_name = #{categoryName}
+    </select>
+
+    <!-- 查询用户某时间类型的所有预算 -->
+    <select id="findBudgetsByUserAndTimeType" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+          AND budget_time_type = #{timeType}
+    </select>
+
+   <!-- 通过时间范围查询用户全部类型的预算 -->
+    <select id="findBudgetsByUserAndTimeRange" resultMap="BillBudgetMap">
+        SELECT * 
+        FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+        AND (
+            (start_date BETWEEN #{startDate} AND #{endDate})
+            OR (end_date BETWEEN #{startDate} AND #{endDate})
+            OR (#{startDate} BETWEEN start_date AND end_date)
+            OR (#{endDate} BETWEEN start_date AND end_date)
+        )
+    </select>
+
+
+
+    <!-- 检查是否存在时间段冲突的预算 -->
+    <select id="checkBudgetExist"  parameterType="com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO" resultMap="BillBudgetMap">
+        SELECT * FROM bill_budget
+        WHERE user_uuid = #{userUuid}
+          AND category_name = #{categoryName}
+          AND budget_time_type = #{budgetTimeType, typeHandler=com.jngyen.bookkeeping.backend.handler.BudgetTimeTypeHandler}
+          AND (
+              (#{startDate} BETWEEN start_date AND end_date) 
+              OR 
+              (#{endDate} BETWEEN start_date AND end_date)
+              OR 
+              (start_date BETWEEN #{startDate} AND #{endDate})
+          )
+    </select>
+
+</mapper>

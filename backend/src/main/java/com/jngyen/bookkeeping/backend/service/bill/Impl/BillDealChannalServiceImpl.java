@@ -3,6 +3,7 @@ package com.jngyen.bookkeeping.backend.service.bill.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jngyen.bookkeeping.backend.factory.dto.CommonDtoFactory;
 import com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannalDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannalPO;
@@ -17,8 +18,10 @@ public class BillDealChannalServiceImpl implements BillDealChannalService {
 
     // 获取某个用户的全部 channal
     @Override
-    public List<BillDealChannalPO> getAllChannalsByUser(String userUuid) {
-        return billDealChannalMapper.getAllChannalsByUser(userUuid);
+    public List<BillDealChannalDTO> getAllChannalsByUser(String userUuid) {
+        List<BillDealChannalPO> results= billDealChannalMapper.getAllChannalsByUser(userUuid);
+        List<BillDealChannalDTO> res = CommonDtoFactory.convertToDto(results, BillDealChannalDTO.class);
+        return res;
     }
 
     // 检查某个值是不是某个用户的 channal

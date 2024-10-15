@@ -16,6 +16,7 @@ public class UserConfigPO {
     private String baseCurrency;
     private String baseCurrencyColor;
     private Boolean isUseCustomRate;
+    private Boolean isUseCustomData;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
 }

@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS bill_budget (
     id INT AUTO_INCREMENT PRIMARY KEY,        -- 预算的唯一标识
     budget_time_type ENUM('WEEKLY', 'MONTHLY', 'YEARLY') NOT NULL,  -- 预算类型：周、月或年
     user_uuid CHAR(36) NOT NULL,             -- 用户的UUID
+    uuid VARCHAR(36) NOT NULL,                -- 预算的UUID
     category_name VARCHAR(255) NOT NULL,      -- 交易类型、交易渠道或者总额度，通过复合索引加速匹配
     budget_amount DECIMAL(10, 2) NOT NULL,    -- 预算总金额
     home_currency CHAR(3) NOT NULL,            -- 预算的货币种类

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jngyen.bookkeeping.backend.factory.dto.CommonDtoFactory;
 import com.jngyen.bookkeeping.backend.mapper.BillDealTypeMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealTypeDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealTypePO;
@@ -17,8 +18,10 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
 
     // 获取某个用户的全部 Type
     @Override
-    public List<BillDealTypePO> getAllTypesByUser(String userUuid) {
-        return billDealTypeMapper.getAllTypesByUser(userUuid);
+    public List<BillDealTypeDTO> getAllTypesByUser(String userUuid) {
+        List<BillDealTypePO> results = billDealTypeMapper.getAllTypesByUser(userUuid);
+        List<BillDealTypeDTO> res = CommonDtoFactory.convertToDto(results, BillDealTypeDTO.class);
+        return res;
     }
 
     // 检查某个值是不是某个用户的 Type
