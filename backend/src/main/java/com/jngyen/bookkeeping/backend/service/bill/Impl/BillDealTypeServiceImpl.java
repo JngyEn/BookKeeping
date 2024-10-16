@@ -68,6 +68,6 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
         }
     }
 
-    //TODO： 给Type 改名
+    //TODO: 给Type 改名
     // 同时要修改其他 bill 表中的Type名，避免外键的使用
 }

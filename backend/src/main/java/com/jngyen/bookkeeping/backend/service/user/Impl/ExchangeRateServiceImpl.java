@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.jngyen.bookkeeping.backend.mapper.ExchangeRateMapper;
+import com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.ExchangeRatePO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
-import com.jngyen.bookkeeping.backend.service.common.GetExchangeRate;
+import com.jngyen.bookkeeping.backend.pojo.po.user.UserExchangeRatePO;
+import com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.ExchangeRateService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 
@@ -28,6 +30,8 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     private ExchangeRateMapper exchangeRateMapper;
     @Autowired
     private UserConfigService userConfigService;
+    @Autowired
+    private UserExchangeRateMapper userExchangeRateMapper;
 
     // 更新某一本币的全部实时汇率，包括反向
     @Override
@@ -38,9 +42,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
         ExchangeRatePO oldRatePO = exchangeRateMapper.getExchangeRate(userConfig.getBaseCurrency(),
         userConfig.getBaseCurrency());
         log.info("oldRatePO: {}", oldRatePO);
-        if (oldRatePO != null && oldRatePO.getGmtModified().isAfter(LocalDateTime.now().minusDays(1))) {
-            return "Base Currency " +oldRatePO.getBaseCurrency() +  " Already updated in:" + oldRatePO.getGmtModified();
-        }
+        
 
         Mono<JsonNode> nowRate = ExchangeRate.getExchangeRateByBaseCurrency(userConfig.getBaseCurrency())
                 .onErrorResume(
@@ -69,18 +71,32 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
         });
         return "Update rate of today success, base currency is " + userConfig.getBaseCurrency();
     }
-
+    
     // 获取某一本币兑某一外币的实时汇率
     @Override
-    public String getRateByBaseCurrencyAndTargetCurrency(UserConfigDTO userConfigDTO) {
-        UserConfigPO userConfig = userConfigService.queryUserConfigByUuid(userConfigDTO.getUserUuid());
-        ExchangeRatePO ratePO = exchangeRateMapper.getExchangeRate(userConfig.getBaseCurrency(),
-                userConfigDTO.getTargetCurrency());
+    public BigDecimal getRateByBaseCurrencyAndTargetCurrency(String baseCurrency, String targetCurrency) {
+        ExchangeRatePO ratePO = exchangeRateMapper.getExchangeRate(baseCurrency, targetCurrency);
         if (ratePO == null) {
-            return "Rate not found, please update rate first";
+            log.error("Rate of {} and {} is not found", baseCurrency, targetCurrency);
+            return null;
         }
-        return "Rate of " + userConfig.getBaseCurrency() + " to " + userConfigDTO.getTargetCurrency() + " is "
-                + ratePO.getRate();
+        return ratePO.getRate();
+    }
+
+     // 获取用户汇率
+    public BigDecimal getUserRate(String userUuid, String baseCurrency, String targetCurrency) {
+        UserConfigPO userConfig = userConfigService.queryUserConfigByUuid(userUuid);
+        if (userConfig.getIsUseCustomRate()) {
+            UserExchangeRatePO userExchangeRate = userExchangeRateMapper.selectByUuidAndCurrency(userUuid, baseCurrency,
+                    targetCurrency);
+            if (userExchangeRate == null) {
+                log.warn("userExchangeRate is {}", userExchangeRate);
+                return null;
+            }
+            // HACK: 后续改用抛出异常，让用户添加自定义汇率
+            return userExchangeRate.getRate();
+        }
+        return getRateByBaseCurrencyAndTargetCurrency(baseCurrency, targetCurrency);
     }
 
 }

@@ -8,8 +8,8 @@ import com.jngyen.bookkeeping.backend.mapper.VerifyCodeMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.VerifyCodePO;
-import com.jngyen.bookkeeping.backend.service.common.DefaultNewUserConfig;
-import com.jngyen.bookkeeping.backend.service.common.EmailService;
+import com.jngyen.bookkeeping.backend.service.common.user.DefaultNewUserConfig;
+import com.jngyen.bookkeeping.backend.service.common.user.EmailService;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 import com.jngyen.bookkeeping.backend.service.user.RegisterService;
 
@@ -41,7 +41,7 @@ public class RegisterServiceImpl implements RegisterService{
     
         LocalDateTime date = LocalDateTime.now();
         // 验证用户是否存在
-        //TODO: 临时验证注册状态逻辑，后续用枚举类等手段优化，1处
+        //HACK: 临时验证注册状态逻辑，后续用枚举类等手段优化，1处
         int status = verifyUserStatus(UserAccount);
         if (status == 2) {
             return "Successfully login";
@@ -68,7 +68,7 @@ public class RegisterServiceImpl implements RegisterService{
     public String verifyEmail(UserDTO user) {
 
         // 验证用户是否存在
-        // TODO: 临时验证注册状态逻辑，后续用枚举类等手段优化，2处
+        // HACK: 临时验证注册状态逻辑，后续用枚举类等手段优化，2处
         int status = verifyUserStatus(user);
         if (status == 2) {
             return "Successfully login";
@@ -115,7 +115,7 @@ public class RegisterServiceImpl implements RegisterService{
         return 2;
     }
 
-    // TODO: 后续使用mysql来构建缓存，验证码不存到数据库中
+    // HACK: 后续使用mysql来构建缓存，验证码不存到数据库中
     // 发送验证码
     @Override
     public void sendVerificationCode(UserDTO newUserAccount) {

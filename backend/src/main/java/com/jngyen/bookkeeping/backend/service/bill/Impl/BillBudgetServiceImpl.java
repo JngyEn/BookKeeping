@@ -1,6 +1,7 @@
 package com.jngyen.bookkeeping.backend.service.bill.Impl;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,8 +14,10 @@ import com.jngyen.bookkeeping.backend.factory.dto.CommonDtoFactory;
 import com.jngyen.bookkeeping.backend.mapper.BillBudgetMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO;
-
+import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
+import com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency;
+import com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +32,10 @@ public class BillBudgetServiceImpl {
     private BillDealTypeService billDealTypeService;
     @Autowired
     private UserConfigService userConfigService;
+    @Autowired
+    private GetExchangeRate getExchangeRate;
+    @Autowired
+    private ConvertCurrency convertCurrency;
 
     // 实现BillBudgetService类
     /**
@@ -40,11 +47,9 @@ public class BillBudgetServiceImpl {
      */
     public String insertBudget(BillBudgetDTO newBudget) {
         // 检查预算是否冲突
-        BillBudgetPO existBudget = checkBudgetConfilct(newBudget);
-        if (existBudget != null) {
+        if (isBudgetConflict(newBudget)) {
             return "Budget for " + newBudget.getCategoryName() + " from " + newBudget.getStartDate() + " to "
-                    + newBudget.getEndDate() + " is conflicting with existing budget from " + existBudget.getStartDate()
-                    + " to " + existBudget.getEndDate() + ", please update it";
+                    + newBudget.getEndDate() + " conflict with exist budget please update it";
         }
         // 判断是否使用用户自定义时间区间,并设置对应时间
         setStartAndEndDate(newBudget);
@@ -85,29 +90,15 @@ public class BillBudgetServiceImpl {
         }
     }
 
-    // 更新某条预算
+    // 更新某条预算，包括时间，金额，类别
     public String updateBudget(BillBudgetDTO newBudget) {
         // 查询到对应记录
         BillBudgetPO existBudget = billBudgetMapper.selectBudgetByUuid(newBudget.getBudgetUuid());
-        if (existBudget == null) {
-            return "Budget for " + newBudget.getCategoryName() + " from " + newBudget.getStartDate() + " to "
-                    + newBudget.getEndDate() + " does not exist.";
+        // 更新本币或者金额
+        if(newBudget.getHomeCurrency() != existBudget.getHomeCurrency() || newBudget.getBudgetAmount() != existBudget.getBudgetAmount()) {
+            updateBaseCurrencyOrBudgetAmount(newBudget);
         }
-
-        // 查询改变
-        BillBudgetDTO existBudgetDTO = CommonDtoFactory.convertToDto(existBudget, BillBudgetDTO.class);
-        if (existBudgetDTO.equals(newBudget)) {
-            return "No change detected, Pleace check it.";
-        }
-
-        // 查询冲突
-        BillBudgetPO existBudgetConflict = checkBudgetConfilct(newBudget);
-        log.info("existBudgetConflict: {}", existBudgetConflict);
-        if (existBudgetConflict != null && !existBudgetConflict.getBudgetUuid().equals(newBudget.getBudgetUuid())) {
-            return "Budget for " + newBudget.getCategoryName() + " from " + newBudget.getStartDate() + " to "
-                    + newBudget.getEndDate() + " conflict with exist budget please update it";
-        }
-        // 更新对应记录
+        // 更新对应时间范围或者类别
         setStartAndEndDate(newBudget);
         BeanUtils.copyProperties(newBudget, existBudget);
         existBudget.setGmtModified(LocalDateTime.now());
@@ -116,11 +107,28 @@ public class BillBudgetServiceImpl {
                 + existBudget.getEndDate() + " updated successfully.";
     }
 
-    // 更新余额，供其他账单使用
-    public void updateRemainingAmount(BillBudgetDTO updatedBudget, BigDecimal amount) {
-        BillBudgetPO existBudget = billBudgetMapper.selectBudgetByUuid(updatedBudget.getBudgetUuid());
-        existBudget.setRemainingAmount(existBudget.getRemainingAmount().subtract(amount));
-        billBudgetMapper.updateBudgetById(existBudget);
+    // 更新某条预算的本币或者预算金额
+    public void updateBaseCurrencyOrBudgetAmount(BillBudgetDTO newBudget) {
+        // 检查 budget 是否合规
+        if (!isBudgetExists(newBudget.getBudgetUuid()) || !isBudgetChange(newBudget) || isBudgetConflict(newBudget)) {
+            log.error("Check your budget's time or uuid or range or category or amount");
+        }
+        // 更新本币或者与预算金额
+        BillBudgetPO existBudget = billBudgetMapper.selectBudgetByUuid(newBudget.getBudgetUuid());
+        if (!getExchangeRate.isCurrencyExist(newBudget.getHomeCurrency())
+                || !getExchangeRate.isCurrencyExist(existBudget.getHomeCurrency())) {
+            log.error("Currency {} does not exist", newBudget.getHomeCurrency());
+            return;
+        }
+        BigDecimal newAmount = convertCurrency.convertCurrency(newBudget.getUserUuid(), newBudget.getHomeCurrency(),
+                existBudget.getHomeCurrency(), newBudget.getBudgetAmount());
+        if (newAmount == null) {
+            // HACK: 后续改用使用异常抛出机制
+            log.error("Failed to convert currency");
+            return;
+        }
+        newBudget.setBudgetAmount(newAmount);
+        newBudget.setHomeCurrency(existBudget.getHomeCurrency());
     }
 
     // 查询某个时间类型预算最新预算:不知道Uuid的情况
@@ -186,10 +194,41 @@ public class BillBudgetServiceImpl {
         return CommonDtoFactory.convertToDto(result, BillBudgetDTO.class);
     }
 
-    
-
     // #region 通用方法
-    // 判断时间类型，返回对应时间
+
+    // 检查预算是否存在, true 为存在
+    public boolean isBudgetExists(String budgetUuid) {
+        BillBudgetPO existBudget = billBudgetMapper.selectBudgetByUuid(budgetUuid);
+        if (existBudget == null) {
+            return false;
+        }
+        return true;
+    }
+
+    // 检查传入预算是否改变
+    public boolean isBudgetChange(BillBudgetDTO newBudget) {
+        BillBudgetPO existBudget = billBudgetMapper.selectBudgetByUuid(newBudget.getBudgetUuid());
+        BillBudgetDTO existBudgetDTO = CommonDtoFactory.convertToDto(existBudget, BillBudgetDTO.class);
+        if (existBudgetDTO.equals(newBudget)) {
+            return false;
+        }
+        return true;
+    }
+
+    // 检查是否存在预算时间冲突
+    public boolean isBudgetConflict(BillBudgetDTO newBudget) {
+        BillBudgetPO existBudgetConflict = getBudgetConfilct(newBudget);
+        if (existBudgetConflict != null && ! (existBudgetConflict.getBudgetUuid()==newBudget.getBudgetUuid())) {
+            return false;
+        }
+        log.info("Conflicting budget found BudgetUuid: {}, and inputBudgetUuid: {}",
+        existBudgetConflict.getBudgetUuid(),
+        newBudget.getBudgetUuid());
+
+        return true;
+    }
+
+    // 判断时间类型，设置时间
     public void setStartAndEndDate(BillBudgetDTO newBudget) {
         if (newBudget.getStartDate() == null) {
             log.error("startDate is null");
@@ -219,8 +258,8 @@ public class BillBudgetServiceImpl {
         }
     }
 
-    // 日期检查方法，复合索引查询, 通过现在时间是否处在已有同类同名记录的有限区间内来判断，有就返回对应PO，无返回null
-    public BillBudgetPO checkBudgetConfilct(BillBudgetDTO newBudget) {
+    // 检查日期方法，复合索引查询, 通过现在时间是否处在已有同类同名记录的有限区间内来判断，有就返回对应PO，无返回null
+    public BillBudgetPO getBudgetConfilct(BillBudgetDTO newBudget) {
         List<BillBudgetPO> result = billBudgetMapper.checkBudgetExist(newBudget);
         if (result.size() == 0) {
             return null;
@@ -240,6 +279,50 @@ public class BillBudgetServiceImpl {
             return true;
         }
         return false;
+    }
+
+    // 检查DTO日期是否正确, true 为正确
+    public boolean checkDate(BillBudgetDTO newBudget) {
+        // 是否使用用户自定义时间区间
+        if (userConfigService.queryUserConfigByUuid(newBudget.getUserUuid()).getIsUseCustomData()) {
+            if (newBudget.getStartDate() == null || newBudget.getEndDate() == null
+                    || newBudget.getStartDate().isAfter(newBudget.getEndDate())) {
+                log.error(newBudget.getStartDate() + " is after " + newBudget.getEndDate());
+                return false;
+            }
+            return true;
+        } else if (newBudget.getStartDate() == null) {
+            return false;
+        }
+        return true;
+    }
+
+    // 更新余额，供其他账单使用，使用减法, date是交易时间
+    public void updateRemainingAmount(String userUuid, String dealtype, String targetCurrency, BigDecimal amount,
+            LocalDateTime date) {
+
+        BillBudgetDTO updatedBudget = new BillBudgetDTO();
+        updatedBudget.setCategoryName(dealtype);
+        updatedBudget.setUserUuid(userUuid);
+        List<BillBudgetDTO> budgets = selectBudgetsByDealType(updatedBudget);
+        // 将金额转换为记账时的本币
+        BigDecimal amountInHomeCurrency = convertCurrency.convertCurrency(userUuid, targetCurrency,
+                updatedBudget.getHomeCurrency(), amount);
+        // 更新周、月、年的对应预算
+        updateRemainingAmountByTimeType(budgets, amountInHomeCurrency, BudgetTimeType.WEEKLY, date.toLocalDate());
+        updateRemainingAmountByTimeType(budgets, amountInHomeCurrency, BudgetTimeType.MONTHLY, date.toLocalDate());
+        updateRemainingAmountByTimeType(budgets, amountInHomeCurrency, BudgetTimeType.YEARLY, date.toLocalDate());
+    }
+
+    // 更新余额的辅助方法
+    public void updateRemainingAmountByTimeType(List<BillBudgetDTO> budgets, BigDecimal amount, BudgetTimeType timeType,
+            LocalDate modifiedTime) {
+        budgets.stream()
+                .filter(budget -> budget.getBudgetTimeType() == timeType)
+                .filter(budget -> (modifiedTime.isEqual(budget.getStartDate())
+                        || modifiedTime.isAfter(budget.getStartDate())) &&
+                        (modifiedTime.isEqual(budget.getEndDate()) || modifiedTime.isBefore(budget.getEndDate())))
+                .forEach(budget -> budget.setRemainingAmount(budget.getRemainingAmount().subtract(amount)));
     }
     // #endregion
 

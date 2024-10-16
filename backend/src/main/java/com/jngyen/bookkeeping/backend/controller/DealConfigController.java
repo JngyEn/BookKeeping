@@ -16,12 +16,14 @@ import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannalDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealTypeDTO;
-
 import com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
 import com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl;
 
+import lombok.extern.slf4j.Slf4j;
 
+
+@Slf4j
 @RestController
 public class DealConfigController {
     @Autowired
@@ -33,7 +35,7 @@ public class DealConfigController {
 
     //#region 交易类型的增删改查
     // 获取某个用户的全部 channal
-    // TODO: 后续用JWT验证
+    // HACK: 后续用JWT验证
     @GetMapping("/bill/billType")
     public Result<List<BillDealTypeDTO>> getAllTypesByUser(@RequestParam String userUuid) {
         List<BillDealTypeDTO> results = billDealTypeService.getAllTypesByUser(userUuid);
@@ -64,10 +66,9 @@ public class DealConfigController {
     // TODO: 给Type改名
     //#endregion
 
-
     //#region 交易渠道的增删改查
     // 获取某个用户的全部 channal
-    // TODO: 后续用JWT验证
+    // HACK: 后续用JWT验证
     @GetMapping("/bill/billChannal")
     public Result<List<BillDealChannalDTO>> getAllChannalsByUser(@RequestParam String userUuid) {
         List<BillDealChannalDTO> results = billDealChannalService.getAllChannalsByUser(userUuid);
@@ -102,14 +103,15 @@ public class DealConfigController {
     // 插入用户预算，检查全部值是否存在
     @PostMapping("/bill/newbillBudget")
     public Result<String> insertBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
-        // TODO: 后续升级为使用注解
+        // HACK: 后续升级为使用注解
         // 检查类型名是否存在
         if (!billBudgetService.checkCategoryExists(newBudget.getUserUuid(), newBudget.getCategoryName())) {
             return Result.fail("Category : " + newBudget.getCategoryName() + " not exists");
         }
         // 检查结束时间与开始时间关系
-        if (newBudget.getEndDate().isBefore(newBudget.getStartDate())) {
-            return Result.fail("End date is before start date");
+        if ( !billBudgetService.checkDate(newBudget) ) {
+            log.info(newBudget.getStartDate() + " is after " + newBudget.getEndDate());
+            return Result.fail("Budget start or end date is not correct. Please check your date and User Config");
         }
         return Result.success(billBudgetService.insertBudget(newBudget));
     }
@@ -120,13 +122,17 @@ public class DealConfigController {
         return Result.success(billBudgetService.deleteBudget(newBudget));
     }
 
-    // 更新用户预算，检查全部值是否存在,传入后端返回的预算记录
+    // 更新用户预算，前端查询到预算后传入后端，可能修改了时间，金额，类型，全部需要检测
     @PostMapping("/bill/billBudget")
     public Result<String> updateBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
-        // TODO: 后续升级为使用注解
+        // HACK: 后续升级为使用注解
         // 检查结束时间与开始时间关系
-        if (newBudget.getEndDate().isBefore(newBudget.getStartDate())) {
-            return Result.fail("End date is before start date");
+        if ( !billBudgetService.checkDate(newBudget) ) {
+            return Result.fail("Budget start or end date is not correct. Please check your date and User Config");
+        }
+        // 检查传入的预算是否合规
+        if (!billBudgetService.isBudgetExists(newBudget.getBudgetUuid()) || !billBudgetService.isBudgetChange(newBudget) || billBudgetService.isBudgetConflict(newBudget)) {
+            return Result.fail("Check your budget's time uuid or range or category or amount");
         }
         return Result.success(billBudgetService.updateBudget(newBudget));
     }
@@ -134,10 +140,10 @@ public class DealConfigController {
     // 查询某个时间类型预算最新预算:不知道Uuid的情况
     @PostMapping("/bill/newestBudget")
     public Result<BillBudgetDTO> selectNewestBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
-        // TODO: 后续升级为使用注解
+        // HACK: 后续升级为使用注解
         // 检查结束时间与开始时间关系
-        if (newBudget.getEndDate().isBefore(newBudget.getStartDate())) {
-            return Result.fail("End date is before start date");
+        if ( !billBudgetService.checkDate(newBudget) ) {
+            return Result.fail("Budget start or end date is not correct. Please check your date and User Config");
         }
         return Result.success(billBudgetService.selectNewestBudget(newBudget));
     }
@@ -145,9 +151,10 @@ public class DealConfigController {
     // 查询某个时间段内的某时间类型预算:不知道Uuid的情况下
     @PostMapping("/bill/newestBudgets")
     public Result<List<BillBudgetDTO>> selectNewestBudgets(@Validated @RequestBody BillBudgetDTO newBudget) {
-        // TODO: 后续升级为使用注解
+        // HACK: 后续升级为使用注解
         // 检查结束时间与开始时间关系
-        if (newBudget.getEndDate().isBefore(newBudget.getStartDate())) {
+        if (newBudget.getEndDate().isBefore(newBudget.getStartDate()) || newBudget.getStartDate() == null 
+            || newBudget.getEndDate() == null) {
             return Result.fail("End date is before start date");
         }
         return Result.success(billBudgetService.selectBudgetByDateRange(newBudget));
@@ -172,4 +179,5 @@ public class DealConfigController {
     }
 
     //#endregion
+
 }

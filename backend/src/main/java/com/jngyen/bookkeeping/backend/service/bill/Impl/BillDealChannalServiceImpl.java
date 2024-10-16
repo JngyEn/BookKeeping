@@ -68,6 +68,6 @@ public class BillDealChannalServiceImpl implements BillDealChannalService {
         }
     }
 
-    //TODO： 给channal 改名
+    //TODO: 给channal 改名
     // 同时要修改其他 bill 表中的channal名，避免外键的使用
     }

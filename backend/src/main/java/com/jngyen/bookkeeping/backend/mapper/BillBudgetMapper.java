@@ -18,7 +18,7 @@ public interface BillBudgetMapper {
     int deleteBudgetById(int budgetId);
 
     // 更新某条预算, 用户uuid和预算uuid不可更改
-    // TODO： 后续考虑余额是否单独更新
+    // HACK: 后续考虑余额是否单独更新
     int updateBudgetById(BillBudgetPO updatedBillBudget);
 
     // 通过uuid查询某条预算

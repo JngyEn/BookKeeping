@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.service.common.impl;
+package com.jngyen.bookkeeping.backend.service.common.user.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper;
 import com.jngyen.bookkeeping.backend.mapper.UserConfigMapper;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannalPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
-import com.jngyen.bookkeeping.backend.service.common.DefaultNewUserConfig;
+import com.jngyen.bookkeeping.backend.service.common.user.DefaultNewUserConfig;
 
 @Service
 public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{

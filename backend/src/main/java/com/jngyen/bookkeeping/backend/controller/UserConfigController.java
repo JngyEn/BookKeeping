@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
-import com.jngyen.bookkeeping.backend.service.common.GetExchangeRate;
+import com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +33,8 @@ public class UserConfigController {
             return Result.fail("BaseCurrencyColor is required, invalid request");
         }
         // 检查货币是否有效
-        if (!getExchangeRate.checkCurrency(userConfigDTO.getBaseCurrency())) {
-            return Result.fail("Currency not found, pleace check your currency");
+        if (!getExchangeRate.isCurrencyExist(userConfigDTO.getBaseCurrency())) {
+            return Result.fail("Currency not found, or pleace check your currency");
         }
         String responce = userConfigService.setBaseCurrency(userConfigDTO);
         return Result.success(responce);
@@ -47,8 +47,8 @@ public class UserConfigController {
             return Result.fail("Rate is empty, invalid request");
         }
         // 检查货币是否有效
-        if (!getExchangeRate.checkCurrency(userConfigDTO.getBaseCurrency())
-                || !getExchangeRate.checkCurrency(userConfigDTO.getTargetCurrency())) {
+        if (!getExchangeRate.isCurrencyExist(userConfigDTO.getBaseCurrency())
+                || !getExchangeRate.isCurrencyExist(userConfigDTO.getTargetCurrency())) {
             return Result.fail("Currency not found, pleace check your currency");
         }
         String responce = userConfigService.setCustomRate(userConfigDTO);
@@ -66,7 +66,7 @@ public class UserConfigController {
     }
 
     // 获得用户本币配置
-    //TODO: 后续改为JWT获得Uuid
+    //HACK: 后续改为JWT获得Uuid
     @GetMapping("user/config/baseCurrency")
     public Result<UserConfigDTO> getUerBaseCurrencyConfig(@RequestParam String userUuid) {
         UserConfigDTO userConfig = userConfigService.getUerCurrencyConfig(userUuid);
@@ -80,7 +80,7 @@ public class UserConfigController {
         if (userConfigDTO.getTargetCurrency() == null) {
             return Result.fail("TargetCurrency is required, invalid request");
         } 
-        if(!getExchangeRate.checkCurrency(userConfigDTO.getTargetCurrency())){
+        if(!getExchangeRate.isCurrencyExist(userConfigDTO.getTargetCurrency())){
             return Result.fail("Currency not found, pleace check your currency");
         }
         UserConfigDTO userConfig = userConfigService.getUerCustomRate(userConfigDTO);
@@ -99,7 +99,7 @@ public class UserConfigController {
         if (userConfigDTO.getTargetCurrency() == null || userConfigDTO.getBaseCurrency() == null) {
             return Result.fail("TargetCurrency and BaseCurrency is required, invalid request");
         } 
-        if(!getExchangeRate.checkCurrency(userConfigDTO.getTargetCurrency()) || !getExchangeRate.checkCurrency(userConfigDTO.getBaseCurrency())){
+        if(!getExchangeRate.isCurrencyExist(userConfigDTO.getTargetCurrency()) || !getExchangeRate.isCurrencyExist(userConfigDTO.getBaseCurrency())){
             return Result.fail("Currency not found, pleace check your currency");
         }
         String responce = userConfigService.deleteUserCustomRate(userConfigDTO);

@@ -1,5 +1,7 @@
 package com.jngyen.bookkeeping.backend.service.user.Impl;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import com.jngyen.bookkeeping.backend.mapper.UserExchangeRateMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserExchangeRatePO;
+
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,22 +19,22 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class UserConfigServiceImpl implements UserConfigService {
     @Autowired
-    private UserConfigMapper userConfigMapper;      
+    private UserConfigMapper userConfigMapper;
     @Autowired
-    private UserExchangeRateMapper userExchangeRateMapper;    
-    
-    //用户配置Service
+    private UserExchangeRateMapper userExchangeRateMapper;
+
+
+    // 用户配置Service
     // 获取用户配置
     @Override
     public UserConfigPO queryUserConfigByUuid(String uuid) {
         return userConfigMapper.getUserConfigByUuid(uuid);
     }
-    
 
     // 修改用户本币以及颜色
     @Override
-    public String setBaseCurrency(UserConfigDTO newConfig) {    
-        UserConfigPO userConfig = new UserConfigPO(); 
+    public String setBaseCurrency(UserConfigDTO newConfig) {
+        UserConfigPO userConfig = new UserConfigPO();
         userConfig.setUuid(newConfig.getUserUuid());
         userConfig.setBaseCurrency(newConfig.getBaseCurrency());
         userConfig.setBaseCurrencyColor(newConfig.getBaseCurrencyColor());
@@ -41,19 +44,20 @@ public class UserConfigServiceImpl implements UserConfigService {
 
     // 修改用户自定义汇率
     @Override
-    public String setCustomRate(UserConfigDTO newConfig){
+    public String setCustomRate(UserConfigDTO newConfig) {
         UserExchangeRatePO newRate = new UserExchangeRatePO();
         newRate.setUserUuid(newConfig.getUserUuid());
         newRate.setBaseCurrency(newConfig.getBaseCurrency());
         newRate.setTargetCurrency(newConfig.getTargetCurrency());
         newRate.setRate(newConfig.getRate());
         userExchangeRateMapper.insertOrUpdate(newRate);
-        return "CustomRate update success, rate from  " + newConfig.getBaseCurrency() + " to " + newConfig.getTargetCurrency() + " is " + newConfig.getRate().toString();
+        return "CustomRate update success, rate from  " + newConfig.getBaseCurrency() + " to "
+                + newConfig.getTargetCurrency() + " is " + newConfig.getRate().toString();
     }
 
     // 修改用户是否使用自定义汇率
     @Override
-    public String setIsUseCustomRate(UserConfigDTO newConfig){
+    public String setIsUseCustomRate(UserConfigDTO newConfig) {
         UserConfigPO userConfig = new UserConfigPO();
         userConfig.setUuid(newConfig.getUserUuid());
         userConfig.setIsUseCustomRate(newConfig.getIsUseCustomRate());
@@ -61,7 +65,6 @@ public class UserConfigServiceImpl implements UserConfigService {
         return "User perfer to use custom rate: " + newConfig.getIsUseCustomRate().toString();
     }
 
-    
     // 获得用户本币以及颜色和是否使用本币
     @Override
     public UserConfigDTO getUerCurrencyConfig(String uuid) {
@@ -73,14 +76,15 @@ public class UserConfigServiceImpl implements UserConfigService {
         userConfigDTO.setIsUseCustomRate(userConfig.getIsUseCustomRate());
         return userConfigDTO;
     }
-    
+
     // 获得用户自定义汇率
     @Override
-    public UserConfigDTO getUerCustomRate (UserConfigDTO userConfig) {
+    public UserConfigDTO getUerCustomRate(UserConfigDTO userConfig) {
         // 获取用户本币
         userConfig.setBaseCurrency(userConfigMapper.getUserConfigByUuid(userConfig.getUserUuid()).getBaseCurrency());
         log.info("userConfig is {}", userConfig);
-        UserExchangeRatePO userExchangeRate = userExchangeRateMapper.selectByUuidAndCurrency(userConfig.getUserUuid(), userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
+        UserExchangeRatePO userExchangeRate = userExchangeRateMapper.selectByUuidAndCurrency(userConfig.getUserUuid(),
+                userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
         if (userExchangeRate == null) {
             log.warn("userExchangeRate is {}", userExchangeRate);
             return null;
@@ -92,21 +96,25 @@ public class UserConfigServiceImpl implements UserConfigService {
         userConfigDTO.setRate(userExchangeRate.getRate());
         return userConfigDTO;
     }
-    
+
     // 清空用户本币以及颜色和是否使用本币
     @Override
     public String deleteUserBaseCurrency(UserConfigDTO userConfig) {
         userConfigMapper.deleteUserConfigByUuid(userConfig.getUserUuid());
         return "delete user base currency success";
     }
-    
+
     // 删除用户自定义汇率
     @Override
     public String deleteUserCustomRate(UserConfigDTO userConfig) {
-        int responce = userExchangeRateMapper.delete(userConfig.getUserUuid(), userConfig.getBaseCurrency(), userConfig.getTargetCurrency());
+        int responce = userExchangeRateMapper.delete(userConfig.getUserUuid(), userConfig.getBaseCurrency(),
+                userConfig.getTargetCurrency());
         if (responce == 0) {
-            return "custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency() + " is not found";
+            return "custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency()
+                    + " is not found";
         }
-        return "delete user custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency() + " success";
+        return "delete user custom rate ：" + userConfig.getBaseCurrency() + " to " + userConfig.getTargetCurrency()
+                + " success";
     }
+
 }

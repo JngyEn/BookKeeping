@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS bill_budget (
 CREATE TABLE IF NOT EXISTS bill_transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,          -- 账单的唯一标识
     user_uuid VARCHAR(36) NOT NULL,                -- 用户的UUID
+    uuid VARCHAR(36) NOT NULL,                      -- 账单的UUID
     is_income TINYINT NOT NULL,            -- 交易类型标识，0表示支出，1表示收入
     foreign_amount DECIMAL(10, 2) NOT NULL,     -- 外币金额
     foreign_currency VARCHAR(3) NOT NULL,       -- 外币类型（如USD、EUR等）

@@ -20,9 +20,7 @@ public class BillBudgetDTO {
     private BigDecimal budgetAmount;
     private String homeCurrency;
     private BigDecimal remainingAmount;
-    @NotNull
     private LocalDate startDate;
-    @NotNull
     private LocalDate endDate;
 
 }

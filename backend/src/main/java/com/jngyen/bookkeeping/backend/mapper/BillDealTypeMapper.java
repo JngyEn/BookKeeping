@@ -26,6 +26,7 @@ public interface BillDealTypeMapper {
     int updateDealType(@Param("userUuid") String userUuid, @Param("dealType") String dealType, @Param("newDealType") String newDealType);
 
     // 删除 Type
+    
     //TODO: 删除Type时，保留账单表和预算表以及两张收入表的对应
     int deleteDealType(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
 }

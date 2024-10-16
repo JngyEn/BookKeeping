@@ -1,6 +1,8 @@
 package com.jngyen.bookkeeping.backend.service.user;
 
 
+import java.math.BigDecimal;
+
 import org.springframework.stereotype.Service;
 
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserConfigDTO;
@@ -13,5 +15,8 @@ public interface ExchangeRateService {
     public String updateAllRate(UserConfigDTO userConfigDTO);
 
     // 获取某一本币兑某一外币的实时汇率
-    public String getRateByBaseCurrencyAndTargetCurrency(UserConfigDTO userConfigDTO);
+    public BigDecimal getRateByBaseCurrencyAndTargetCurrency(String baseCurrency, String targetCurrency);
+
+    //获取用户汇率
+    public BigDecimal getUserRate(String userUuid, String baseCurrency, String targetCurrency);
 }

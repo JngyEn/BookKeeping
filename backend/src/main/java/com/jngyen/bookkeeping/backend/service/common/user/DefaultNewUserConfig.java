@@ -1,4 +1,4 @@
-package com.jngyen.bookkeeping.backend.service.common;
+package com.jngyen.bookkeeping.backend.service.common.user;
 
 
 
