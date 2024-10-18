@@ -19,7 +19,6 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Slf4j
 @Service
@@ -33,7 +32,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     @Autowired
     private UserExchangeRateMapper userExchangeRateMapper;
 
-    // 更新某一本币的全部实时汇率，包括反向
+    // 更新某一本币的全部实时汇率，鉴于时效性,不计算反向汇率
     @Override
     public String updateAllRate(UserConfigDTO userConfigDTO) {
 
@@ -59,14 +58,14 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
                 ratePO.setGmtCreate(LocalDateTime.now());
                 ratePO.setGmtModified(LocalDateTime.now());
                 exchangeRateMapper.updateExchangeRate(ratePO);
-                // 计算反向汇率
-                ExchangeRatePO inversRatePO = new ExchangeRatePO();
-                inversRatePO.setBaseCurrency(entry.getKey());
-                inversRatePO.setTargetCurrency(userConfig.getBaseCurrency());
-                inversRatePO.setRate(BigDecimal.ONE.divide(entry.getValue().decimalValue(), RoundingMode.HALF_UP));
-                inversRatePO.setGmtCreate(LocalDateTime.now());
-                inversRatePO.setGmtModified(LocalDateTime.now());
-                exchangeRateMapper.updateExchangeRate(inversRatePO);
+                // 鉴于时效性,不计算反向汇率
+                // ExchangeRatePO inversRatePO = new ExchangeRatePO();
+                // inversRatePO.setBaseCurrency(entry.getKey());
+                // inversRatePO.setTargetCurrency(userConfig.getBaseCurrency());
+                // inversRatePO.setRate(BigDecimal.ONE.divide(entry.getValue().decimalValue(), RoundingMode.HALF_UP));
+                // inversRatePO.setGmtCreate(LocalDateTime.now());
+                // inversRatePO.setGmtModified(LocalDateTime.now());
+                // exchangeRateMapper.updateExchangeRate(inversRatePO);
             });
         });
         return "Update rate of today success, base currency is " + userConfig.getBaseCurrency();
