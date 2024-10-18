@@ -32,6 +32,7 @@ public class ConvertCurrencyImpl implements ConvertCurrency {
             log.info("User " + userUuid + " rate from " + baseCurrency + " to " + targetCurrency + " is not exist");
             return null;
         }
+        log.info("User " + userUuid + " rate from " + baseCurrency + " to " + targetCurrency + " is " + baseRate + " amount is " + amount + " result is " + baseRate.multiply(amount));
         BigDecimal result = baseRate.multiply(amount);
         return result;
     }

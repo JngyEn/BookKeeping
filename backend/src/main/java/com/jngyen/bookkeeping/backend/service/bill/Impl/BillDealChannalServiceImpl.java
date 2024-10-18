@@ -26,8 +26,8 @@ public class BillDealChannalServiceImpl implements BillDealChannalService {
 
     // 检查某个值是不是某个用户的 channal
     @Override
-    public boolean checkChannalExists(String userUuid, String dealChannal) {
-        if (billDealChannalMapper.checkChannalExists(userUuid, dealChannal) > 0) {
+    public boolean isChannelExist(String userUuid, String dealChannal) {
+        if (billDealChannalMapper.isChannelExist(userUuid, dealChannal) > 0) {
             return true;
         }
         return false;

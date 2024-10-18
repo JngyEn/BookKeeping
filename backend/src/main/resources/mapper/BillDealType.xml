@@ -26,7 +26,7 @@
         WHERE user_uuid = #{userUuid} AND deal_Type = #{dealType}
     </select>
 
-    <select id="checkTypeExists" resultType="int">
+    <select id="isTypeExist" resultType="int">
         SELECT COUNT(1) FROM bill_deal_Type 
         WHERE user_uuid = #{userUuid} AND deal_Type = #{dealType}
     </select>

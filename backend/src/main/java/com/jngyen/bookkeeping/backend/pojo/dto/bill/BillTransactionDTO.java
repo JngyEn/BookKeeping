@@ -1,23 +1,37 @@
 package com.jngyen.bookkeeping.backend.pojo.dto.bill;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-import org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.Text;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.groups.Default;
 import lombok.Data;
 
 @Data
 public class BillTransactionDTO {
+
+    public interface TimeRange {}
+    @NotBlank(groups = {TimeRange.class, Default.class})
     private String userUuid;
     private String transactionUuid;
-    private boolean isIncome;
+    @NotNull
+    private Boolean isIncome;
+    @NotNull
     private BigDecimal foreignAmount;
+    @NotBlank
     private String foreignCurrency;
-    private BigDecimal baseAmount;
-    private String baseCurrency;
-    private BigDecimal exchangeRate;
-    private boolean isCustomRate;
+    @NotBlank
     private String dealChannel;
+    @NotBlank
     private String dealType;
-    private Text remarks;
+    private String remarks;
+
+    // 时间范围
+    @PastOrPresent(groups = TimeRange.class)
+    private LocalDate startDate;
+    @PastOrPresent(groups = TimeRange.class)
+    private LocalDate endDate;
 }

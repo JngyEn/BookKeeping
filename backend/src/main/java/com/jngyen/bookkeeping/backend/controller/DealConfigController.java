@@ -16,10 +16,9 @@ import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannalDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealTypeDTO;
+import com.jngyen.bookkeeping.backend.service.bill.BillBudgetService;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
-import com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl;
-
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -31,7 +30,7 @@ public class DealConfigController {
     @Autowired
     private BillDealTypeService billDealTypeService;
     @Autowired
-    private BillBudgetServiceImpl billBudgetService;
+    private BillBudgetService billBudgetService;
 
     //#region 交易类型的增删改查
     // 获取某个用户的全部 channal
@@ -46,7 +45,7 @@ public class DealConfigController {
     @PostMapping("/bill/billType")
     public Result<String> addDealType(@Validated @RequestBody BillDealTypeDTO billDealTypeDTO) {
         // 检查是否已经存在
-        if (billDealTypeService.checkTypeExists(billDealTypeDTO.getUserUuid(),
+        if (billDealTypeService.isTypeExist(billDealTypeDTO.getUserUuid(),
                 billDealTypeDTO.getDealType())) {
             return Result.success("Deal Type : " + billDealTypeDTO.getDealType() + " already exists");
         }
@@ -57,7 +56,7 @@ public class DealConfigController {
     @DeleteMapping("/bill/billType")
     public Result<String> removeDealType(@RequestBody BillDealTypeDTO billDealTypeDTO) {
         // 检查是否已经存在
-        if (!billDealTypeService.checkTypeExists(billDealTypeDTO.getUserUuid(),
+        if (!billDealTypeService.isTypeExist(billDealTypeDTO.getUserUuid(),
                 billDealTypeDTO.getDealType())) {
             return Result.success("Deal Type : " + billDealTypeDTO.getDealType() + " not exists");
         }
@@ -79,7 +78,7 @@ public class DealConfigController {
     @PostMapping("/bill/billChannal")
     public Result<String> addDealChannal(@Validated @RequestBody BillDealChannalDTO billDealChannalDTO) {
         // 检查是否已经存在
-        if (billDealChannalService.checkChannalExists(billDealChannalDTO.getUserUuid(),
+        if (billDealChannalService.isChannelExist(billDealChannalDTO.getUserUuid(),
                 billDealChannalDTO.getDealChannal())) {
             return Result.success("Deal channal : " + billDealChannalDTO.getDealChannal() + " already exists");
         }
@@ -90,7 +89,7 @@ public class DealConfigController {
     @DeleteMapping("/bill/billChannal")
     public Result<String> removeDealChannal(@RequestBody BillDealChannalDTO billDealChannalDTO) {
         // 检查是否已经存在
-        if (!billDealChannalService.checkChannalExists(billDealChannalDTO.getUserUuid(),
+        if (!billDealChannalService.isChannelExist(billDealChannalDTO.getUserUuid(),
                 billDealChannalDTO.getDealChannal())) {
             return Result.success("Deal channal : " + billDealChannalDTO.getDealChannal() + " not exists");
         }

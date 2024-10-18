@@ -11,7 +11,7 @@ public interface BillDealTypeService {
     List<BillDealTypeDTO> getAllTypesByUser(String userUuid);
 
     // 检查某个值是不是某个用户的 Type
-    boolean checkTypeExists(String userUuid, String dealType);
+    boolean isTypeExist(String userUuid, String dealType);
 
     // 添加 Type
     String addDealType(BillDealTypeDTO billDealType);

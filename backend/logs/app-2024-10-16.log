@@ -1,0 +1,886 @@
+2024-10-16 21:24:49.779 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:24:51.288 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:24:51.300 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:24:51.304 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:24:51.305 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:24:51.366 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:24:51.368 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1480 ms
+2024-10-16 21:24:51.956 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:24:51.962 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:24:51.984 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:24:52.013 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:40:56.100 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:40:57.550 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:40:57.567 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:40:57.572 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:40:57.573 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:40:57.640 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:40:57.643 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1442 ms
+2024-10-16 21:40:58.064 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:40:58.068 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:40:58.082 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:40:58.106 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:41:51.663 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:41:52.954 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:41:52.968 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:41:52.971 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:41:52.972 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:41:53.023 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:41:53.024 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1272 ms
+2024-10-16 21:41:53.417 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:41:53.420 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:41:53.435 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:41:53.455 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:44:10.202 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:44:11.624 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:44:11.639 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:44:11.644 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:44:11.645 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:44:11.710 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:44:11.712 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1402 ms
+2024-10-16 21:44:12.131 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'getExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:44:12.134 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:44:12.145 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:44:12.163 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.getExchangeRate)
+┌─────┐
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+↑     ↓
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:52:24.526 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:52:25.856 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:52:25.879 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:52:25.886 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:52:25.886 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:52:25.972 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:52:25.975 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1361 ms
+2024-10-16 21:52:26.381 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:52:26.384 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:52:26.398 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:52:26.414 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:52:37.474 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:52:38.826 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:52:38.838 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:52:38.842 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:52:38.842 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:52:38.916 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:52:38.919 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1325 ms
+2024-10-16 21:52:39.276 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:52:39.280 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:52:39.294 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:52:39.321 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 21:53:59.151 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 21:54:00.306 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 21:54:00.317 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 21:54:00.321 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 21:54:00.321 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 21:54:00.377 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 21:54:00.378 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1139 ms
+2024-10-16 21:54:00.793 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'ExchangeRate': Error creating bean with name 'getExchangeRateImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 21:54:00.797 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 21:54:00.811 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 21:54:00.831 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.ExchangeRate)
+↑     ↓
+|  getExchangeRateImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.GetExchangeRateImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 22:13:34.147 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:13:35.246 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:13:35.260 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:13:35.265 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:13:35.266 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:13:35.328 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:13:35.329 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1085 ms
+2024-10-16 22:13:35.806 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Unsatisfied dependency expressed through field 'exchangeRateService': Error creating bean with name 'exchangeRateServiceImpl': Unsatisfied dependency expressed through field 'userConfigService': Error creating bean with name 'userConfigServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-16 22:13:35.810 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:13:35.824 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:13:35.847 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   dealConfigController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl com.jngyen.bookkeeping.backend.controller.DealConfigController.billBudgetService)
+      ↓
+   billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.userConfigService)
+┌─────┐
+|  userConfigServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.ExchangeRateService com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl.exchangeRateService)
+↑     ↓
+|  exchangeRateServiceImpl (field private com.jngyen.bookkeeping.backend.service.user.UserConfigService com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl.userConfigService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-16 22:16:05.267 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:16:06.542 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:16:06.555 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:16:06.560 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:16:06.560 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:16:06.620 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:16:06.622 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1259 ms
+2024-10-16 22:16:06.960 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'convertCurrency': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-16 22:16:06.964 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:16:06.977 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:16:07.030 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field convertCurrency in com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' in your configuration.
+
+2024-10-16 22:17:42.589 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:17:44.080 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:17:44.095 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:17:44.101 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:17:44.101 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:17:44.166 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:17:44.168 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1446 ms
+2024-10-16 22:17:44.616 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'convertCurrency': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-16 22:17:44.620 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:17:44.633 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:17:44.651 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field convertCurrency in com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' in your configuration.
+
+2024-10-16 22:19:11.966 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:19:13.484 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:19:13.497 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:19:13.502 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:19:13.503 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:19:13.562 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:19:13.564 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1484 ms
+2024-10-16 22:19:13.934 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'convertCurrency': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-16 22:19:13.938 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:19:13.949 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:19:13.965 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field convertCurrency in com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' in your configuration.
+
+2024-10-16 22:21:42.882 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:21:44.257 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:21:44.272 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:21:44.276 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:21:44.276 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:21:44.334 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:21:44.336 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1338 ms
+2024-10-16 22:21:44.752 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'convertCurrency': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-16 22:21:44.755 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:21:44.768 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:21:44.789 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field convertCurrency in com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' in your configuration.
+
+2024-10-16 22:21:59.722 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:22:00.768 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:22:00.779 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:22:00.783 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:22:00.784 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:22:00.845 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:22:00.847 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1034 ms
+2024-10-16 22:22:01.209 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'convertCurrency': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-16 22:22:01.213 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-16 22:22:01.227 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-16 22:22:01.254 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field convertCurrency in com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency' in your configuration.
+
+2024-10-16 22:23:31.847 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:23:32.880 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:23:32.893 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:23:32.899 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:23:32.899 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:23:32.964 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:23:32.967 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1029 ms
+2024-10-16 22:23:33.921 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:23:33.951 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 22:23:49.778 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 22:23:49.779 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 22:23:49.780 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 22:23:49.960 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 22:23:50.157 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b5f6f46
+2024-10-16 22:23:50.166 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 22:32:20.375 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:32:21.899 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:32:21.915 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:32:21.920 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:32:21.921 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:32:21.985 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:32:21.987 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1527 ms
+2024-10-16 22:32:23.039 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:32:23.065 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 22:32:25.005 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 22:32:25.006 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 22:32:25.007 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 22:32:25.185 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 22:32:25.365 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fd07a85
+2024-10-16 22:32:25.367 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 22:32:30.190 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - oldRatePO: ExchangeRatePO(id=1297, baseCurrency=USD, targetCurrency=USD, rate=1.000000, gmtModified=2024-10-10T10:10:37, gmtCreate=2024-10-10T10:10:37)
+2024-10-16 22:54:42.412 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:54:43.636 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:54:43.648 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:54:43.652 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:54:43.652 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:54:43.706 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:54:43.709 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1201 ms
+2024-10-16 22:54:44.539 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:54:44.570 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 22:55:09.692 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 22:55:09.692 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 22:55:09.693 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 22:55:09.915 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 22:55:10.088 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61ffd314
+2024-10-16 22:55:10.091 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 22:59:56.866 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 22:59:58.075 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 22:59:58.088 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:59:58.095 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 22:59:58.096 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 22:59:58.161 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 22:59:58.163 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1219 ms
+2024-10-16 22:59:59.354 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 22:59:59.386 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 22:59:59.810 [http-nio-8080-exec-3] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 22:59:59.811 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 22:59:59.813 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-16 23:00:00.068 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:00:00.223 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31ba78d9
+2024-10-16 23:00:00.225 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:01:08.306 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:01:09.843 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:01:09.856 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:01:09.860 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:01:09.861 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:01:09.918 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:01:09.919 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1542 ms
+2024-10-16 23:01:10.859 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:01:10.883 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:01:29.205 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:01:29.205 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:01:29.207 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-16 23:01:29.411 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:01:29.568 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30b0142b
+2024-10-16 23:01:29.569 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:02:08.164 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:02:09.404 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:02:09.416 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:02:09.421 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:02:09.422 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:02:09.480 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:02:09.482 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1245 ms
+2024-10-16 23:02:10.695 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:02:10.718 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:02:23.072 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:02:24.185 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:02:24.199 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:02:24.205 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:02:24.205 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:02:24.267 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:02:24.269 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1109 ms
+2024-10-16 23:02:25.424 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:02:25.445 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:02:28.393 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:02:28.393 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:02:28.395 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 23:02:28.552 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:02:28.688 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7002cc9d
+2024-10-16 23:02:28.689 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:03:39.955 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:03:41.341 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:03:41.352 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:03:41.357 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:03:41.358 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:03:41.415 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:03:41.417 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1389 ms
+2024-10-16 23:03:42.235 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:03:42.266 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:03:44.243 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:03:44.244 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:03:44.246 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-16 23:03:44.470 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:03:44.658 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ea842e
+2024-10-16 23:03:44.660 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:04:00.619 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:04:57.183 [http-nio-8080-exec-4] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:10:11.944 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:10:13.208 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:10:13.228 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:10:13.235 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:10:13.236 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:10:13.309 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:10:13.312 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1302 ms
+2024-10-16 23:10:14.761 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:10:14.784 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:13:23.777 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:13:25.082 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:13:25.099 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:13:25.104 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:13:25.106 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:13:25.162 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:13:25.164 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1290 ms
+2024-10-16 23:13:26.106 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:13:26.133 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:13:29.074 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:13:29.075 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:13:29.076 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 23:13:29.278 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:13:29.427 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8c6285c
+2024-10-16 23:13:29.429 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:13:46.776 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=2, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=d25a3495-abc2-4958-b86d-8dc1745e8c9d, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-09-01, endDate=2024-09-30, gmtModified=2024-10-15T18:11:52, gmtCreate=2024-10-15T18:11:52)
+2024-10-16 23:13:46.788 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=2, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=d25a3495-abc2-4958-b86d-8dc1745e8c9d, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-09-01, endDate=2024-09-30, gmtModified=2024-10-15T18:11:52, gmtCreate=2024-10-15T18:11:52)
+2024-10-16 23:13:46.824 [http-nio-8080-exec-3] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:13:46.829 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null
+	at com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl.convertCurrency(ConvertCurrencyImpl.java:31) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBaseCurrencyOrBudgetAmount(BillBudgetServiceImpl.java:123) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBudget(BillBudgetServiceImpl.java:99) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealConfigController.updateBudget(DealConfigController.java:137) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 23:14:33.558 [http-nio-8080-exec-5] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=2, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=d25a3495-abc2-4958-b86d-8dc1745e8c9d, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-09-01, endDate=2024-09-30, gmtModified=2024-10-15T18:11:52, gmtCreate=2024-10-15T18:11:52)
+2024-10-16 23:14:33.566 [http-nio-8080-exec-5] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=2, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=d25a3495-abc2-4958-b86d-8dc1745e8c9d, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-09-01, endDate=2024-09-30, gmtModified=2024-10-15T18:11:52, gmtCreate=2024-10-15T18:11:52)
+2024-10-16 23:14:33.580 [http-nio-8080-exec-5] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:14:33.581 [http-nio-8080-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null
+	at com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl.convertCurrency(ConvertCurrencyImpl.java:31) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBaseCurrencyOrBudgetAmount(BillBudgetServiceImpl.java:123) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBudget(BillBudgetServiceImpl.java:99) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealConfigController.updateBudget(DealConfigController.java:137) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 23:15:59.643 [http-nio-8080-exec-7] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:19:06.859 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:19:08.178 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:19:08.193 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:19:08.196 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:19:08.197 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:19:08.257 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:19:08.259 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1300 ms
+2024-10-16 23:19:09.509 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:19:09.534 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:19:10.679 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:19:10.679 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:19:10.680 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 23:19:10.854 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:19:10.992 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e2fd398
+2024-10-16 23:19:10.994 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:19:11.062 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:20:21.403 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:20:22.841 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:20:22.853 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:20:22.858 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:20:22.858 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:20:22.923 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:20:22.925 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1457 ms
+2024-10-16 23:20:24.048 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:20:24.077 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:20:25.181 [http-nio-8080-exec-3] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:20:25.182 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:20:25.185 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-10-16 23:20:25.387 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:20:25.568 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@247f981c
+2024-10-16 23:20:25.570 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:20:25.640 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:21:20.438 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:21:21.866 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:21:21.879 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:21:21.886 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:21:21.887 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:21:21.962 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:21:21.964 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1425 ms
+2024-10-16 23:21:22.852 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:21:22.875 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:21:24.697 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:21:24.697 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:21:24.699 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 23:21:24.908 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:21:25.132 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f2c318f
+2024-10-16 23:21:25.135 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:21:25.227 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - existBudgetConflict: BillBudgetPO(id=1, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, budgetUuid=789f1234-e89b-12d3-a456-426614174001, categoryName=吃饭, budgetAmount=1500.75, homeCurrency=MYR, remainingAmount=500.25, startDate=2024-10-01, endDate=2024-10-31, gmtModified=2024-10-15T18:38:53, gmtCreate=2024-10-15T17:32:51)
+2024-10-16 23:21:25.236 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - Conflicting budget found BudgetUuid: 789f1234-e89b-12d3-a456-426614174001, and inputBudgetUuid: 789f1234-e89b-12d3-a456-426614174001
+2024-10-16 23:21:55.856 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:21:57.273 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:21:57.289 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:21:57.296 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:21:57.296 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:21:57.376 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:21:57.378 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1436 ms
+2024-10-16 23:21:58.590 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:21:58.626 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:22:01.650 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:22:01.651 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:22:01.653 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-16 23:22:01.864 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:22:02.048 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79de4996
+2024-10-16 23:22:02.051 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:22:02.111 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - Conflicting budget found BudgetUuid: 789f1234-e89b-12d3-a456-426614174001, and inputBudgetUuid: 789f1234-e89b-12d3-a456-426614174001
+2024-10-16 23:22:02.119 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - Conflicting budget found BudgetUuid: 789f1234-e89b-12d3-a456-426614174001, and inputBudgetUuid: 789f1234-e89b-12d3-a456-426614174001
+2024-10-16 23:22:02.136 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:22:02.140 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.multiply(java.math.BigDecimal)" because "baseRate" is null
+	at com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl.convertCurrency(ConvertCurrencyImpl.java:31) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBaseCurrencyOrBudgetAmount(BillBudgetServiceImpl.java:123) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.updateBudget(BillBudgetServiceImpl.java:99) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealConfigController.updateBudget(DealConfigController.java:137) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-16 23:24:39.414 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:24:40.804 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:24:40.814 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:24:40.821 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:24:40.821 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:24:40.887 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:24:40.890 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1399 ms
+2024-10-16 23:24:42.097 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:24:42.124 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:24:48.648 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:24:48.649 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:24:48.651 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-16 23:24:48.875 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:24:49.028 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a77d13a
+2024-10-16 23:24:49.029 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:24:49.096 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:24:49.096 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl - User 00497f8d-563c-4e6d-9e92-ab0f7bed72be rate not exist
+2024-10-16 23:28:24.574 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:28:25.753 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:28:25.765 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:28:25.770 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:28:25.772 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:28:25.828 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:28:25.829 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1186 ms
+2024-10-16 23:28:26.745 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:28:26.771 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:28:31.450 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:28:31.450 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:28:31.452 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-16 23:28:31.655 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:28:31.815 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48ac7c79
+2024-10-16 23:28:31.816 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:29:27.610 [http-nio-8080-exec-3] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:29:27.611 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl - User 00497f8d-563c-4e6d-9e92-ab0f7bed72be rate not exist
+2024-10-16 23:29:27.612 [http-nio-8080-exec-3] ERROR com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - Failed to convert currency
+2024-10-16 23:31:23.939 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-16 23:31:25.048 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-16 23:31:25.057 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:31:25.061 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-16 23:31:25.062 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-16 23:31:25.113 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-16 23:31:25.115 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1095 ms
+2024-10-16 23:31:25.961 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-16 23:31:25.987 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-16 23:31:27.636 [http-nio-8080-exec-3] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-16 23:31:27.636 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-16 23:31:27.638 [http-nio-8080-exec-3] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-16 23:31:27.862 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-16 23:31:28.019 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@345a6dd8
+2024-10-16 23:31:28.021 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-16 23:31:44.175 [http-nio-8080-exec-1] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - userExchangeRate is null
+2024-10-16 23:31:44.176 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl.ConvertCurrencyImpl - User 00497f8d-563c-4e6d-9e92-ab0f7bed72be rate from CNY to MYR is not exist
+2024-10-16 23:31:44.177 [http-nio-8080-exec-1] ERROR com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl - Failed to convert currency
+2024-10-16 23:33:44.896 [http-nio-8080-exec-8] INFO  com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl - userConfig is UserConfigDTO(userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=USD, baseCurrencyColor=null, targetCurrency=USD, rate=null, isUseCustomRate=null)
+2024-10-16 23:33:44.898 [http-nio-8080-exec-8] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl - userExchangeRate is null
+2024-10-16 23:36:16.945 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl - userConfig is UserConfigDTO(userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, baseCurrency=USD, baseCurrencyColor=null, targetCurrency=USD, rate=null, isUseCustomRate=null)
+2024-10-16 23:36:16.946 [http-nio-8080-exec-3] WARN  com.jngyen.bookkeeping.backend.service.user.Impl.UserConfigServiceImpl - userExchangeRate is null

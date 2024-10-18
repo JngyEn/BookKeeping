@@ -19,7 +19,7 @@
         WHERE user_uuid = #{userUuid}
     </select>
 
-    <select id="checkChannalExists" resultType="int">
+    <select id="isChannelExist" resultType="int">
         SELECT COUNT(1) FROM bill_deal_channal 
         WHERE user_uuid = #{userUuid} AND deal_channal = #{dealChannal}
     </select>

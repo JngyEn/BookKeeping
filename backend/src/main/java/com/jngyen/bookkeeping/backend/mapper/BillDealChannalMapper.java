@@ -16,7 +16,7 @@ public interface BillDealChannalMapper {
     BillDealChannalPO getChannalByUser(@Param("userUuid") String userUuid, @Param("dealChannal") String dealChannal);
 
     // 检查某个值是不是某个用户的 channal
-    int checkChannalExists(@Param("userUuid") String userUuid, @Param("dealChannal") String dealChannal);
+    int isChannelExist(@Param("userUuid") String userUuid, @Param("dealChannal") String dealChannal);
 
     // 添加 channal
     int insertDealChannal(BillDealChannalPO billDealChannal);

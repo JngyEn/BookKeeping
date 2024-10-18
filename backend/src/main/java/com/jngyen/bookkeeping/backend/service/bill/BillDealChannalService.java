@@ -10,7 +10,7 @@ public interface BillDealChannalService {
     List<BillDealChannalDTO> getAllChannalsByUser(String userUuid);
 
     // 检查某个值是不是某个用户的 channal
-    boolean checkChannalExists(String userUuid, String dealChannal);
+    boolean isChannelExist(String userUuid, String dealChannal);
 
     // 添加 channal
     String addDealChannal(BillDealChannalDTO billDealChannal);

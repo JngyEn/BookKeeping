@@ -16,7 +16,7 @@ public interface BillDealTypeMapper {
     BillDealTypePO getTypeByUser(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
 
     // 检查某个值是不是某个用户的 Type
-    int checkTypeExists(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
+    int isTypeExist(@Param("userUuid") String userUuid, @Param("dealType") String dealType);
 
     // 添加 Type
     int insertDealType(BillDealTypePO billDealType);

@@ -26,8 +26,8 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
 
     // 检查某个值是不是某个用户的 Type
     @Override
-    public boolean checkTypeExists(String userUuid, String dealType) {
-        if (billDealTypeMapper.checkTypeExists(userUuid, dealType) > 0) {
+    public boolean isTypeExist(String userUuid, String dealType) {
+        if (billDealTypeMapper.isTypeExist(userUuid, dealType) > 0) {
             return true;
         }
         return false;

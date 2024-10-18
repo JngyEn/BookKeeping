@@ -84,8 +84,8 @@ Consider defining a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDeal
 2024-10-12 10:30:12.886 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2024-10-12 10:30:12.947 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Boolean (java.lang.Integer and java.lang.Boolean are in module java.base of loader 'bootstrap')] with root cause
 java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Boolean (java.lang.Integer and java.lang.Boolean are in module java.base of loader 'bootstrap')
-	at jdk.proxy2/jdk.proxy2.$Proxy83.checkChannalExists(Unknown Source) ~[?:?]
-	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannalServiceImpl.checkChannalExists(BillDealChannalServiceImpl.java:27) ~[classes/:?]
+	at jdk.proxy2/jdk.proxy2.$Proxy83.isChannelExist(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannalServiceImpl.isChannelExist(BillDealChannalServiceImpl.java:27) ~[classes/:?]
 	at com.jngyen.bookkeeping.backend.controller.DealConfigController.addDealChannal(DealConfigController.java:38) ~[classes/:?]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]

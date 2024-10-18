@@ -15,6 +15,7 @@ import com.jngyen.bookkeeping.backend.mapper.BillBudgetMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
+import com.jngyen.bookkeeping.backend.service.bill.BillBudgetService;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
 import com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency;
 import com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate;
@@ -24,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
-public class BillBudgetServiceImpl {
+public class BillBudgetServiceImpl implements BillBudgetService{
     // 在service中处理全部时间判断，不在sql中进行复杂判断
     @Autowired
     private BillBudgetMapper billBudgetMapper;
@@ -221,10 +222,8 @@ public class BillBudgetServiceImpl {
         if (existBudgetConflict != null && ! (existBudgetConflict.getBudgetUuid()==newBudget.getBudgetUuid())) {
             return false;
         }
-        log.info("Conflicting budget found BudgetUuid: {}, and inputBudgetUuid: {}",
-        existBudgetConflict.getBudgetUuid(),
-        newBudget.getBudgetUuid());
-
+        log.info("Budget for " + newBudget.getCategoryName() + " from " + newBudget.getStartDate() + " to "
+                + newBudget.getEndDate() + " conflict with exist budget please update it");
         return true;
     }
 
@@ -275,7 +274,7 @@ public class BillBudgetServiceImpl {
 
     // 检查categoryName是否存在,ture 为存在
     public boolean checkCategoryExists(String userUuid, String categoryName) {
-        if (billDealTypeService.checkTypeExists(userUuid, categoryName)) {
+        if (billDealTypeService.isTypeExist(userUuid, categoryName)) {
             return true;
         }
         return false;
@@ -297,17 +296,22 @@ public class BillBudgetServiceImpl {
         return true;
     }
 
-    // 更新余额，供其他账单使用，使用减法, date是交易时间
-    public void updateRemainingAmount(String userUuid, String dealtype, String targetCurrency, BigDecimal amount,
+    // 更新余额，供其他账单使用，使用减法, date是交易时间，transactionCurrency是账单货币种类
+    public void updateRemainingAmount(String userUuid, String dealtype, String transactionCurrency, BigDecimal amount,
             LocalDateTime date) {
 
         BillBudgetDTO updatedBudget = new BillBudgetDTO();
         updatedBudget.setCategoryName(dealtype);
         updatedBudget.setUserUuid(userUuid);
         List<BillBudgetDTO> budgets = selectBudgetsByDealType(updatedBudget);
+        if (budgets.isEmpty()) {
+            log.error("No budget for userUuid: {}, dealtype: {}", userUuid, dealtype);
+            return;
+        }
         // 将金额转换为记账时的本币
-        BigDecimal amountInHomeCurrency = convertCurrency.convertCurrency(userUuid, targetCurrency,
-                updatedBudget.getHomeCurrency(), amount);
+        BigDecimal amountInHomeCurrency = convertCurrency.convertCurrency(userUuid, transactionCurrency,
+            budgets.get(0).getHomeCurrency(), amount);
+        log.info(transactionCurrency, budgets, amountInHomeCurrency);
         // 更新周、月、年的对应预算
         updateRemainingAmountByTimeType(budgets, amountInHomeCurrency, BudgetTimeType.WEEKLY, date.toLocalDate());
         updateRemainingAmountByTimeType(budgets, amountInHomeCurrency, BudgetTimeType.MONTHLY, date.toLocalDate());
@@ -317,12 +321,19 @@ public class BillBudgetServiceImpl {
     // 更新余额的辅助方法
     public void updateRemainingAmountByTimeType(List<BillBudgetDTO> budgets, BigDecimal amount, BudgetTimeType timeType,
             LocalDate modifiedTime) {
+                log.info("amout: {}", amount);
         budgets.stream()
                 .filter(budget -> budget.getBudgetTimeType() == timeType)
                 .filter(budget -> (modifiedTime.isEqual(budget.getStartDate())
                         || modifiedTime.isAfter(budget.getStartDate())) &&
                         (modifiedTime.isEqual(budget.getEndDate()) || modifiedTime.isBefore(budget.getEndDate())))
-                .forEach(budget -> budget.setRemainingAmount(budget.getRemainingAmount().subtract(amount)));
+                .forEach(budget -> {
+                    BillBudgetPO updatedBudget = billBudgetMapper.selectBudgetByUuid(budget.getBudgetUuid());
+                    log.info("Update budget: {}", updatedBudget);
+                    updatedBudget.setRemainingAmount(budget.getRemainingAmount().subtract(amount));
+                    updatedBudget.setGmtModified(LocalDateTime.now());
+                    billBudgetMapper.updateBudgetById(updatedBudget);
+                    });
     }
     // #endregion
 

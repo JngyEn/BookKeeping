@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillTransactionMapper">
+
+    <!-- ResultMap 用于映射数据库表的列与 Java 对象属性 -->
+    <resultMap id="billTransactionResultMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillTransactionPO">
+        <id column="id" property="id" />
+        <result column="user_uuid" property="userUuid" />
+        <result column="uuid" property="transactionUuid" /> <!-- 修改映射为uuid -->
+        <result column="is_income" property="isIncome" />
+        <result column="foreign_amount" property="foreignAmount" />
+        <result column="foreign_currency" property="foreignCurrency" />
+        <result column="base_amount" property="baseAmount" />
+        <result column="base_currency" property="baseCurrency" />
+        <result column="exchange_rate" property="exchangeRate" />
+        <result column="is_custom_rate" property="isCustomRate" />
+        <result column="deal_channal" property="dealChannel" /> 
+        <result column="deal_type" property="dealType" />
+        <result column="remarks" property="remarks"  jdbcType="LONGVARCHAR"/>
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- Base_Column_List 定义 -->
+    <sql id="Base_Column_List">
+        id, user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount, 
+        base_currency, exchange_rate, is_custom_rate, deal_channal, deal_type, remarks, 
+        gmt_create, gmt_modified
+    </sql>
+
+
+    <!--  新增账单交易 -->
+    <insert id="insertNewTransaction" parameterType="BillTransactionPO">
+        INSERT INTO bill_transactions (user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount, base_currency, exchange_rate, is_custom_rate, deal_channal, deal_type, remarks, gmt_create, gmt_modified)
+        VALUES (#{userUuid}, #{transactionUuid}, #{isIncome}, #{foreignAmount}, #{foreignCurrency}, #{baseAmount}, #{baseCurrency}, #{exchangeRate}, #{isCustomRate}, #{dealChannel}, #{dealType}, #{remarks}, #{gmtCreate}, #{gmtModified})
+    </insert>
+
+    <!-- 查询所有账单交易：按照时间范围 -->
+    <select id="queryAllTransactionsByTimeRange" resultMap="billTransactionResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM bill_transactions
+        WHERE user_uuid = #{userUuid}
+        AND gmt_create BETWEEN #{startTime} AND #{endTime}
+    </select>
+</mapper>
