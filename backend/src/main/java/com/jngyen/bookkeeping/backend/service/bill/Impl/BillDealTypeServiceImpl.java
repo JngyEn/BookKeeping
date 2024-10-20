@@ -23,7 +23,7 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
         return CommonDtoFactory.convertToDto(results, BillDealTypeDTO.class);
     }
 
-    // 检查某个值是不是某个用户的 Type
+    // 检查某个值是不是某个用户的 Type , 存在返回 true
     @Override
     public boolean isTypeExist(String userUuid, String dealType) {
         return billDealTypeMapper.isTypeExist(userUuid, dealType) > 0;

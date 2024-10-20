@@ -146,10 +146,6 @@ public class BillTransactionsServiceImpl {
         return "Delete Success";
     }
     // #region 工具方法
-    // 判断时间范围是否有效
-    public boolean isTimeRangeValid(LocalDate startDate, LocalDate endDate) {
-        return startDate.isBefore(endDate);
-    }
     // TODO：创建两个表之后同步修改income表和budget表
     // 仅修改各个账单数额，不考虑名称的修改
     @Transactional

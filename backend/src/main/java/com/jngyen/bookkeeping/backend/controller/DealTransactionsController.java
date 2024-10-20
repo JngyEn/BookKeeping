@@ -1,6 +1,7 @@
 package com.jngyen.bookkeeping.backend.controller;
 
 import com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException;
+import com.jngyen.bookkeeping.backend.service.common.TimeCheck;
 import org.springframework.web.bind.annotation.*;
 
 import com.jngyen.bookkeeping.backend.common.Result;
@@ -50,7 +51,7 @@ public class DealTransactionsController {
     // 查询所有账单交易：按照时间范围
     @PostMapping("/deal/queryAllTransactionsByTimeRange")
     public Result<List<BillTransactionDTO>> queryAllTransactionsByTimeRange(@Validated(BillTransactionDTO.TimeRange.class) @RequestBody BillTransactionDTO billTransactionDTO) {
-        if (!billTransactionsService.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
+        if (TimeCheck.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
             return Result.fail("end time is before start time");
         }
         List<BillTransactionDTO> transactions = billTransactionsService.queryTransactionsByTimeRange(billTransactionDTO.getUserUuid(), billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate());
@@ -76,7 +77,7 @@ public class DealTransactionsController {
     // 查询某交易类型账单：按照时间范围
     @PostMapping("/deal/queryTransactionsByTypeAndTimeRange")
     public Result<List<BillTransactionDTO>> queryTransactionsByTypeAndTimeRange(@Validated(BillTransactionDTO.TimeRange.class) @RequestBody BillTransactionDTO billTransactionDTO) {
-        if (!billTransactionsService.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
+        if (TimeCheck.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
             return Result.fail("end time is before start time");
         }
         if (!billDealTypeService.isTypeExist(billTransactionDTO.getUserUuid(), billTransactionDTO.getDealType())) {
@@ -92,7 +93,7 @@ public class DealTransactionsController {
     // 查询收入/支出账单：按照时间范围
     @PostMapping("/deal/queryTransactionsByIncomeAndTimeRange")
     public Result<List<BillTransactionDTO>> queryTransactionsByIncomeAndTimeRange(@Validated(BillTransactionDTO.TimeRange.class) @RequestBody BillTransactionDTO billTransactionDTO) {
-        if (!billTransactionsService.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
+        if (TimeCheck.isTimeRangeValid(billTransactionDTO.getStartDate(), billTransactionDTO.getEndDate())) {
             return Result.fail("end time is before start time");
         }
         List<BillTransactionDTO> transactions = billTransactionsService.queryTransactionsByIncomeAndTimeRange(billTransactionDTO);

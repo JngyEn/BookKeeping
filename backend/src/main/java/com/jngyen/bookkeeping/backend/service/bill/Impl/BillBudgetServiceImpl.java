@@ -105,7 +105,6 @@ public class BillBudgetServiceImpl implements BillBudgetService{
                 log.warn("Failed to update base currency or budget amount", e);
                 return "Failed to update base currency or budget amount";
             }
-
         }
         // 更新对应时间范围或者类别
         setStartAndEndDate(newBudget);
