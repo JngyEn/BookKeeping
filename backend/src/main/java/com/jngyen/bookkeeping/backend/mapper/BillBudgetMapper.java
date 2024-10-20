@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO;
-import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
+import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 
 @Mapper
 public interface BillBudgetMapper {

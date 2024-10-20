@@ -2,6 +2,8 @@ package com.jngyen.bookkeeping.backend.service.common.exchangeRate.impl;
 
 import java.math.BigDecimal;
 
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.ExchangeRateException;
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.UserConfigException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,20 +22,17 @@ public class ConvertCurrencyImpl implements ConvertCurrency {
     private GetExchangeRate getExchangeRate;
 
     @Override
-    public BigDecimal convertCurrency(String userUuid, String baseCurrency, String targetCurrency, BigDecimal amount) {
+    public BigDecimal convertCurrency(String userUuid, String baseCurrency, String targetCurrency, BigDecimal amount) throws ExchangeRateException {
         // 检查货币是否存在
         if (!getExchangeRate.isCurrencyExist(baseCurrency) || !getExchangeRate.isCurrencyExist(targetCurrency)) {
-            log.info(targetCurrency + " or " + baseCurrency + " not exist");
-            return null;
+            throw new ExchangeRateException("Currency name is incorrect","货币名不存在" );
         }
         // 获取用户汇率
-        BigDecimal baseRate = exchangeRateService.getUserRate(userUuid, baseCurrency, targetCurrency);
-        if (baseRate == null) {
-            log.info("User " + userUuid + " rate from " + baseCurrency + " to " + targetCurrency + " is not exist");
-            return null;
+        try {
+            BigDecimal baseRate = exchangeRateService.getUserRate(userUuid, baseCurrency, targetCurrency);
+            return baseRate.multiply(amount);
+        } catch (UserConfigException e) {
+            throw new ExchangeRateException("convertCurrency failed","货币转换失败" , e);
         }
-        log.info("User " + userUuid + " rate from " + baseCurrency + " to " + targetCurrency + " is " + baseRate + " amount is " + amount + " result is " + baseRate.multiply(amount));
-        BigDecimal result = baseRate.multiply(amount);
-        return result;
     }
 }

@@ -20,7 +20,7 @@ public class BillTransactionPO {
     private BigDecimal baseAmount;
     private String baseCurrency;
     private BigDecimal exchangeRate;
-    private boolean isCustomRate;
+    private Boolean isCustomRate;
     //#endregion
 
     private String dealChannel;

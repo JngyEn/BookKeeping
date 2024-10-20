@@ -14,7 +14,7 @@
 2024-10-12 10:26:42.253 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
 2024-10-12 10:26:42.314 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
 2024-10-12 10:26:42.316 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1161 ms
-2024-10-12 10:26:42.399 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billDealChannalService': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-12 10:26:42.399 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billDealChannelService': No qualifying bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2024-10-12 10:26:42.404 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
 2024-10-12 10:26:42.510 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
 
@@ -27,7 +27,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field billDealChannalService in com.jngyen.bookkeeping.backend.controller.DealConfigController required a bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService' that could not be found.
+Field billDealChannelService in com.jngyen.bookkeeping.backend.controller.DealConfigController required a bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -35,7 +35,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService' in your configuration.
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService' in your configuration.
 
 2024-10-12 10:27:15.047 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
 2024-10-12 10:27:16.310 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
@@ -44,7 +44,7 @@ Consider defining a bean of type 'com.jngyen.bookkeeping.backend.service.bill.Bi
 2024-10-12 10:27:16.329 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
 2024-10-12 10:27:16.396 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
 2024-10-12 10:27:16.399 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1254 ms
-2024-10-12 10:27:16.482 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billDealChannalService': Error creating bean with name 'billDealChannalServiceImpl': Unsatisfied dependency expressed through field 'billDealChannalMapper': No qualifying bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-12 10:27:16.482 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dealConfigController': Unsatisfied dependency expressed through field 'billDealChannelService': Error creating bean with name 'billDealChannelServiceImpl': Unsatisfied dependency expressed through field 'billDealChannelMapper': No qualifying bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannelMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2024-10-12 10:27:16.487 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
 2024-10-12 10:27:16.509 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
 
@@ -57,7 +57,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field billDealChannalMapper in com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannalServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper' that could not be found.
+Field billDealChannelMapper in com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl required a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannelMapper' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -65,7 +65,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper' in your configuration.
+Consider defining a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDealChannelMapper' in your configuration.
 
 2024-10-12 10:27:36.301 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
 2024-10-12 10:27:37.444 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
@@ -85,8 +85,8 @@ Consider defining a bean of type 'com.jngyen.bookkeeping.backend.mapper.BillDeal
 2024-10-12 10:30:12.947 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Boolean (java.lang.Integer and java.lang.Boolean are in module java.base of loader 'bootstrap')] with root cause
 java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Boolean (java.lang.Integer and java.lang.Boolean are in module java.base of loader 'bootstrap')
 	at jdk.proxy2/jdk.proxy2.$Proxy83.isChannelExist(Unknown Source) ~[?:?]
-	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannalServiceImpl.isChannelExist(BillDealChannalServiceImpl.java:27) ~[classes/:?]
-	at com.jngyen.bookkeeping.backend.controller.DealConfigController.addDealChannal(DealConfigController.java:38) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl.isChannelExist(BillDealChannelServiceImpl.java:27) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealConfigController.addDealChannel(DealConfigController.java:38) ~[classes/:?]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]

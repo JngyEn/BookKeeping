@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillTransactionMapper">
-
+    <!-- Base_Column_List 定义 -->
+    <sql id="Base_Column_List">
+        id, user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount,
+        base_currency, exchange_rate, is_custom_rate, deal_channel, deal_type, remarks,
+        gmt_create, gmt_modified
+    </sql>
     <!-- ResultMap 用于映射数据库表的列与 Java 对象属性 -->
     <resultMap id="billTransactionResultMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillTransactionPO">
         <id column="id" property="id" />
@@ -16,24 +21,16 @@
         <result column="base_currency" property="baseCurrency" />
         <result column="exchange_rate" property="exchangeRate" />
         <result column="is_custom_rate" property="isCustomRate" />
-        <result column="deal_channal" property="dealChannel" /> 
+        <result column="deal_channel" property="dealChannel" /> <!-- 修改大小写 -->
         <result column="deal_type" property="dealType" />
         <result column="remarks" property="remarks"  jdbcType="LONGVARCHAR"/>
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
-    <!-- Base_Column_List 定义 -->
-    <sql id="Base_Column_List">
-        id, user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount, 
-        base_currency, exchange_rate, is_custom_rate, deal_channal, deal_type, remarks, 
-        gmt_create, gmt_modified
-    </sql>
-
-
     <!--  新增账单交易 -->
     <insert id="insertNewTransaction" parameterType="BillTransactionPO">
-        INSERT INTO bill_transactions (user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount, base_currency, exchange_rate, is_custom_rate, deal_channal, deal_type, remarks, gmt_create, gmt_modified)
+        INSERT INTO bill_transactions (user_uuid, uuid, is_income, foreign_amount, foreign_currency, base_amount, base_currency, exchange_rate, is_custom_rate, deal_channel, deal_type, remarks, gmt_create, gmt_modified)
         VALUES (#{userUuid}, #{transactionUuid}, #{isIncome}, #{foreignAmount}, #{foreignCurrency}, #{baseAmount}, #{baseCurrency}, #{exchangeRate}, #{isCustomRate}, #{dealChannel}, #{dealType}, #{remarks}, #{gmtCreate}, #{gmtModified})
     </insert>
 
@@ -45,4 +42,47 @@
         WHERE user_uuid = #{userUuid}
         AND gmt_create BETWEEN #{startTime} AND #{endTime}
     </select>
+
+    <!-- 查询某个具体账单：根据账单Uuid -->
+    <select id="queryTransactionByUuid" resultMap="billTransactionResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM bill_transactions
+        WHERE uuid = #{transactionUuid}
+    </select>
+
+    <!-- 查询某渠道账单：按照时间范围 -->
+    <select id="queryTransactionsByChannelAndTimeRange" resultMap="billTransactionResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM bill_transactions
+        WHERE user_uuid = #{userUuid}
+        AND deal_channel = #{dealChannel}
+        AND gmt_create BETWEEN #{startTime} AND #{endTime}
+    </select>
+    <!-- 查询某交易类型账单：按照时间范围 -->
+    <select id="queryTransactionsByTypeAndTimeRange" resultMap="billTransactionResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM bill_transactions
+        WHERE user_uuid = #{userUuid}
+        AND deal_type = #{dealType}
+        AND gmt_create BETWEEN #{startTime} AND #{endTime}
+    </select>
+
+    <!-- 查询收入/支出账单：按照时间范围 -->
+    <select id="queryTransactionsByIncomeAndTimeRange" resultMap="billTransactionResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM bill_transactions
+        WHERE user_uuid = #{userUuid}
+        AND is_income = #{isIncome}
+        AND gmt_create BETWEEN #{startTime} AND #{endTime}
+    </select>
+
+    <!-- 根据账单uuid删除账单 -->
+    <delete id="deleteTransactionByUuid">
+        DELETE FROM bill_transactions
+        WHERE uuid = #{transactionUuid}
+    </delete>
 </mapper>

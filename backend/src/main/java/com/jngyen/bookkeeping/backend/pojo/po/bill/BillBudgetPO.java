@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import lombok.Data;
 @Data
 public class BillBudgetPO {

@@ -15,9 +15,16 @@ public interface BillTransactionMapper {
     //HACK: 后续结合分页查询改进
     // 查询所有账单交易：按照时间范围
     public List<BillTransactionPO> queryAllTransactionsByTimeRange(String userUuid,  @Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
-    // 查询某渠道账单：按照时间范围
-    // 查询某交易类型账单：按照时间范围
-    // 查询收入/支出账单：按照时间范围
     // 查询某个具体账单：根据账单Uuid
+    public BillTransactionPO queryTransactionByUuid(String transactionUuid);
+    // 查询某渠道账单：按照时间范围
+    public List<BillTransactionPO> queryTransactionsByChannelAndTimeRange(String userUuid, String dealChannel,@Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
+    // 查询某交易类型账单：按照时间范围
+    public List<BillTransactionPO> queryTransactionsByTypeAndTimeRange(String userUuid, String dealType,@Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
+    // 查询收入/支出账单：按照时间范围
+    public List<BillTransactionPO> queryTransactionsByIncomeAndTimeRange(String userUuid, Boolean isIncome,@Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
+    
+    // 根据账单uuid删除账单
+    public int deleteTransactionByUuid(String transactionUuid);
 
 }

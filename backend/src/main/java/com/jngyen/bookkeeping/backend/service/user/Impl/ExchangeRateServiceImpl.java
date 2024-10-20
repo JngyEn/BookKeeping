@@ -1,5 +1,7 @@
 package com.jngyen.bookkeeping.backend.service.user.Impl;
 
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.ExchangeRateException;
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.UserConfigException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,8 +78,8 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     public BigDecimal getRateByBaseCurrencyAndTargetCurrency(String baseCurrency, String targetCurrency) {
         ExchangeRatePO ratePO = exchangeRateMapper.getExchangeRate(baseCurrency, targetCurrency);
         if (ratePO == null) {
-            log.error("Rate of {} and {} is not found", baseCurrency, targetCurrency);
-            return null;
+           throw new ExchangeRateException("today Exchange rate from "+baseCurrency+" to "+targetCurrency + " is not found, please update exchange rate first",
+                    "今日 "+baseCurrency + " 到 "+targetCurrency+" 汇率未找到，请先更新汇率");
         }
         return ratePO.getRate();
     }
@@ -89,13 +91,20 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
             UserExchangeRatePO userExchangeRate = userExchangeRateMapper.selectByUuidAndCurrency(userUuid, baseCurrency,
                     targetCurrency);
             if (userExchangeRate == null) {
-                log.warn("userExchangeRate is {}", userExchangeRate);
-                return null;
+                throw new UserConfigException("User exchange rate is not found, please add user exchange rate first",
+                        "用户自定义汇率未找到，请先添加用户自定义汇率");
             }
-            // HACK: 后续改用抛出异常，让用户添加自定义汇率
             return userExchangeRate.getRate();
         }
-        return getRateByBaseCurrencyAndTargetCurrency(baseCurrency, targetCurrency);
+       BigDecimal todayRate = getRateByBaseCurrencyAndTargetCurrency(baseCurrency, targetCurrency);
+        if (todayRate == null) {
+            UserConfigDTO userConfigDTO = new UserConfigDTO();
+            userConfigDTO.setUserUuid(userUuid);
+            updateAllRate(userConfigDTO);
+            todayRate = getRateByBaseCurrencyAndTargetCurrency(baseCurrency, targetCurrency);
+        }
+        return todayRate;
+
     }
 
 }

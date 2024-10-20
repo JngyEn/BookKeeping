@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
-import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
+import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 
 public interface BillBudgetService {
 

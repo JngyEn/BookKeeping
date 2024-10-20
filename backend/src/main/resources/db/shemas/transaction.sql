@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS bill_deal_type (
 );
 
 -- 交易渠道表
-CREATE TABLE IF NOT EXISTS bill_deal_channal (
+CREATE TABLE IF NOT EXISTS bill_deal_Channel (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    deal_channal VARCHAR(255),
-    deal_channal_color VARCHAR(9),
+    deal_Channel VARCHAR(255),
+    deal_Channel_color VARCHAR(9),
     user_uuid VARCHAR(36),
     gmt_create DATETIME,
     gmt_modified DATETIME
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS bill_transactions (
     base_currency VARCHAR(3) NOT NULL,         -- 本币类型（如CNY）
     exchange_rate DECIMAL(10, 6) NOT NULL,      -- 使用的汇率
     is_custom_rate TINYINT NOT NULL,          -- 是否使用自定义汇率，0表示否，1表示是
-    deal_channal VARCHAR(255) NOT NULL,  -- 交易渠道（如信用卡、现金等）
+    deal_Channel VARCHAR(255) NOT NULL,  -- 交易渠道（如信用卡、现金等）
     deal_type VARCHAR(255) NOT NULL,     -- 交易类型（如餐饮、购物等）
     remarks TEXT,                               -- 备注
     gmt_create DATETIME,

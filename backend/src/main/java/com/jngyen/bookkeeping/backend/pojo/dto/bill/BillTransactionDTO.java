@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -20,6 +21,7 @@ public class BillTransactionDTO {
     @NotNull
     private Boolean isIncome;
     @NotNull
+    @Max(value = 99999999, message = "Remaining amount cannot exceed 99999999")
     private BigDecimal foreignAmount;
     @NotBlank
     private String foreignCurrency;

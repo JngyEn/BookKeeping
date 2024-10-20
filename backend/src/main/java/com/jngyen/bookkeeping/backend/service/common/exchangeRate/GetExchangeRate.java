@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import reactor.core.publisher.Mono;
 
 
-@Service
+
 public interface GetExchangeRate {
     // 获取某一本币的全部实时汇率
     Mono<JsonNode> getExchangeRateByBaseCurrency(String baseCurrency);

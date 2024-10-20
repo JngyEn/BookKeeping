@@ -1,6 +1,6 @@
 package com.jngyen.bookkeeping.backend.handler;
 
-import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
+import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 

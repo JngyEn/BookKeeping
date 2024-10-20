@@ -1,39 +1,33 @@
 package com.jngyen.bookkeeping.backend.controller;
 
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
-import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannalDTO;
+import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannelDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealTypeDTO;
 import com.jngyen.bookkeeping.backend.service.bill.BillBudgetService;
-import com.jngyen.bookkeeping.backend.service.bill.BillDealChannalService;
+import com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService;
 import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Slf4j
 @RestController
 public class DealConfigController {
     @Autowired
-    private BillDealChannalService billDealChannalService;
+    private BillDealChannelService billDealChannelService;
     @Autowired
     private BillDealTypeService billDealTypeService;
     @Autowired
     private BillBudgetService billBudgetService;
 
     //#region 交易类型的增删改查
-    // 获取某个用户的全部 channal
+    // 获取某个用户的全部 Type
     // HACK: 后续用JWT验证
     @GetMapping("/bill/billType")
     public Result<List<BillDealTypeDTO>> getAllTypesByUser(@RequestParam String userUuid) {
@@ -66,36 +60,37 @@ public class DealConfigController {
     //#endregion
 
     //#region 交易渠道的增删改查
-    // 获取某个用户的全部 channal
+    // 获取某个用户的全部 Channel
     // HACK: 后续用JWT验证
-    @GetMapping("/bill/billChannal")
-    public Result<List<BillDealChannalDTO>> getAllChannalsByUser(@RequestParam String userUuid) {
-        List<BillDealChannalDTO> results = billDealChannalService.getAllChannalsByUser(userUuid);
+    @GetMapping("/bill/billChannel")
+    public Result<List<BillDealChannelDTO>> getAllChannelsByUser(@RequestParam String userUuid) {
+        List<BillDealChannelDTO> results = billDealChannelService.getAllChannelsByUser(userUuid);
         return Result.success(results);
     }
 
-    // 添加 channal
-    @PostMapping("/bill/billChannal")
-    public Result<String> addDealChannal(@Validated @RequestBody BillDealChannalDTO billDealChannalDTO) {
+    // 添加 Channel
+    @PostMapping("/bill/billChannel")
+    public Result<String> addDealChannel(@Validated @RequestBody BillDealChannelDTO billDealChannelDTO) {
         // 检查是否已经存在
-        if (billDealChannalService.isChannelExist(billDealChannalDTO.getUserUuid(),
-                billDealChannalDTO.getDealChannal())) {
-            return Result.success("Deal channal : " + billDealChannalDTO.getDealChannal() + " already exists");
+        if (billDealChannelService.isChannelExist(billDealChannelDTO.getUserUuid(),
+                billDealChannelDTO.getDealChannel())) {
+            return Result.success("Deal Channel : " + billDealChannelDTO.getDealChannel() + " already exists");
         }
-        return Result.success(billDealChannalService.addDealChannal(billDealChannalDTO));
+        log.info("Deal Channel : {}", billDealChannelDTO);
+        return Result.success(billDealChannelService.addDealChannel(billDealChannelDTO));
     }
 
-    // 删除 channal
-    @DeleteMapping("/bill/billChannal")
-    public Result<String> removeDealChannal(@RequestBody BillDealChannalDTO billDealChannalDTO) {
+    // 删除 Channel
+    @DeleteMapping("/bill/billChannel")
+    public Result<String> removeDealChannel(@RequestBody BillDealChannelDTO billDealChannelDTO) {
         // 检查是否已经存在
-        if (!billDealChannalService.isChannelExist(billDealChannalDTO.getUserUuid(),
-                billDealChannalDTO.getDealChannal())) {
-            return Result.success("Deal channal : " + billDealChannalDTO.getDealChannal() + " not exists");
+        if (!billDealChannelService.isChannelExist(billDealChannelDTO.getUserUuid(),
+                billDealChannelDTO.getDealChannel())) {
+            return Result.success("Deal Channel : " + billDealChannelDTO.getDealChannel() + " not exists");
         }
-        return Result.success(billDealChannalService.removeDealChannal(billDealChannalDTO));
+        return Result.success(billDealChannelService.removeDealChannel(billDealChannelDTO));
     }
-    // TODO: 给channal改名
+    // TODO: 给Channel改名
     //#endregion
 
     //#region 预算的增删改查

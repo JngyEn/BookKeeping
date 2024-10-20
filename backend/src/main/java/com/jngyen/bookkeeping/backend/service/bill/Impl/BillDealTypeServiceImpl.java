@@ -20,17 +20,13 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
     @Override
     public List<BillDealTypeDTO> getAllTypesByUser(String userUuid) {
         List<BillDealTypePO> results = billDealTypeMapper.getAllTypesByUser(userUuid);
-        List<BillDealTypeDTO> res = CommonDtoFactory.convertToDto(results, BillDealTypeDTO.class);
-        return res;
+        return CommonDtoFactory.convertToDto(results, BillDealTypeDTO.class);
     }
 
     // 检查某个值是不是某个用户的 Type
     @Override
     public boolean isTypeExist(String userUuid, String dealType) {
-        if (billDealTypeMapper.isTypeExist(userUuid, dealType) > 0) {
-            return true;
-        }
-        return false;
+        return billDealTypeMapper.isTypeExist(userUuid, dealType) > 0;
     }
 
     // 添加 Type
@@ -41,9 +37,10 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
         billDealType.setDealType(billDealTypeDTO.getDealType());
         billDealType.setUserUuid(billDealTypeDTO.getUserUuid());
 
-        int responce = billDealTypeMapper.insertDealType(billDealType);
+        int response = billDealTypeMapper.insertDealType(billDealType);
+
         try {
-            if (responce > 0) {
+            if (response > 0) {
                 return "Deal Type : " + billDealType.getDealType() + " success";
             } else {
                 return "Deal Type : " + billDealType.getDealType() + " failed";
@@ -56,9 +53,9 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
     // 删除 Type
     @Override
     public String removeDealType(BillDealTypeDTO billDealTypeDTO) {
-        int responce = billDealTypeMapper.deleteDealType(billDealTypeDTO.getUserUuid(), billDealTypeDTO.getDealType());
+        int response = billDealTypeMapper.deleteDealType(billDealTypeDTO.getUserUuid(), billDealTypeDTO.getDealType());
         try {
-            if (responce > 0) {
+            if (response > 0) {
                 return "Deal Type : " + billDealTypeDTO.getDealType() + " success";
             } else {
                 return "Deal Type : " + billDealTypeDTO.getDealType() + " failed";

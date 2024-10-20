@@ -64,7 +64,7 @@
         LIMIT 1
     </select>
 
-    <!-- 查询用户某交易类型、时间类型的所有预算 -->
+     <!-- 查询用户某交易类型、时间类型的所有预算  -->
     <select id="findBudgetsByUserAndCategoryAndTimeType" resultMap="BillBudgetMap">
         SELECT * FROM bill_budget
         WHERE user_uuid = #{userUuid}

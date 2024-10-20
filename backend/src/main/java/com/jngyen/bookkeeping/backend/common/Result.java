@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 public class Result<T> {
     private int code;
     private String message;
-    private T responce;
-    
+    private T response;
     // 请求成功并返回数据
     public static <T> Result<T> success(T data) {
         return new Result<T>(200, "success", data);

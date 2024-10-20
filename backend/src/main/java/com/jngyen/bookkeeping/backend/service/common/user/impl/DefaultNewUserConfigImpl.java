@@ -3,9 +3,9 @@ package com.jngyen.bookkeeping.backend.service.common.user.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jngyen.bookkeeping.backend.mapper.BillDealChannalMapper;
+import com.jngyen.bookkeeping.backend.mapper.BillDealChannelMapper;
 import com.jngyen.bookkeeping.backend.mapper.UserConfigMapper;
-import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannalPO;
+import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannelPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
 import com.jngyen.bookkeeping.backend.service.common.user.DefaultNewUserConfig;
 
@@ -14,7 +14,7 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
     @Autowired
     private UserConfigMapper userConfigMapper;
     @Autowired
-    private BillDealChannalMapper billDealChannalMapper;
+    private BillDealChannelMapper billDealChannelMapper;
     // 为新用户设置全部默认设置
     @Override
     public void defaultAllConfig(String uuid) {
@@ -35,11 +35,11 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
     @Override
     public void defaultBillConfig(String uuid) {
         // 初始化交易渠道为现金，颜色为淡黄色
-        BillDealChannalPO billDealChannal = new BillDealChannalPO();
-        billDealChannal.setUserUuid(uuid);
-        billDealChannal.setDealChannal("现金");
-        billDealChannal.setDealChannalColor("#FFEC00");
-        billDealChannalMapper.insertDealChannal(billDealChannal);
+        BillDealChannelPO billDealChannel = new BillDealChannelPO();
+        billDealChannel.setUserUuid(uuid);
+        billDealChannel.setDealChannel("现金");
+        billDealChannel.setDealChannelColor("#FFEC00");
+        billDealChannelMapper.insertDealChannel(billDealChannel);
 
     }
     

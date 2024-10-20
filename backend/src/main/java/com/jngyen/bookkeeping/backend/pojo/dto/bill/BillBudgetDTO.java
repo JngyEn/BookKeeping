@@ -3,7 +3,7 @@ package com.jngyen.bookkeeping.backend.pojo.dto.bill;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.jngyen.bookkeeping.backend.pojo.po.bill.BudgetTimeType;
+import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
