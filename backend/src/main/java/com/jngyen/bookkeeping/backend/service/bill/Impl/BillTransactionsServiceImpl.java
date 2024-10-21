@@ -117,9 +117,14 @@ public class BillTransactionsServiceImpl {
         billTransactionDTOs = CommonDtoFactory.convertToDto(billTransactions, BillTransactionDTO.class);
         return billTransactionDTOs;
     }
-    
-    // 根据账单uuid删除账单
+
     // HACK：后续解决删除账单时汇率不同步的问题
+    /*
+     * @Date 2024/10/21
+     * @Description 根据账单uuid删除账单, 并通过将收入反向的方式，同步更新预算和收入的金额
+     * @Param transactionUuid
+     * @Return java.lang.String
+     */
     @Transactional
     public String deleteTransactionByUuid(String transactionUuid) throws BillException {
         BillTransactionPO billTransaction = queryTransactionByUuid(transactionUuid);
@@ -133,7 +138,6 @@ public class BillTransactionsServiceImpl {
         return "Delete Success";
     }
     // #region 工具方法
-    // TODO：创建两个表之后同步修改income表和budget表
     /*
      * @Date 2024/10/21
      * @Description 有新帐单时，同步修改收入/支出表以及预算表的数额，不考虑名称的修改
@@ -142,23 +146,17 @@ public class BillTransactionsServiceImpl {
      */
     @Transactional
     public void updateDealAmount(BillTransactionPO billTransaction) throws BillException {
+        BillIncomeSummaryDTO billIncomeSummaryDTO = new BillIncomeSummaryDTO();
+        billIncomeSummaryDTO.setStartDate(billTransaction.getGmtCreate().toLocalDate());
+        billIncomeSummaryDTO.setUserUuid(billTransaction.getUserUuid());
+        billIncomeSummaryDTO.setCategoryName(billTransaction.getDealChannel());
+        billIncomeSummaryDTO.setSummaryAmount(billTransaction.getBaseAmount());
+        billIncomeSummaryDTO.setHomeCurrency(billTransaction.getBaseCurrency());
         // 判断是收入还是支出
         if (billTransaction.getIsIncome()) {
             // 收入
             // 修改收入表
-            BillIncomeSummaryDTO billIncomeSummaryDTO = new BillIncomeSummaryDTO();
-            billIncomeSummaryDTO.setStartDate(billTransaction.getGmtCreate().toLocalDate());
-            billIncomeSummaryDTO.setUserUuid(billTransaction.getUserUuid());
-            billIncomeSummaryDTO.setCategoryName(billTransaction.getDealChannel());
-            billIncomeSummaryDTO.setSummaryAmount(billTransaction.getBaseAmount());
-            billIncomeSummaryDTO.setHomeCurrency(billTransaction.getBaseCurrency());
-            try {
-                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
-                billIncomeSummaryDTO.setCategoryName(billTransaction.getDealType());
-                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
-            } catch (BillException e) {
-                throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ",  "插入账单时，同步收入汇总失败 -> " + e.getMsgZh() , e);
-            }
+            billIncomeSummaryDTO.setIsIncome(true);
             // 修改预算表: 使用减法, 传入记录账单货币
             try {
                 billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
@@ -169,7 +167,8 @@ public class BillTransactionsServiceImpl {
             }
         } else {
             // 支出
-            // TODO：修改支出表
+            // 修改支出
+            billIncomeSummaryDTO.setIsIncome(false);
             // 修改预算表:
             try {
                 billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
@@ -177,7 +176,22 @@ public class BillTransactionsServiceImpl {
             } catch (BillException e) {
                 throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ", e.getMsgZh() + "插入账单时，同步预算汇总失败 -> " + e.getMsgZh() , e);
             }
+            // 同步累计表
+            try {
+                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
+                billIncomeSummaryDTO.setCategoryName(billTransaction.getDealType());
+                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
+            } catch (BillException e) {
+                throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ",  "插入账单时，同步收入汇总失败 -> " + e.getMsgZh() , e);
+            }
         }
     }
-
+    // 修改全部账单的类别名称
+    public void updateDealTypeName(String userUuid, String oldDealType, String newDealType) {
+        billTransactionMapper.updateDealTypeName(userUuid, oldDealType, newDealType);
+    }
+    // 修改渠道名称
+    public void updateDealChannelName(String userUuid, String oldDealChannel, String newDealChannel) {
+        billTransactionMapper.updateDealChannelName(userUuid, oldDealChannel, newDealChannel);
+    }
 }

@@ -25,6 +25,8 @@ public class BillIncomeSummaryDTO {
     private String categoryName;
     @NotNull
     private BigDecimal summaryAmount;
+    @NotNull(groups = {TimeRange.class, Default.class, TimeInsert.class})
+    private Boolean isIncome;
     @NotBlank
     private String homeCurrency;
     @PastOrPresent(groups = {TimeRange.class, TimeInsert.class})

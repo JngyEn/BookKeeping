@@ -18,4 +18,6 @@ public interface BillDealTypeService {
 
     // 删除 Type
     String removeDealType(BillDealTypeDTO billDealTypeDTO);
+
+    public void renameDealChannel(String userUuid, String oldType, String newType);
 }

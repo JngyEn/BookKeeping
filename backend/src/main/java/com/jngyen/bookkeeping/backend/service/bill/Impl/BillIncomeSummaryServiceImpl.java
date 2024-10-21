@@ -1,13 +1,12 @@
 package com.jngyen.bookkeeping.backend.service.bill.Impl;
 
 import com.jngyen.bookkeeping.backend.enums.bill.BillSummaryTimeType;
-import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException;
 import com.jngyen.bookkeeping.backend.factory.dto.CommonDtoFactory;
 import com.jngyen.bookkeeping.backend.mapper.BillIncomeSummaryMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillIncomeSummaryDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO;
-import com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService;
+
 import com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -25,10 +24,6 @@ import java.util.List;
 public class BillIncomeSummaryServiceImpl {
     @Autowired
     private BillIncomeSummaryMapper billIncomeSummaryMapper;
-    @Autowired
-    private BillDealChannelService billDealChannelService;
-    @Autowired
-    private BillDealTypeServiceImpl billDealTypeService;
     @Autowired
     private ConvertCurrency convertCurrency;
 
@@ -65,7 +60,7 @@ public class BillIncomeSummaryServiceImpl {
             log.info("Update summary already exist: {}", billIncomeSummaryDTO);
         }
         try {
-            BillIncomeSummaryPO oldOne =  getOneIncomeSummaryByTimeAndType(budgetTimeType, billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getStartDate());
+            BillIncomeSummaryPO oldOne =  getOneIncomeSummaryByTimeAndType(budgetTimeType, billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getStartDate(), billIncomeSummaryDTO.getIsIncome());
             if (!oldOne.getHomeCurrency().equals(billIncomeSummaryDTO.getHomeCurrency())) {
                 BigDecimal resultAmount = convertCurrency.convertCurrency(billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getHomeCurrency(), oldOne.getHomeCurrency(), billIncomeSummaryDTO.getSummaryAmount());
                 oldOne.setSummaryAmount(oldOne.getSummaryAmount().add(resultAmount));
@@ -87,9 +82,6 @@ public class BillIncomeSummaryServiceImpl {
      * @Return void
      */
     public void updateIncomeSummaryCategoryName(String userUuid, String oldCategoryName, String newCategoryName) throws BillException {
-        if (!billDealChannelService.isChannelExist(userUuid, newCategoryName) || !billDealChannelService.isChannelExist(userUuid, oldCategoryName)) {
-            throw new BillException("new Category name is illegal", "更新收入汇总名称时，新categoryName不存在");
-        }
         if (oldCategoryName.equals(newCategoryName)) {
             throw new BillException("Category name not changed", "更新收入汇总名称时，新旧categoryName相同");
         }
@@ -100,8 +92,8 @@ public class BillIncomeSummaryServiceImpl {
         }
     }
     // 根据时间范围查询收入汇总
-    public List<BillIncomeSummaryDTO> selectIncomeSummaryByTimeAndType (@Validated(BillIncomeSummaryDTO.TimeRange.class) BillIncomeSummaryDTO billIncomeSummaryDTO) throws BillException {
-        List<BillIncomeSummaryPO> billIncomeSummaryPO = billIncomeSummaryMapper.selectAllIncomeSummaryByTimeAndType(billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getBudgetTimeType(), billIncomeSummaryDTO.getStartDate(), billIncomeSummaryDTO.getEndDate());
+    public List<BillIncomeSummaryDTO> selectAllIncomeSummaryByTimeAndType (@Validated(BillIncomeSummaryDTO.TimeRange.class) BillIncomeSummaryDTO billIncomeSummaryDTO) throws BillException {
+        List<BillIncomeSummaryPO> billIncomeSummaryPO = billIncomeSummaryMapper.selectAllIncomeSummaryByTimeAndType(billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getBudgetTimeType(), billIncomeSummaryDTO.getStartDate(), billIncomeSummaryDTO.getEndDate(), billIncomeSummaryDTO.getIsIncome());
         if (billIncomeSummaryPO.isEmpty()) {
             throw new BillException("Income summary not found", "未找到对应时间范围内的收入汇总");
         }
@@ -117,7 +109,7 @@ public class BillIncomeSummaryServiceImpl {
     public boolean isIncomeSummaryExist (@Validated(BillIncomeSummaryDTO.TimeInsert.class) BillIncomeSummaryDTO billIncomeSummaryDTO) throws BillException {
         BillIncomeSummaryPO result = new BillIncomeSummaryPO();
         try {
-            result = getOneIncomeSummaryByTimeAndType(billIncomeSummaryDTO.getBudgetTimeType(), billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getStartDate());
+            result = getOneIncomeSummaryByTimeAndType(billIncomeSummaryDTO.getBudgetTimeType(), billIncomeSummaryDTO.getUserUuid(), billIncomeSummaryDTO.getCategoryName(), billIncomeSummaryDTO.getStartDate(), billIncomeSummaryDTO.getIsIncome());
         } catch (BillException e) {
            throw new BillException(e.getMsgEn() + " <- while check income summary exist during " + billIncomeSummaryDTO.getStartDate() + " to " + billIncomeSummaryDTO.getEndDate(), " 查找从 " + billIncomeSummaryDTO.getSummaryAmount() + " 到 " + billIncomeSummaryDTO.getEndDate() + " 的收入汇总时 ->" +e.getMsgZh(),e);
         }
@@ -133,18 +125,19 @@ public class BillIncomeSummaryServiceImpl {
      * @Param startDate 用开始时间来对齐时间，账单调用时用账单的创建时间
      * @Return com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO
      */
-    public BillIncomeSummaryPO getOneIncomeSummaryByTimeAndType (BillSummaryTimeType budgetTimeType, String userUuid, String categoryName, LocalDate startDate) throws BillException {
+    public BillIncomeSummaryPO getOneIncomeSummaryByTimeAndType (BillSummaryTimeType budgetTimeType, String userUuid, String categoryName, LocalDate startDate, Boolean isIncome) throws BillException {
         BillIncomeSummaryDTO billIncomeSummary = new BillIncomeSummaryDTO();
         billIncomeSummary.setBudgetTimeType(budgetTimeType);
         billIncomeSummary.setUserUuid(userUuid);
         billIncomeSummary.setCategoryName(categoryName);
         billIncomeSummary.setStartDate(startDate);
+        billIncomeSummary.setIsIncome(isIncome);
         try {
             setStartAndEndDate(billIncomeSummary);
         } catch (BillException e) {
             throw new BillException(e.getMsgEn() + " <- while try to get income Summary in a time range", "未设置开始时间时无法设定范围", e);
         }
-        List<BillIncomeSummaryPO> billIncomeSummaryPO = billIncomeSummaryMapper.selectOneIncomeSummaryByTimeAndType(userUuid, categoryName, budgetTimeType, billIncomeSummary.getStartDate(), billIncomeSummary.getEndDate());
+        List<BillIncomeSummaryPO> billIncomeSummaryPO = billIncomeSummaryMapper.selectOneIncomeSummaryByTimeAndType(userUuid, categoryName, budgetTimeType, billIncomeSummary.getStartDate(), billIncomeSummary.getEndDate(), isIncome);
         if (billIncomeSummaryPO.isEmpty()) {
             return null;
         }else if (billIncomeSummaryPO.size() > 1) {

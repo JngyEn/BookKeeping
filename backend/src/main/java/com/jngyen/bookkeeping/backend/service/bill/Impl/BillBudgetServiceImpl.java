@@ -20,7 +20,6 @@ import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO;
 import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import com.jngyen.bookkeeping.backend.service.bill.BillBudgetService;
-import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
 import com.jngyen.bookkeeping.backend.service.common.exchangeRate.ConvertCurrency;
 import com.jngyen.bookkeeping.backend.service.common.exchangeRate.GetExchangeRate;
 import com.jngyen.bookkeeping.backend.service.user.UserConfigService;
@@ -35,11 +34,7 @@ public class BillBudgetServiceImpl implements BillBudgetService{
     @Autowired
     private BillBudgetMapper billBudgetMapper;
     @Autowired
-    private BillDealTypeService billDealTypeService;
-    @Autowired
     private UserConfigService userConfigService;
-    @Autowired
-    private GetExchangeRate getExchangeRate;
     @Autowired
     private ConvertCurrency convertCurrency;
 
@@ -133,6 +128,12 @@ public class BillBudgetServiceImpl implements BillBudgetService{
         }
     }
 
+    // 更新预算的种类名
+    public void updateBudgetTypeName( String userUuid, String oldTypeName, String newTypeName) {
+
+        // 更新预算的种类名
+        billBudgetMapper.updateBudgetTypeName(userUuid, oldTypeName, newTypeName);
+    }
     // 查询某个时间类型预算最新预算:不知道Uuid的情况
     public BillBudgetDTO selectNewestBudget(BillBudgetDTO Budget) {
         BillBudgetPO result = billBudgetMapper.selectNewestBudget(
@@ -266,10 +267,7 @@ public class BillBudgetServiceImpl implements BillBudgetService{
         }
     }
 
-    // 检查categoryName是否存在,ture 为存在
-    public boolean checkCategoryExists(String userUuid, String categoryName) {
-        return billDealTypeService.isTypeExist(userUuid, categoryName);
-    }
+
 
     // 检查DTO日期是否正确, true 为正确
     public boolean checkDate(BillBudgetDTO newBudget) {
@@ -300,7 +298,6 @@ public class BillBudgetServiceImpl implements BillBudgetService{
      * @param isDelete 是否是删除账单，true 为删除，需要回撤金额
      * @return void
      */
-
     public void updateRemainingAmount(String userUuid, String dealtype, String transactionCurrency, BigDecimal amount,
             LocalDateTime date ) throws BillException {
 

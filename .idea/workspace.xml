@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d54af1de-449b-4afe-ace1-3397db3ea6c8" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Bookkeeping.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app-2024-10-11.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app-2024-10-11.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app-2024-10-12.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app-2024-10-12.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app-2024-10-13.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app-2024-10-13.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app-2024-10-15.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app-2024-10-15.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app-2024-10-18.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app-2024-10-18.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logs/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/controller/DealConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/controller/DealConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/controller/DealTransactionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/controller/DealTransactionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/mapper/BillDealChannalMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/mapper/BillTransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/mapper/BillTransactionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/pojo/dto/bill/BillDealChannalDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/pojo/po/bill/BillDealChannalPO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/BillDealChannalService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/Impl/BillDealChannalServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/Impl/BillDealTypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/Impl/BillDealTypeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/Impl/BillTransactionsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/bill/Impl/BillTransactionsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/common/user/impl/DefaultNewUserConfigImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/jngyen/bookkeeping/backend/service/common/user/impl/DefaultNewUserConfigImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/common/deleteAllBillTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/common/deleteAllBillTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/shemas/transaction.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/shemas/transaction.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/BillBudgetMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/BillBudgetMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/BillDealChannal.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/mapper/BillTransactionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/BillTransactionMapper.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ncLFeWWRfYvwhtItRTcoVj347X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code/Java/Bookkeeping/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.database.main&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="Bookkeeping" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="Bookkeeping" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="d54af1de-449b-4afe-ace1-3397db3ea6c8" name="更改" comment="" />
+      <created>1729267316052</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729267316052</updated>
+      <workItem from="1729267317524" duration="90000" />
+      <workItem from="1729268900595" duration="11000" />
+      <workItem from="1729310532213" duration="1015000" />
+      <workItem from="1729314995363" duration="9000" />
+      <workItem from="1729322982170" duration="17000" />
+      <workItem from="1729323004399" duration="102000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

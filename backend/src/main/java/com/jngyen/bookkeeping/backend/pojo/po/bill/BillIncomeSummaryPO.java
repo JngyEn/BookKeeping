@@ -19,6 +19,7 @@ public class BillIncomeSummaryPO {
     private String homeCurrency;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Boolean isIncome;
 
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;

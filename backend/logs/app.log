@@ -2561,3 +2561,542 @@ com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException: Income summ
 2024-10-21 16:20:50.266 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2024-10-21 16:20:50.379 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2742e8f4
 2024-10-21 16:20:50.381 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 16:23:34.158 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 16:23:34.162 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 16:27:17.758 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 16:27:18.601 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 16:27:18.611 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 16:27:18.614 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 16:27:18.615 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 16:27:18.654 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 16:27:18.654 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 845 ms
+2024-10-21 16:27:19.226 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 16:27:19.238 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 16:27:36.583 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 16:27:36.583 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 16:27:36.584 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-21 16:27:36.730 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 16:27:36.852 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@35727f68
+2024-10-21 16:27:36.853 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 16:27:36.910 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-21)
+2024-10-21 16:27:36.918 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-27)
+2024-10-21 16:27:36.920 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-01, endDate=2024-10-31)
+2024-10-21 16:27:36.923 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 16:27:36.925 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-01)
+2024-10-21 16:27:36.928 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-07)
+2024-10-21 16:27:36.930 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-31)
+2024-10-21 16:27:36.933 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 16:28:54.718 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 16:28:54.722 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 17:08:32.739 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 17:08:33.741 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 17:08:33.751 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:08:33.754 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 17:08:33.754 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 17:08:33.808 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 17:08:33.809 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1015 ms
+2024-10-21 17:08:34.472 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:08:34.485 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 17:08:49.758 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 17:08:49.758 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 17:08:49.759 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-21 17:08:49.892 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 17:08:50.017 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27deb709
+2024-10-21 17:08:50.019 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 17:08:50.074 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException] with root cause
+org.apache.ibatis.binding.BindingException: Parameter 'isIncome' not found. Available parameters are [param5, endDate, userUuid, budgetTimeType, param3, categoryName, param4, param1, startDate, param2]
+	at org.apache.ibatis.binding.MapperMethod$ParamMap.get(MapperMethod.java:210) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.wrapper.MapWrapper.get(MapWrapper.java:45) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:116) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.createCacheKey(BaseExecutor.java:225) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.createCacheKey(CachingExecutor.java:149) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.selectList(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy81.selectOneIncomeSummaryByTimeAndType(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.getOneIncomeSummaryByTimeAndType(BillIncomeSummaryServiceImpl.java:147) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.isIncomeSummaryExist(BillIncomeSummaryServiceImpl.java:120) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.insertOrUpdateIncomeSummary(BillIncomeSummaryServiceImpl.java:56) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.insertOrUpdateIncomeSummary(BillIncomeSummaryServiceImpl.java:42) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.updateDealAmount(BillTransactionsServiceImpl.java:163) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.insertNewTransaction(BillTransactionsServiceImpl.java:71) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.13.jar:6.1.13]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl$$SpringCGLIB$$0.insertNewTransaction(<generated>) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealTransactionsController.insertNewTransaction(DealTransactionsController.java:43) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-21 17:12:04.989 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 17:12:04.996 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 17:12:08.756 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 17:12:09.567 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 17:12:09.577 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:12:09.580 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 17:12:09.580 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 17:12:09.617 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 17:12:09.617 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 812 ms
+2024-10-21 17:12:10.183 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:12:10.196 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 17:12:14.570 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 17:12:14.570 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 17:12:14.571 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-21 17:12:14.715 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 17:12:14.834 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36e6ead7
+2024-10-21 17:12:14.836 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 17:12:14.911 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException] with root cause
+org.apache.ibatis.binding.BindingException: Parameter 'isIncome' not found. Available parameters are [param5, endDate, userUuid, budgetTimeType, param3, categoryName, param4, param1, startDate, param2]
+	at org.apache.ibatis.binding.MapperMethod$ParamMap.get(MapperMethod.java:210) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.wrapper.MapWrapper.get(MapWrapper.java:45) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:116) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.createCacheKey(BaseExecutor.java:225) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.createCacheKey(CachingExecutor.java:149) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.selectList(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy81.selectOneIncomeSummaryByTimeAndType(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.getOneIncomeSummaryByTimeAndType(BillIncomeSummaryServiceImpl.java:147) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.isIncomeSummaryExist(BillIncomeSummaryServiceImpl.java:119) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.insertOrUpdateIncomeSummary(BillIncomeSummaryServiceImpl.java:55) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.insertOrUpdateIncomeSummary(BillIncomeSummaryServiceImpl.java:41) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.updateDealAmount(BillTransactionsServiceImpl.java:163) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.insertNewTransaction(BillTransactionsServiceImpl.java:71) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.13.jar:6.1.13]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl$$SpringCGLIB$$0.insertNewTransaction(<generated>) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealTransactionsController.insertNewTransaction(DealTransactionsController.java:43) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-21 17:17:30.448 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 17:17:30.452 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 17:22:43.270 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 17:22:44.265 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 17:22:44.280 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:22:44.283 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 17:22:44.283 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 17:22:44.325 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 17:22:44.326 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 997 ms
+2024-10-21 17:22:44.989 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:22:45.002 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 17:22:49.475 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 17:22:49.476 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 17:22:49.476 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-21 17:22:49.606 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 17:22:49.788 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75b7ba9a
+2024-10-21 17:22:49.790 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 17:22:49.899 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-21, isIncome=true, gmtCreate=2024-10-21T17:22:49.886835500, gmtModified=2024-10-21T17:22:49.886835500)
+2024-10-21 17:22:49.906 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-27, isIncome=true, gmtCreate=2024-10-21T17:22:49.905234700, gmtModified=2024-10-21T17:22:49.905234700)
+2024-10-21 17:22:49.909 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-01, endDate=2024-10-31, isIncome=true, gmtCreate=2024-10-21T17:22:49.908250900, gmtModified=2024-10-21T17:22:49.908250900)
+2024-10-21 17:22:49.911 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31, isIncome=true, gmtCreate=2024-10-21T17:22:49.910265900, gmtModified=2024-10-21T17:22:49.910265900)
+2024-10-21 17:22:49.914 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-01, isIncome=true, gmtCreate=2024-10-21T17:22:49.913281400, gmtModified=2024-10-21T17:22:49.913281400)
+2024-10-21 17:22:49.916 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-07, isIncome=true, gmtCreate=2024-10-21T17:22:49.915358300, gmtModified=2024-10-21T17:22:49.915358300)
+2024-10-21 17:22:49.918 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-31, isIncome=true, gmtCreate=2024-10-21T17:22:49.917448900, gmtModified=2024-10-21T17:22:49.917448900)
+2024-10-21 17:22:49.919 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31, isIncome=true, gmtCreate=2024-10-21T17:22:49.919655300, gmtModified=2024-10-21T17:22:49.919655300)
+2024-10-21 17:23:28.476 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-21)
+2024-10-21 17:23:28.479 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-27)
+2024-10-21 17:23:28.481 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-10-01, endDate=2024-10-31)
+2024-10-21 17:23:28.482 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 17:23:28.483 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-01)
+2024-10-21 17:23:28.486 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-07)
+2024-10-21 17:23:28.487 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-31)
+2024-10-21 17:23:28.489 [http-nio-8080-exec-3] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=true, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 17:27:30.512 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 17:27:30.515 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 17:27:34.079 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 17:27:34.868 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 17:27:34.880 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:27:34.884 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 17:27:34.885 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 17:27:34.935 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 17:27:34.935 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 810 ms
+2024-10-21 17:27:35.558 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 17:27:35.570 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 17:27:37.995 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 17:27:37.996 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 17:27:37.996 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-21 17:27:38.115 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 17:27:38.223 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4c989fd8
+2024-10-21 17:27:38.224 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 17:27:38.287 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-21, isIncome=false, gmtCreate=2024-10-21T17:27:38.283248600, gmtModified=2024-10-21T17:27:38.283248600)
+2024-10-21 17:27:38.294 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-27, isIncome=false, gmtCreate=2024-10-21T17:27:38.293441300, gmtModified=2024-10-21T17:27:38.293441300)
+2024-10-21 17:27:38.296 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-10-01, endDate=2024-10-31, isIncome=false, gmtCreate=2024-10-21T17:27:38.295477600, gmtModified=2024-10-21T17:27:38.295477600)
+2024-10-21 17:27:38.298 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31, isIncome=false, gmtCreate=2024-10-21T17:27:38.297572400, gmtModified=2024-10-21T17:27:38.297572400)
+2024-10-21 17:27:38.300 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-01, isIncome=false, gmtCreate=2024-10-21T17:27:38.299590200, gmtModified=2024-10-21T17:27:38.299590200)
+2024-10-21 17:27:38.301 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-07, isIncome=false, gmtCreate=2024-10-21T17:27:38.300595200, gmtModified=2024-10-21T17:27:38.300595200)
+2024-10-21 17:27:38.303 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-31, isIncome=false, gmtCreate=2024-10-21T17:27:38.302606100, gmtModified=2024-10-21T17:27:38.302606100)
+2024-10-21 17:27:38.304 [http-nio-8080-exec-1] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Insert new income summary: BillIncomeSummaryPO(id=0, budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31, isIncome=false, gmtCreate=2024-10-21T17:27:38.304615600, gmtModified=2024-10-21T17:27:38.304615600)
+2024-10-21 17:27:43.335 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-21)
+2024-10-21 17:27:43.339 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-10-21, endDate=2024-10-27)
+2024-10-21 17:27:43.341 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-10-01, endDate=2024-10-31)
+2024-10-21 17:27:43.343 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=支付宝, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 17:27:43.345 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=DAILY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-01)
+2024-10-21 17:27:43.348 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=WEEKLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-07)
+2024-10-21 17:27:43.349 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=MONTHLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-01-01, endDate=2024-01-31)
+2024-10-21 17:27:43.351 [http-nio-8080-exec-2] INFO  com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl - Update summary already exist: BillIncomeSummaryDTO(budgetTimeType=YEARLY, userUuid=00497f8d-563c-4e6d-9e92-ab0f7bed72be, categoryName=玩, summaryAmount=200.0000000000, isIncome=false, homeCurrency=USD, startDate=2024-01-01, endDate=2024-12-31)
+2024-10-21 22:07:38.902 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:07:39.821 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:07:39.831 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:07:39.833 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:07:39.833 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:07:39.879 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:07:39.880 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 921 ms
+2024-10-21 22:07:40.476 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:07:40.488 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 22:28:36.182 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:28:36.952 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:28:36.961 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:28:36.964 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:28:36.964 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:28:36.999 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:28:37.000 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 770 ms
+2024-10-21 22:28:37.242 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'billSummaryController': Unsatisfied dependency expressed through field 'billIncomeSummaryService': Error creating bean with name 'billIncomeSummaryServiceImpl': Unsatisfied dependency expressed through field 'billDealChannelService': Error creating bean with name 'billDealChannelServiceImpl': Unsatisfied dependency expressed through field 'updateAllBillCategoryName': Error creating bean with name 'updateAllBillCategoryName': Unsatisfied dependency expressed through field 'billDealChannelService': Error creating bean with name 'billDealChannelServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-21 22:28:37.244 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-21 22:28:37.253 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-21 22:28:37.266 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   billSummaryController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl com.jngyen.bookkeeping.backend.controller.BillSummaryController.billIncomeSummaryService)
+      ↓
+   billIncomeSummaryServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.billDealChannelService)
+┌─────┐
+|  billDealChannelServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl.updateAllBillCategoryName)
+↑     ↓
+|  updateAllBillCategoryName (field private com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName.billDealChannelService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-21 22:31:16.701 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:31:17.463 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:31:17.472 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:31:17.475 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:31:17.476 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:31:17.512 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:31:17.513 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 766 ms
+2024-10-21 22:31:17.747 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'billSummaryController': Unsatisfied dependency expressed through field 'billIncomeSummaryService': Error creating bean with name 'billIncomeSummaryServiceImpl': Unsatisfied dependency expressed through field 'billDealChannelService': Error creating bean with name 'billDealChannelServiceImpl': Unsatisfied dependency expressed through field 'updateAllBillCategoryName': Error creating bean with name 'updateAllBillCategoryName': Unsatisfied dependency expressed through field 'billTransactionsService': Error creating bean with name 'billTransactionsServiceImpl': Unsatisfied dependency expressed through field 'billBudgetService': Error creating bean with name 'billBudgetServiceImpl': Unsatisfied dependency expressed through field 'billDealTypeService': Error creating bean with name 'billDealTypeServiceImpl': Unsatisfied dependency expressed through field 'updateAllBillCategoryName': Error creating bean with name 'updateAllBillCategoryName': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-21 22:31:17.750 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-21 22:31:17.758 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-21 22:31:17.768 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   billSummaryController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl com.jngyen.bookkeeping.backend.controller.BillSummaryController.billIncomeSummaryService)
+      ↓
+   billIncomeSummaryServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.billDealChannelService)
+      ↓
+   billDealChannelServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl.updateAllBillCategoryName)
+┌─────┐
+|  updateAllBillCategoryName (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName.billTransactionsService)
+↑     ↓
+|  billTransactionsServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.BillBudgetService com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.billBudgetService)
+↑     ↓
+|  billBudgetServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService com.jngyen.bookkeeping.backend.service.bill.Impl.BillBudgetServiceImpl.billDealTypeService)
+↑     ↓
+|  billDealTypeServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealTypeServiceImpl.updateAllBillCategoryName)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-21 22:41:37.364 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:41:38.115 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:41:38.125 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:41:38.128 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:41:38.129 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:41:38.166 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:41:38.167 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 759 ms
+2024-10-21 22:41:38.427 [main] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'billSummaryController': Unsatisfied dependency expressed through field 'billIncomeSummaryService': Error creating bean with name 'billIncomeSummaryServiceImpl': Unsatisfied dependency expressed through field 'billDealChannelService': Error creating bean with name 'billDealChannelServiceImpl': Unsatisfied dependency expressed through field 'updateAllBillCategoryName': Error creating bean with name 'updateAllBillCategoryName': Unsatisfied dependency expressed through field 'billTransactionsService': Error creating bean with name 'billTransactionsServiceImpl': Unsatisfied dependency expressed through field 'billIncomeSummaryService': Error creating bean with name 'billIncomeSummaryServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-10-21 22:41:38.429 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-10-21 22:41:38.437 [main] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-21 22:41:38.449 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   billSummaryController (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl com.jngyen.bookkeeping.backend.controller.BillSummaryController.billIncomeSummaryService)
+┌─────┐
+|  billIncomeSummaryServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.BillDealChannelService com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl.billDealChannelService)
+↑     ↓
+|  billDealChannelServiceImpl (field private com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl.updateAllBillCategoryName)
+↑     ↓
+|  updateAllBillCategoryName (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName.billTransactionsService)
+↑     ↓
+|  billTransactionsServiceImpl (field private com.jngyen.bookkeeping.backend.service.bill.Impl.BillIncomeSummaryServiceImpl com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceImpl.billIncomeSummaryService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-10-21 22:43:20.661 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:43:21.419 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:43:21.427 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:43:21.430 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:43:21.430 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:43:21.468 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:43:21.468 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 761 ms
+2024-10-21 22:43:22.015 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:43:22.026 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 22:45:10.187 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:45:10.939 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:45:10.948 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:45:10.950 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:45:10.951 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:45:10.987 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:45:10.988 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 757 ms
+2024-10-21 22:45:11.540 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:45:11.552 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 22:45:21.627 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 22:45:21.628 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 22:45:21.629 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-21 22:45:21.674 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 22:45:21.809 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51d1eda9
+2024-10-21 22:45:21.810 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-21 22:47:07.870 [http-nio-8080-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException] with root cause
+org.apache.ibatis.binding.BindingException: Parameter 'oldDealChannel' not found. Available parameters are [OldDealChannel, userUuid, newDealChannel, param3, param1, param2]
+	at org.apache.ibatis.binding.MapperMethod$ParamMap.get(MapperMethod.java:210) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.wrapper.MapWrapper.get(MapWrapper.java:45) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:116) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:82) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:97) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:65) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:91) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197) ~[mybatis-3.5.14.jar:3.5.14]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy80.update(Unknown Source) ~[?:?]
+	at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:288) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141) ~[mybatis-3.5.14.jar:3.5.14]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.14.jar:3.5.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy88.updateDealChannelName(Unknown Source) ~[?:?]
+	at com.jngyen.bookkeeping.backend.service.bill.Impl.BillDealChannelServiceImpl.renameDealChannel(BillDealChannelServiceImpl.java:77) ~[classes/:?]
+	at com.jngyen.bookkeeping.backend.controller.DealConfigController.updateDealChannelName(DealConfigController.java:117) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-10-21 22:48:34.687 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 22:48:34.694 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-21 22:48:40.215 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-10-21 22:48:41.138 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-21 22:48:41.147 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:48:41.150 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-21 22:48:41.150 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-21 22:48:41.186 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-21 22:48:41.187 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 917 ms
+2024-10-21 22:48:41.726 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-21 22:48:41.737 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-21 22:48:42.832 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-21 22:48:42.832 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-21 22:48:42.833 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-21 22:48:42.942 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-21 22:48:43.054 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63653539
+2024-10-21 22:48:43.056 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

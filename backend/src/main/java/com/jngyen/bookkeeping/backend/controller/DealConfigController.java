@@ -2,6 +2,7 @@ package com.jngyen.bookkeeping.backend.controller;
 
 
 import com.jngyen.bookkeeping.backend.common.Result;
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealChannelDTO;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillDealTypeDTO;
@@ -56,7 +57,21 @@ public class DealConfigController {
         }
         return Result.success(billDealTypeService.removeDealType(billDealTypeDTO));
     }
-    // TODO: 给Type改名
+
+    @PostMapping("/bill/updateDealTypeName")
+    public Result<String> updateDealTypeName(@Validated @RequestBody BillDealTypeDTO billDealTypeDTO) {
+        // 检查是否已经存在
+        if (!billDealTypeService.isTypeExist(billDealTypeDTO.getUserUuid(),
+                billDealTypeDTO.getDealType()) || billDealTypeService.isTypeExist(billDealTypeDTO.getUserUuid(), billDealTypeDTO.getNewDealTypeName())) {
+            return Result.fail("old is not exist or new type name is exist ");
+        }
+        try{
+            billDealTypeService.renameDealChannel(billDealTypeDTO.getUserUuid(), billDealTypeDTO.getDealType(), billDealTypeDTO.getNewDealTypeName());
+        } catch (BillException e) {
+            throw new BillException(e.getMsgEn() + " <- update bill Channel name failed when try to update to other table" , "更新Channel表中的categoryName并同步给其他表失败" + e.getMsgZh(), e);
+        }
+        return Result.success();
+    }
     //#endregion
 
     //#region 交易渠道的增删改查
@@ -91,15 +106,29 @@ public class DealConfigController {
         return Result.success(billDealChannelService.removeDealChannel(billDealChannelDTO));
     }
     // TODO: 给Channel改名
+    @PostMapping("/bill/updateDealChannelName")
+    public Result<String> updateDealChannelName(@Validated @RequestBody BillDealChannelDTO billDealChannelDTO) {
+        // 检查是否已经存在
+        if (!billDealChannelService.isChannelExist(billDealChannelDTO.getUserUuid(),
+                billDealChannelDTO.getDealChannel()) || billDealChannelService.isChannelExist(billDealChannelDTO.getUserUuid(), billDealChannelDTO.getNewDealChannelName())) {
+            return Result.fail("old is not exist or new channel name is exist ");
+        }
+        try{
+            billDealChannelService.renameDealChannel(billDealChannelDTO.getUserUuid(), billDealChannelDTO.getDealChannel(), billDealChannelDTO.getNewDealChannelName());
+        } catch (BillException e) {
+            throw new BillException(e.getMsgEn() + " <- update bill Channel name failed when try to update to other table" , "更新Channel表中的categoryName并同步给其他表失败" + e.getMsgZh(), e);
+        }
+        return Result.success();
+    }
     //#endregion
 
     //#region 预算的增删改查
     // 插入用户预算，检查全部值是否存在
-    @PostMapping("/bill/newbillBudget")
+    @PostMapping("/bill/newBillBudget")
     public Result<String> insertBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
         // HACK: 后续升级为使用注解
         // 检查类型名是否存在
-        if (!billBudgetService.checkCategoryExists(newBudget.getUserUuid(), newBudget.getCategoryName())) {
+        if (!billDealTypeService.isTypeExist(newBudget.getUserUuid(), newBudget.getCategoryName())) {
             return Result.fail("Category : " + newBudget.getCategoryName() + " not exists");
         }
         // 检查结束时间与开始时间关系
@@ -112,7 +141,7 @@ public class DealConfigController {
 
     // 删除用户预算，检查全部值是否存在,传入后端返回的预算记录
     @DeleteMapping("/bill/billBudget")
-    public Result<String> deletBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
+    public Result<String> deleteBudget(@Validated @RequestBody BillBudgetDTO newBudget) {
         return Result.success(billBudgetService.deleteBudget(newBudget));
     }
 
@@ -147,8 +176,7 @@ public class DealConfigController {
     public Result<List<BillBudgetDTO>> selectNewestBudgets(@Validated @RequestBody BillBudgetDTO newBudget) {
         // HACK: 后续升级为使用注解
         // 检查结束时间与开始时间关系
-        if (newBudget.getEndDate().isBefore(newBudget.getStartDate()) || newBudget.getStartDate() == null 
-            || newBudget.getEndDate() == null) {
+        if ( newBudget.getStartDate() == null || newBudget.getEndDate() == null || newBudget.getEndDate().isBefore(newBudget.getStartDate())) {
             return Result.fail("End date is before start date");
         }
         return Result.success(billBudgetService.selectBudgetByDateRange(newBudget));

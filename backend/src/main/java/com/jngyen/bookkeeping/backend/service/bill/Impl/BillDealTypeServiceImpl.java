@@ -2,6 +2,8 @@ package com.jngyen.bookkeeping.backend.service.bill.Impl;
 
 import java.util.List;
 
+import com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException;
+import com.jngyen.bookkeeping.backend.service.common.bill.Impl.UpdateAllBillCategoryName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import com.jngyen.bookkeeping.backend.service.bill.BillDealTypeService;
 public class BillDealTypeServiceImpl implements BillDealTypeService {
      @Autowired
     private BillDealTypeMapper billDealTypeMapper;
+     @Autowired
+     private UpdateAllBillCategoryName updateAllBillCategoryName;
 
     // 获取某个用户的全部 Type
     @Override
@@ -65,6 +69,16 @@ public class BillDealTypeServiceImpl implements BillDealTypeService {
         }
     }
 
-    //TODO: 给Type 改名
-    // 同时要修改其他 bill 表中的Type名，避免外键的使用
+    // Type 改名同时要修改其他 bill 表中的Channel名，避免外键的使用
+    public void renameDealChannel(String userUuid, String oldType, String newType) throws BillException {
+        if (!isTypeExist(userUuid, oldType)) {
+            throw new BillException("new Category name is illegal", "更新收入汇总名称时，新categoryName不存在");
+        }
+        billDealTypeMapper.updateDealTypeName(userUuid, oldType, newType);
+        try {
+            updateAllBillCategoryName.updateBillCategoryName(userUuid, oldType, newType,true);
+        } catch (Exception e) {
+            throw new BillException("update bill type name failed when try to update to other table" , "更新type表中的categoryName并同步给其他表失败");
+        }
+    }
 }

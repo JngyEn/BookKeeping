@@ -26,7 +26,7 @@ public class BillSummaryController {
             return Result.fail("Time range is invalid");
         }
         try{
-            List<BillIncomeSummaryDTO> billIncomeSummaryDTOList = billIncomeSummaryService.selectIncomeSummaryByTimeAndType(billIncomeSummaryDTO);
+            List<BillIncomeSummaryDTO> billIncomeSummaryDTOList = billIncomeSummaryService.selectAllIncomeSummaryByTimeAndType(billIncomeSummaryDTO);
             return Result.success(billIncomeSummaryDTOList);
         } catch (BillException e) {
             return Result.fail("Failed to get income summary, error: " + e.getMsgEn());

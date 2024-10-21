@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.bill.BillBudgetPO;
 import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface BillBudgetMapper {
@@ -21,6 +22,8 @@ public interface BillBudgetMapper {
     // HACK: 后续考虑余额是否单独更新
     int updateBudgetById(BillBudgetPO updatedBillBudget);
 
+    // 更新Type名
+    void updateBudgetTypeName(String userUuid, @Param("oldTypeName") String oldTypeName,@Param("newTypeName") String newTypeName);
     // 通过uuid查询某条预算
     BillBudgetPO selectBudgetByUuid(String budgetUuid);
 
@@ -41,4 +44,5 @@ public interface BillBudgetMapper {
 
     // 复合索引查询是否有重复时间段预算
     List<BillBudgetPO> checkBudgetExist(BillBudgetDTO updatedBillBudget);
+
 }

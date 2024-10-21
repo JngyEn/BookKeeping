@@ -41,6 +41,9 @@ public interface BillBudgetService {
      */
     void updateBaseCurrencyOrBudgetAmount(BillBudgetDTO newBudget);
 
+    // 更新Type名
+    public void updateBudgetTypeName( String userUuid, String oldTypeName, String newTypeName);
+
     /**
      * 查询某个时间类型最新的预算
      * 
@@ -135,14 +138,6 @@ public interface BillBudgetService {
     void updateRemainingAmountByTimeType(List<BillBudgetDTO> budgets, BigDecimal amount, BudgetTimeType timeType,
             LocalDate modifiedTime);
 
-    /**
-     * 检查分类名称是否存在
-     * 
-     * @param userUuid
-     * @param categoryName
-     * @return 是否存在该分类
-     */
-    boolean checkCategoryExists(String userUuid, String categoryName);
 
     /**
      * 检查预算的日期是否正确

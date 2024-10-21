@@ -23,7 +23,11 @@ public interface BillTransactionMapper {
     public List<BillTransactionPO> queryTransactionsByTypeAndTimeRange(String userUuid, String dealType,@Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
     // 查询收入/支出账单：按照时间范围
     public List<BillTransactionPO> queryTransactionsByIncomeAndTimeRange(String userUuid, Boolean isIncome,@Param("startTime") LocalDateTime startDate, @Param("endTime") LocalDateTime endDate);
-    
+
+    // 修改type名字
+    public int updateDealTypeName(String userUuid,@Param("oldDealType") String oldDealType, @Param("newDealType") String newDealType);
+    // 修改channel
+    public int updateDealChannelName(String userUuid,@Param("oldDealChannel") String oldDealChannel,@Param("newDealChannel") String newDealChannel);
     // 根据账单uuid删除账单
     public int deleteTransactionByUuid(String transactionUuid);
 

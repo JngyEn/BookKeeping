@@ -80,6 +80,18 @@
         AND gmt_create BETWEEN #{startTime} AND #{endTime}
     </select>
 
+    <!-- 修改Channel名字 -->
+    <update id="updateDealChannelName">
+        UPDATE bill_transactions
+        SET deal_channel = #{newDealChannel}
+        WHERE user_uuid = #{userUuid} AND deal_channel = #{oldDealChannel}
+    </update>
+    <!-- 修改 Type 名字 -->
+    <update id="updateDealTypeName">
+        UPDATE bill_transactions
+        SET deal_type = #{newDealType}
+        WHERE user_uuid = #{userUuid} AND deal_type = #{oldDealType}
+    </update>
     <!-- 根据账单uuid删除账单 -->
     <delete id="deleteTransactionByUuid">
         DELETE FROM bill_transactions

@@ -49,6 +49,14 @@
         WHERE id = #{id}
     </update>
 
+     <!-- 更新Type名 -->
+    <update id="updateBudgetTypeName" >
+        UPDATE bill_budget
+        SET category_name = #{newTypeName},
+            gmt_modified = now()
+        WHERE category_name = #{oldTypeName}
+    </update>
+
      <!-- 根据UUID查询预算 -->
     <select id="selectBudgetByUuid" parameterType="String" resultMap="BillBudgetMap">
         SELECT * FROM bill_budget WHERE uuid = #{budgetUuid}
@@ -97,8 +105,6 @@
 
         )
     </select>
-
-
 
     <!-- 检查是否存在时间段冲突的预算 -->
     <select id="checkBudgetExist"  parameterType="com.jngyen.bookkeeping.backend.pojo.dto.bill.BillBudgetDTO" resultMap="BillBudgetMap">

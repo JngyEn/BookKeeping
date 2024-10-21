@@ -3,11 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jngyen.bookkeeping.backend.mapper.BillIncomeSummaryMapper">
-    <!-- 定义基础列清单 -->
-    <sql id="Base_Column_List">
-        id, budget_time_type, user_uuid, category_name, summary_amount, home_currency,
-    start_date, end_date, gmt_create, gmt_modified
-    </sql>
 
     <!-- ResultMap 用于映射数据库表的列与 Java 对象属性 -->
     <resultMap id="billIncomeSummaryResultMap" type="com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO">
@@ -19,6 +14,7 @@
         <result column="home_currency" property="homeCurrency" />
         <result column="start_date" property="startDate" />
         <result column="end_date" property="endDate" />
+        <result column="is_income" property="isIncome" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
     </resultMap>
@@ -26,9 +22,9 @@
     <!-- 插入新的收入汇总-->
     <insert id="insertIncomeSummary" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO">
         INSERT INTO bill_income_summary
-        (budget_time_type, user_uuid, category_name, summary_amount, home_currency, start_date, end_date, gmt_create, gmt_modified)
+        (budget_time_type, user_uuid, category_name, summary_amount, home_currency,is_income, start_date, end_date, gmt_create, gmt_modified)
         VALUES
-        (#{budgetTimeType}, #{userUuid}, #{categoryName}, #{summaryAmount}, #{homeCurrency}, #{startDate}, #{endDate}, now(), now())
+        (#{budgetTimeType}, #{userUuid}, #{categoryName}, #{summaryAmount}, #{homeCurrency},#{isIncome}, #{startDate}, #{endDate}, now(), now())
     </insert>
 
     <!-- 按照时间和时间类型查找单个收入汇总 -->
@@ -38,6 +34,7 @@
         WHERE budget_time_type = #{budgetTimeType}
         AND user_uuid = #{userUuid}
         AND start_date = #{startDate}
+        AND is_income = #{isIncome}
         AND category_name = #{categoryName}
         AND end_date = #{endDate}
     </select>
@@ -49,6 +46,7 @@
         WHERE budget_time_type = #{budgetTimeType}
         AND user_uuid = #{userUuid}
         AND category_name = #{categoryName}
+        AND is_income = #{isIncome}
         AND (
         (start_date BETWEEN #{startDate} AND #{endDate})
         OR (end_date BETWEEN #{startDate} AND #{endDate})
