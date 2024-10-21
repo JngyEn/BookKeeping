@@ -105,7 +105,6 @@ public class DealConfigController {
         }
         return Result.success(billDealChannelService.removeDealChannel(billDealChannelDTO));
     }
-    // TODO: 给Channel改名
     @PostMapping("/bill/updateDealChannelName")
     public Result<String> updateDealChannelName(@Validated @RequestBody BillDealChannelDTO billDealChannelDTO) {
         // 检查是否已经存在

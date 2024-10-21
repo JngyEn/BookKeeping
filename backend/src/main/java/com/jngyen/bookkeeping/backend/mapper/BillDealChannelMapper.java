@@ -21,7 +21,6 @@ public interface BillDealChannelMapper {
     // 添加 Channel
     int insertDealChannel(BillDealChannelPO billDealChannel);
     // 删除 Channel
-    //TODO: 删除Channel时，保留账单表和预算表以及两张收入表的对应
     int deleteDealChannel(@Param("userUuid") String userUuid, @Param("dealChannel") String dealChannel);
 
 

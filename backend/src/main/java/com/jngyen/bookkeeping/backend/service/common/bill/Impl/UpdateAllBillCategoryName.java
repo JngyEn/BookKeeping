@@ -9,6 +9,7 @@ import com.jngyen.bookkeeping.backend.service.bill.Impl.BillTransactionsServiceI
 import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UpdateAllBillCategoryName {
@@ -19,7 +20,6 @@ public class UpdateAllBillCategoryName {
     private BillIncomeSummaryServiceImpl billIncomeSummaryServiceImpl;
     @Autowired
     private BillBudgetService billBudgetService;
-    // TODO: 保证账单表和预算表以及两张收入表的对应重命名
     /*
      * @Date 2024/10/21
      * @Description 保证账单表和预算表以及两张收入表的对应重命名: 要求先更新渠道或者类别名，再修改其他的
@@ -29,6 +29,7 @@ public class UpdateAllBillCategoryName {
      * @Param isType ture 则为更改类型名
      * @Return void
      */
+    @Transactional
     public void updateBillCategoryName( String userUuid, String oldCategoryName, String newCategoryName, Boolean isType) throws BillException{
         if (!isType) {
             // 更新渠道名
