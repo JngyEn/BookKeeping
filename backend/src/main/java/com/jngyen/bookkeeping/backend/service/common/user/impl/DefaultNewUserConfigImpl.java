@@ -1,5 +1,6 @@
 package com.jngyen.bookkeeping.backend.service.common.user.impl;
 
+import com.jngyen.bookkeeping.backend.exception.user.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +24,20 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
     }
 
     @Override
-    public void defaultUserConfig(String uuid) {
+    public void defaultUserConfig(String uuid) throws UserException{
         // 初始化本币为人民币，颜色为淡黄色,默认使用系统时间
         UserConfigPO userConfig = new UserConfigPO();
         userConfig.setUuid(uuid);
         userConfig.setBaseCurrency("CNY");
         userConfig.setBaseCurrencyColor("#FFEC00");
         userConfig.setIsUseCustomRate(false);
-        userConfigMapper.insertUserConfig(userConfig);
+        userConfig.setIsUseCustomData(false);
+        try {
+            userConfigMapper.insertUserConfig(userConfig);
+        }  catch (Exception e) {
+            throw new UserException("Insert user config failed when insert new user, error " + e.getMessage(), "初始化用户配置出错",e);
+        }
+
     }
     @Override
     public void defaultBillConfig(String uuid) {
@@ -39,7 +46,11 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
         billDealChannel.setUserUuid(uuid);
         billDealChannel.setDealChannel("现金");
         billDealChannel.setDealChannelColor("#FFEC00");
-        billDealChannelMapper.insertDealChannel(billDealChannel);
+        try {
+            billDealChannelMapper.insertDealChannel(billDealChannel);
+        } catch (Exception e) {
+            throw new UserException("Insert bill config failed when insert new user, error " + e.getMessage(), "初始化用户账单配置出错",e);
+        }
 
     }
     

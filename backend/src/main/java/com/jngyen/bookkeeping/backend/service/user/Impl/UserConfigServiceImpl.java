@@ -2,6 +2,7 @@ package com.jngyen.bookkeeping.backend.service.user.Impl;
 
 
 
+import com.jngyen.bookkeeping.backend.exception.user.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,8 +68,11 @@ public class UserConfigServiceImpl implements UserConfigService {
 
     // 获得用户本币以及颜色和是否使用本币
     @Override
-    public UserConfigDTO getUerCurrencyConfig(String uuid) {
+    public UserConfigDTO getUerCurrencyConfig(String uuid) throws UserException {
         UserConfigPO userConfig = userConfigMapper.getUserConfigByUuid(uuid);
+        if (userConfig == null) {
+            throw new UserException("UserConfig is not found, check userUuid", "未找到用户配置，请检查用户uuid");
+        }
         UserConfigDTO userConfigDTO = new UserConfigDTO();
         userConfigDTO.setUserUuid(userConfig.getUuid());
         userConfigDTO.setBaseCurrency(userConfig.getBaseCurrency());

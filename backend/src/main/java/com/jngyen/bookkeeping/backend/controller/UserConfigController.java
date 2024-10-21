@@ -1,5 +1,6 @@
 package com.jngyen.bookkeeping.backend.controller;
 
+import com.jngyen.bookkeeping.backend.exception.user.UserException;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jngyen.bookkeeping.backend.common.Result;
@@ -69,8 +70,12 @@ public class UserConfigController {
     //HACK: 后续改为JWT获得Uuid
     @GetMapping("user/config/baseCurrency")
     public Result<UserConfigDTO> getUerBaseCurrencyConfig(@RequestParam String userUuid) {
-        UserConfigDTO userConfig = userConfigService.getUerCurrencyConfig(userUuid);
-        return Result.success(userConfig);
+        try {
+            UserConfigDTO userConfig = userConfigService.getUerCurrencyConfig(userUuid);
+            return Result.success(userConfig);
+        }catch (UserException e) {
+            return Result.fail(e.getMsgZh());
+        }
     }
     
     // 获取用户自定义汇率
