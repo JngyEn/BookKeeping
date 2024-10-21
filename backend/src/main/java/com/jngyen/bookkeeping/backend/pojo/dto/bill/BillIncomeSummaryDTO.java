@@ -1,5 +1,6 @@
 package com.jngyen.bookkeeping.backend.pojo.dto.bill;
 
+import com.jngyen.bookkeeping.backend.enums.bill.BillSummaryTimeType;
 import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -12,20 +13,23 @@ import java.time.LocalDate;
 
 @Data
 public class BillIncomeSummaryDTO {
+    // 用户查询某个时间范围内的所有汇总，例如一周每天的收入汇总
     public interface TimeRange {}
+    // 账单插入时的时间设置
+    public interface TimeInsert {}
     @NotNull(groups = {TimeRange.class, Default.class})
-    private BudgetTimeType budgetTimeType; // DAY, WEEKLY, MONTHLY, YEARLY
-    @NotBlank(groups = {TimeRange.class, Default.class})
+    private BillSummaryTimeType budgetTimeType; // DAILY, WEEKLY, MONTHLY, YEARLY
+    @NotBlank(groups = {TimeRange.class, Default.class, TimeInsert.class})
     private String userUuid;
-    @NotBlank(groups = {TimeRange.class, Default.class})
+    @NotBlank(groups = {TimeRange.class, Default.class, TimeInsert.class})
     private String categoryName;
     @NotNull
     private BigDecimal summaryAmount;
     @NotBlank
     private String homeCurrency;
-    @PastOrPresent(groups = BillIncomeSummaryDTO.TimeRange.class)
+    @PastOrPresent(groups = {TimeRange.class, TimeInsert.class})
     private LocalDate startDate;
-    @PastOrPresent(groups = BillIncomeSummaryDTO.TimeRange.class)
+    @PastOrPresent(groups = TimeRange.class)
     private LocalDate endDate;
 
 }

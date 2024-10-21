@@ -94,8 +94,7 @@
         AND (
             (start_date BETWEEN #{startDate} AND #{endDate})
             OR (end_date BETWEEN #{startDate} AND #{endDate})
-            OR (#{startDate} BETWEEN start_date AND end_date)
-            OR (#{endDate} BETWEEN start_date AND end_date)
+
         )
     </select>
 

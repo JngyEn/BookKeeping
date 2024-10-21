@@ -1,6 +1,7 @@
 package com.jngyen.bookkeeping.backend.service.bill.Impl;
 
 import com.jngyen.bookkeeping.backend.exception.exchangeRate.BillException;
+import com.jngyen.bookkeeping.backend.pojo.dto.bill.BillIncomeSummaryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,8 @@ public class BillTransactionsServiceImpl {
     private UserConfigService userConfigService;
     @Autowired
     private ExchangeRateService exchangeRateService;
+    @Autowired
+    private BillIncomeSummaryServiceImpl billIncomeSummaryService;
 
     // 新增账单交易: 需要保证收入表和预算表事务性
 
@@ -52,6 +55,7 @@ public class BillTransactionsServiceImpl {
         UserConfigPO userConfig = userConfigService.queryUserConfigByUuid(billTransaction.getUserUuid());
         billTransaction.setIsCustomRate(userConfig.getIsUseCustomRate());
         billTransaction.setBaseCurrency(userConfig.getBaseCurrency());
+
         // exchangeRateService 会自动判断是否使用自定义汇率
         billTransaction.setExchangeRate(exchangeRateService.getUserRate(billTransaction.getUserUuid(),
                 billTransaction.getBaseCurrency(), billTransaction.getForeignCurrency()));
@@ -62,34 +66,17 @@ public class BillTransactionsServiceImpl {
             log.error("ForeignAmount or ExchangeRate is null");
         }
 
-        // 同步：
-        // TODO: 1. 修改收入表
-        // 2. 修改预算表
-        log.info("billTransaction.getIsIncome() : {}", billTransaction.getIsIncome());
-        if (billTransaction.getIsIncome()) {
-            // 收入
-            // 修改收入表
-            // 修改预算表: 使用减法, 传入记录账单货币
-            try {
-                billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
-                        billTransaction.getForeignCurrency(), billTransaction.getForeignAmount().negate(),
-                        billTransaction.getGmtCreate());
-            } catch (BillException e) {
-                throw  new BillException("Updating budget amount while insert transaction failed ","插入账单时，预算余额更新失败", e);
-            }
-            try {
-            billTransactionMapper.insertNewTransaction(billTransaction);
-            } catch (DataAccessResourceFailureException e) {
-                throw new BillException("DataAccess resource failure when transaction failed ","插入账单时数据库访问失败，检查数额", e);
-            }
-            return "Income Record Success";
+        // 同步
+        try {
+            updateDealAmount(billTransaction);
+        } catch (BillException e) {
+            throw new BillException(e.getMsgEn() + " <- while insert Transaction", "插入账单时 -> " + e.getMsgZh() , e);
         }
-        // 支出
-        // 修改收入表
-        // 修改预算表:
-        billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
-                billTransaction.getBaseCurrency(), billTransaction.getBaseAmount(), billTransaction.getGmtCreate());
-        billTransactionMapper.insertNewTransaction(billTransaction);
+        try {
+            billTransactionMapper.insertNewTransaction(billTransaction);
+        } catch (DataAccessResourceFailureException e) {
+            throw new BillException("DataAccess resource failure when transaction failed ", "插入账单时数据库访问失败，检查数额", e);
+        }
         return "Expense Record Success";
     }
 
@@ -147,23 +134,50 @@ public class BillTransactionsServiceImpl {
     }
     // #region 工具方法
     // TODO：创建两个表之后同步修改income表和budget表
-    // 仅修改各个账单数额，不考虑名称的修改
+    /*
+     * @Date 2024/10/21
+     * @Description 有新帐单时，同步修改收入/支出表以及预算表的数额，不考虑名称的修改
+     * @Param billTransaction
+     * @Return void
+     */
     @Transactional
-    public void updateDealAmount(BillTransactionPO billTransaction) {
+    public void updateDealAmount(BillTransactionPO billTransaction) throws BillException {
         // 判断是收入还是支出
-        try {
-            if (billTransaction.getIsIncome()) {
-                // 收入
-                // 修改收入表
-                // 修改预算表
+        if (billTransaction.getIsIncome()) {
+            // 收入
+            // 修改收入表
+            BillIncomeSummaryDTO billIncomeSummaryDTO = new BillIncomeSummaryDTO();
+            billIncomeSummaryDTO.setStartDate(billTransaction.getGmtCreate().toLocalDate());
+            billIncomeSummaryDTO.setUserUuid(billTransaction.getUserUuid());
+            billIncomeSummaryDTO.setCategoryName(billTransaction.getDealChannel());
+            billIncomeSummaryDTO.setSummaryAmount(billTransaction.getBaseAmount());
+            billIncomeSummaryDTO.setHomeCurrency(billTransaction.getBaseCurrency());
+            try {
+                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
+                billIncomeSummaryDTO.setCategoryName(billTransaction.getDealType());
+                billIncomeSummaryService.insertOrUpdateIncomeSummary(billIncomeSummaryDTO);
+            } catch (BillException e) {
+                throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ",  "插入账单时，同步收入汇总失败 -> " + e.getMsgZh() , e);
+            }
+            // 修改预算表: 使用减法, 传入记录账单货币
+            try {
+                billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
+                        billTransaction.getForeignCurrency(), billTransaction.getForeignAmount().negate(),
+                        billTransaction.getGmtCreate());
+            } catch (BillException e) {
+                throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ", e.getMsgZh() + "插入账单时，同步预算汇总失败 -> " + e.getMsgZh() , e);
+            }
+        } else {
+            // 支出
+            // TODO：修改支出表
+            // 修改预算表:
+            try {
                 billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
                         billTransaction.getBaseCurrency(), billTransaction.getBaseAmount(), billTransaction.getGmtCreate());
+            } catch (BillException e) {
+                throw new BillException(e.getMsgEn() + " <- Update income failed  while insert transaction ", e.getMsgZh() + "插入账单时，同步预算汇总失败 -> " + e.getMsgZh() , e);
             }
-            billBudgetService.updateRemainingAmount(billTransaction.getUserUuid(), billTransaction.getDealType(),
-                    billTransaction.getBaseCurrency(), billTransaction.getBaseAmount(), billTransaction.getGmtCreate());
-        }catch (BillException e) {
-            throw new BillException(e.getMsgEn() + " <- when transaction try to update other bill table "," 账单同步到预算和累计表时 -> " + e.getMsgZh(), e);
         }
     }
-    // #endregion
+
 }

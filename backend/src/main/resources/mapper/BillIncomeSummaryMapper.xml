@@ -29,20 +29,30 @@
         (budget_time_type, user_uuid, category_name, summary_amount, home_currency, start_date, end_date, gmt_create, gmt_modified)
         VALUES
         (#{budgetTimeType}, #{userUuid}, #{categoryName}, #{summaryAmount}, #{homeCurrency}, #{startDate}, #{endDate}, now(), now())
-        ON DUPLICATE KEY UPDATE
-        summary_amount = summary_amount + #{summaryAmount},
-        gmt_modified = now()
     </insert>
 
-    <!-- 按照时间和时间类型查找收入汇总 -->
-    <select id="selectIncomeSummaryByTimeAndType" resultMap="billIncomeSummaryResultMap" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO">
-        SELECT
-        <include refid="Base_Column_List" />
+    <!-- 按照时间和时间类型查找单个收入汇总 -->
+    <select id="selectOneIncomeSummaryByTimeAndType" resultMap="billIncomeSummaryResultMap" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO">
+        SELECT *
         FROM bill_income_summary
         WHERE budget_time_type = #{budgetTimeType}
         AND user_uuid = #{userUuid}
         AND start_date = #{startDate}
+        AND category_name = #{categoryName}
         AND end_date = #{endDate}
+    </select>
+
+    <!-- 按照时间和时间类型查找区间内的全部收入汇总,获取对应的年、月、周、日的收入汇总 -->
+    <select id="selectAllIncomeSummaryByTimeAndType" resultMap="billIncomeSummaryResultMap" parameterType="com.jngyen.bookkeeping.backend.pojo.po.bill.BillIncomeSummaryPO">
+        SELECT *
+        FROM bill_income_summary
+        WHERE budget_time_type = #{budgetTimeType}
+        AND user_uuid = #{userUuid}
+        AND category_name = #{categoryName}
+        AND (
+        (start_date BETWEEN #{startDate} AND #{endDate})
+        OR (end_date BETWEEN #{startDate} AND #{endDate})
+        )
     </select>
 
     <!-- 按照categoryName 修改所有收入汇总 -->
@@ -52,5 +62,12 @@
         gmt_modified = now()
         WHERE category_name = #{oldCategoryName}
         AND user_uuid = #{userUuid}
+    </update>
+    <!-- 按照id更改收入 -->
+    <update id="updateIncomeSummaryById">
+        UPDATE bill_income_summary
+        SET summary_amount = #{summaryAmount},
+        gmt_modified = now()
+        WHERE id = #{id}
     </update>
 </mapper>

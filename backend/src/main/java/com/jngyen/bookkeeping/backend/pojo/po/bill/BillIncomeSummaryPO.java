@@ -1,5 +1,6 @@
 package com.jngyen.bookkeeping.backend.pojo.po.bill;
 
+import com.jngyen.bookkeeping.backend.enums.bill.BillSummaryTimeType;
 import com.jngyen.bookkeeping.backend.enums.bill.BudgetTimeType;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 public class BillIncomeSummaryPO {
     private int id;
 
-    private BudgetTimeType budgetTimeType; // DAY, WEEKLY, MONTHLY, YEARLY
+    private BillSummaryTimeType budgetTimeType; // DAY, WEEKLY, MONTHLY, YEARLY
     private String userUuid;
     private String categoryName;
     private BigDecimal summaryAmount;
