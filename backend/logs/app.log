@@ -3356,3 +3356,5 @@ java.lang.NullPointerException: Cannot invoke "com.jngyen.bookkeeping.backend.po
 2024-10-21 23:11:58.330 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c3a261a
 2024-10-21 23:11:58.331 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 2024-10-21 23:12:24.975 [http-nio-8080-exec-4] INFO  com.jngyen.bookkeeping.backend.service.user.Impl.ExchangeRateServiceImpl - oldRatePO: null
+2024-10-21 23:13:36.838 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-21 23:13:36.842 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
