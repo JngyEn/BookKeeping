@@ -19,7 +19,7 @@ public class EmailServiceImpl implements EmailService{
 
         message.setTo(user.getEmail());
         message.setSubject("Account Activation");
-        message.setText("Hello!!! " +user.getUserName()+ ", here is your verification code："  + user.getVertifyCode());
+        message.setText("Hello!!! " +user.getUserName()+ ", here is your verification code："  + user.getVerifyCode());
         mailSender.send(message);
     }
 }

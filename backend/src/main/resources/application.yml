@@ -24,12 +24,20 @@ spring:
     #     locations: classpath:db/migration
     #     baseline-on-migrate: true
     #     enabled: true
+    data:
+        redis:
+            host: localhost
+            database: 0
+            port: 6379
 
 mybatis:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.jngyen.bookkeeping.backend.pojo.po
     type-handlers-package: com.jngyen.bookkeeping.backend.handler
+
 logging:
     config: classpath:log4j2.xml
     level:
         root: info
+
+

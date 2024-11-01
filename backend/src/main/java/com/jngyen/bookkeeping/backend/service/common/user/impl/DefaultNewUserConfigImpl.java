@@ -1,7 +1,10 @@
 package com.jngyen.bookkeeping.backend.service.common.user.impl;
 
 import com.jngyen.bookkeeping.backend.exception.user.UserException;
+import com.jngyen.bookkeeping.backend.utils.UserHolder;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.jngyen.bookkeeping.backend.mapper.BillDealChannelMapper;
@@ -10,12 +13,20 @@ import com.jngyen.bookkeeping.backend.pojo.po.bill.BillDealChannelPO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserConfigPO;
 import com.jngyen.bookkeeping.backend.service.common.user.DefaultNewUserConfig;
 
+import java.util.Map;
+
+import cn.hutool.core.bean.BeanUtil;
+
+import static com.jngyen.bookkeeping.backend.common.RedisConstant.REGISTER_CODE_KEY;
+
 @Service
 public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
     @Autowired
     private UserConfigMapper userConfigMapper;
     @Autowired
     private BillDealChannelMapper billDealChannelMapper;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
     // 为新用户设置全部默认设置
     @Override
     public void defaultAllConfig(String uuid) {
@@ -34,6 +45,8 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
         userConfig.setIsUseCustomData(false);
         try {
             userConfigMapper.insertUserConfig(userConfig);
+            // HACK: 使用ThreadHold保存
+            UserHolder.setUserConfigTL(userConfig);
         }  catch (Exception e) {
             throw new UserException("Insert user config failed when insert new user, error " + e.getMessage(), "初始化用户配置出错",e);
         }
@@ -53,5 +66,5 @@ public class DefaultNewUserConfigImpl implements  DefaultNewUserConfig{
         }
 
     }
-    
+
 }

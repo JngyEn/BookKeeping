@@ -1,10 +1,10 @@
 package com.jngyen.bookkeeping.backend.controller;
 
+import com.jngyen.bookkeeping.backend.service.user.Impl.UserRegisterServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jngyen.bookkeeping.backend.common.Result;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
-import com.jngyen.bookkeeping.backend.service.user.RegisterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,19 +17,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Slf4j
 public class RegisterController {
     @Autowired
-    private RegisterService registerService;
+    private UserRegisterServiceImpl testService;
+
 
     @PostMapping("/unverity-register")
-    public Result<String> createUnveritRegister(@Validated @RequestBody UserDTO newUserAccount) {
-        String response = registerService.registerUnveritRegister(newUserAccount);
-        return Result.success(response);
+    public Result<String> createUnverifiedRegister(@Validated @RequestBody UserDTO newUserAccount) {
+        return testService.registerUser(newUserAccount);
     }
 
     @PostMapping("/verify-email")
     public Result<String> verifyEmail(@Validated @RequestBody UserDTO newUserAccount) {
-        String response = registerService.verifyEmail(newUserAccount);
-        return Result.success(response);
+        return testService.verifyUserCode(newUserAccount);
     }
-    
-    
+
 }
