@@ -9,6 +9,7 @@ import com.jngyen.bookkeeping.backend.exception.user.UserException;
 import com.jngyen.bookkeeping.backend.mapper.UserAccountMapper;
 import com.jngyen.bookkeeping.backend.pojo.dto.user.UserDTO;
 import com.jngyen.bookkeeping.backend.pojo.po.user.UserAccountPO;
+import com.jngyen.bookkeeping.backend.service.common.RedisService;
 import com.jngyen.bookkeeping.backend.service.common.user.DefaultNewUserConfig;
 import com.jngyen.bookkeeping.backend.service.common.user.EmailService;
 import com.jngyen.bookkeeping.backend.service.user.UserRegisterService;
@@ -35,6 +36,8 @@ public class UserRegisterServiceImpl implements UserRegisterService {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
+    private RedisService redisService;
+    @Autowired
     private UserAccountMapper userAccountMapper;
     @Autowired
     private EmailService emailService;
@@ -58,13 +61,13 @@ public class UserRegisterServiceImpl implements UserRegisterService {
                     return fieldValue.toString();
                 }));
         try {
-            stringRedisTemplate.opsForHash().putAll(REGISTER_CODE_KEY + newUser.getEmail(), userHash);
-            log.warn("Failed to save user to redis, code is {}, hash is {}", verificationCode,userHash.toString());
+            redisService.set(REGISTER_CODE_KEY + newUser.getEmail(), userHash);
+            log.warn("Failed to save user to redis, code is {}, hash is {}", verificationCode,userHash);
         } catch (Exception e) {
             log.warn("Failed to save user to redis: {}, code is {}, hash is {}", e.getMessage(),verificationCode,userHash);
         }
         // 设置用户过期时间
-        stringRedisTemplate.expire(REGISTER_CODE_KEY + newUser.getEmail(), REGISTER_USER_TTL, TimeUnit.MINUTES);
+        redisService.expire(REGISTER_CODE_KEY + newUser.getEmail(), REGISTER_USER_TTL, TimeUnit.MINUTES);
         return Result.success("VerificationCode is sent to your email ,please check and verify");
     }
     // 验证用户验证码并登录
@@ -75,9 +78,9 @@ public class UserRegisterServiceImpl implements UserRegisterService {
             return result;
         }
         // 2. 对比验证码
-        Map<Object, Object> userHash  =  stringRedisTemplate.opsForHash().entries(REGISTER_CODE_KEY + newUser.getEmail());
+        Map<Object, Object> userHash = redisService.getMap(REGISTER_CODE_KEY + newUser.getEmail());
         if (userHash.isEmpty()) {
-            log.warn("Failed to get user to redis, Hash is {}", userHash.toString());
+            log.warn("Failed to get user to redis, Hash is {}", userHash);
             return Result.fail("Verification code expired");
         }
         UserDTO cachedUser = BeanUtil.fillBeanWithMap(userHash, new UserDTO(),false);
@@ -106,19 +109,19 @@ public class UserRegisterServiceImpl implements UserRegisterService {
     }
 
     public Result<String> verifyUserStatus(UserDTO newUser) {
-        // 1. 检查redis临时用户中是否存在该未注册的临时用户
-        Map<Object, Object> resultTempMap = stringRedisTemplate.opsForHash().entries(REGISTER_CODE_KEY + newUser.getEmail());
-        // 2. Redis中存在，跳转至验证码页面
-        if ( !resultTempMap.isEmpty()) {
-            return Result.fail(USER_EXIST_REDIS, "Please verify your email");
+
+        // 1. 检查redis临时用户中是否存在该未注册的临时用户, 若Redis中存在，跳转至验证码页面
+        if ( redisService.hasKey(REGISTER_CODE_KEY + newUser.getEmail())) {
+            return Result.fail(USER_EXIST_REDIS, "User exist in cache, Please verify code in email");
         }
-        // 3. Redis临时用户中不存在，检查数据库中是否存在该用户
+        // 2. Redis临时用户中不存在，检查数据库中是否存在该用户
         UserAccountPO resultUser = userAccountMapper.getByEmail(newUser.getEmail());
         if (resultUser != null) {
-            return Result.fail(USER_EXIST_MYSQL, "User already exists, Please login");
+            return Result.fail(USER_EXIST_MYSQL, "User already registered, Please login");
         }
-        return Result.success("User does not exist in redis and mysql");
+        return Result.success("User does not cached or registered , please register");
     }
+
     public int sendVerificationCode(UserDTO newUserAccount) {
         // TODO: 改成JWT生成
         Random random = new Random();
@@ -127,4 +130,5 @@ public class UserRegisterServiceImpl implements UserRegisterService {
         emailService.sendActivationEmail(newUserAccount);
         return verificationCode;
     }
+
 }
